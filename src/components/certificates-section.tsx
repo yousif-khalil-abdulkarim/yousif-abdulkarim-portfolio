@@ -14,13 +14,16 @@ export default function CertificatesSection() {
   const [activeCertificate, setActiveCertificate] =
     useState<Certificate | null>(null);
   const closeModal = useCallback(() => setActiveCertificate(null), []);
+  const visibleCertificates = certificates.filter(
+    (cert) => !cert.hide
+  );
   const hasMore =
-    certificates.length > uiSettings.sectionLimits.certificates;
+    visibleCertificates.length > uiSettings.sectionLimits.certificates;
   const visible = hasMore && !expanded
-    ? certificates.slice(0, uiSettings.sectionLimits.certificates)
-    : certificates;
+    ? visibleCertificates.slice(0, uiSettings.sectionLimits.certificates)
+    : visibleCertificates;
 
-  if (certificates.length === 0) return null;
+  if (visibleCertificates.length === 0) return null;
 
   return (
     <section
@@ -46,7 +49,7 @@ export default function CertificatesSection() {
           <ShowMoreButton
             expanded={expanded}
             hiddenCount={
-              certificates.length - uiSettings.sectionLimits.certificates
+              visibleCertificates.length - uiSettings.sectionLimits.certificates
             }
             onClick={() => setExpanded((value) => !value)}
           />

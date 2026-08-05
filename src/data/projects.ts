@@ -28,6 +28,7 @@ export type UiSettings = {
 };
 
 export type Project = {
+  hide: boolean;
   title: string;
   description: string;
   tech: Skill[];
@@ -39,6 +40,7 @@ export type Project = {
 };
 
 export type Experience = {
+  hide: boolean;
   role: string;
   company: string;
   period: string;
@@ -48,6 +50,7 @@ export type Experience = {
 };
 
 export type Certificate = {
+  hide: boolean;
   title: string;
   issuer: string;
   year: string;
@@ -58,6 +61,7 @@ export type Certificate = {
 };
 
 export type AboutStat = {
+  hide: boolean;
   value: string;
   label: string;
 };
@@ -104,6 +108,7 @@ export const portfolio: PortfolioData = {
   },
   projects: [
     {
+      hide: false,
       title: "eridu-tech",
       description:
         "Adapter-first backend toolkit for TypeScript — a framework-agnostic ecosystem of composable components covering caching, distributed locking, rate limiting, circuit breakers, and an event bus. 30K+ lines of shipped, production TypeScript code.",
@@ -128,6 +133,7 @@ export const portfolio: PortfolioData = {
       repoUrl: "https://github.com/eridu-tech/eridu-tech-core",
     },
     {
+      hide: false,
       title: "Outstanding Resumes",
       description:
         "A modular resume-building platform engineered for 'majestic monoliths' — adapter & service patterns, Google OAuth, and optimistic UI updates with tRPC and React Query.",
@@ -147,6 +153,7 @@ export const portfolio: PortfolioData = {
       year: "2022 — Present",
     },
     {
+      hide: false,
       title: "The Primitive Language",
       description:
         "A custom programming language built from scratch with a TypeScript-based interpreter and a recursive descent parser.",
@@ -161,6 +168,7 @@ export const portfolio: PortfolioData = {
   ],
   experience: [
     {
+      hide: false,
       role: "Founding Backend Platform Engineer",
       company: "eridu-tech (Open Source)",
       period: "Aug 2024 — Present",
@@ -183,6 +191,7 @@ export const portfolio: PortfolioData = {
       ],
     },
     {
+      hide: false,
       role: "Lead Software Engineer",
       company: "FillerDepot",
       period: "Oct 2025 — Present",
@@ -205,6 +214,7 @@ export const portfolio: PortfolioData = {
       ],
     },
     {
+      hide: false,
       role: "Fullstack Developer",
       company: "Stride — Shopify Select Partner",
       period: "Aug 2025 — Oct 2025",
@@ -224,6 +234,7 @@ export const portfolio: PortfolioData = {
       ],
     },
     {
+      hide: false,
       role: "Fullstack Software Engineer",
       company: "Greentake",
       period: "Mar 2024 — Aug 2025",
@@ -246,6 +257,7 @@ export const portfolio: PortfolioData = {
       ],
     },
     {
+      hide: false,
       role: "Bachelor Thesis",
       company: "Bionamic AB",
       period: "Jan 2024 — Dec 2024",
@@ -267,6 +279,7 @@ export const portfolio: PortfolioData = {
       ],
     },
     {
+      hide: false,
       role: "Degree Project",
       company: "Bionamic AB",
       period: "Sep 2023 — Jan 2024",
@@ -290,6 +303,7 @@ export const portfolio: PortfolioData = {
   ],
   certificates: [
     {
+      hide: false,
       title: "AWS Certified Developer – Associate",
       issuer: "Amazon Web Services",
       year: "2024",
@@ -300,6 +314,7 @@ export const portfolio: PortfolioData = {
       skills: [allSkills["AWS"], allSkills["Node.js"], allSkills["Docker"]],
     },
     {
+      hide: false,
       title: "Meta Front-End Developer",
       issuer: "Meta · Coursera",
       year: "2024",
@@ -314,6 +329,7 @@ export const portfolio: PortfolioData = {
       ],
     },
     {
+      hide: false,
       title: "Node.js, Express, MongoDB & More: The Complete Bootcamp",
       issuer: "Udemy",
       year: "2023",
@@ -324,6 +340,7 @@ export const portfolio: PortfolioData = {
       skills: [allSkills["Node.js"], allSkills["Express"], allSkills["MongoDB"]],
     },
     {
+      hide: false,
       title: "GraphQL with React: The Complete Developers Guide",
       issuer: "Udemy",
       year: "2023",
@@ -334,6 +351,7 @@ export const portfolio: PortfolioData = {
       skills: [allSkills["GraphQL"], allSkills["React"]],
     },
     {
+      hide: false,
       title: "PostgreSQL Bootcamp",
       issuer: "Udemy",
       year: "2022",
@@ -344,6 +362,7 @@ export const portfolio: PortfolioData = {
       skills: [allSkills["PostgreSQL"]],
     },
     {
+      hide: false,
       title: "The Complete JavaScript Course: From Zero to Expert",
       issuer: "Udemy",
       year: "2022",
@@ -355,9 +374,9 @@ export const portfolio: PortfolioData = {
     },
   ],
   aboutStats: [
-    { value: "4+", label: "Years of experience" },
-    { value: "30K+", label: "Lines of code shipped" },
-    { value: "600+", label: "Monthly community users" },
+    { hide: false, value: "4+", label: "Years of experience" },
+    { hide: false, value: "30K+", label: "Lines of code shipped" },
+    { hide: false, value: "600+", label: "Monthly community users" },
   ],
   // Skills grouped by category, referencing the shared skill map.
   skills: {

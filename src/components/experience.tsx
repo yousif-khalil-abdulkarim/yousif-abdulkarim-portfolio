@@ -13,12 +13,13 @@ export default function Experience() {
   const [expanded, setExpanded] = useState(false);
   const [activeJob, setActiveJob] = useState<Experience | null>(null);
   const closeJobModal = useCallback(() => setActiveJob(null), []);
-  const hasMore = experience.length > uiSettings.sectionLimits.experience;
+  const visibleJobs = experience.filter((job) => !job.hide);
+  const hasMore = visibleJobs.length > uiSettings.sectionLimits.experience;
   const visible = hasMore && !expanded
-    ? experience.slice(0, uiSettings.sectionLimits.experience)
-    : experience;
+    ? visibleJobs.slice(0, uiSettings.sectionLimits.experience)
+    : visibleJobs;
 
-  if (experience.length === 0) return null;
+  if (visibleJobs.length === 0) return null;
 
   return (
     <section
@@ -43,7 +44,7 @@ export default function Experience() {
         <div className="mt-10 flex justify-center">
           <ShowMoreButton
             expanded={expanded}
-            hiddenCount={experience.length - uiSettings.sectionLimits.experience}
+            hiddenCount={visibleJobs.length - uiSettings.sectionLimits.experience}
             onClick={() => setExpanded((value) => !value)}
           />
         </div>

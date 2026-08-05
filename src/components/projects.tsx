@@ -13,12 +13,13 @@ export default function Projects() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [expanded, setExpanded] = useState(false);
   const closeModal = useCallback(() => setActiveProject(null), []);
-  const hasMore = projects.length > uiSettings.sectionLimits.projects;
+  const visibleProjects = projects.filter((project) => !project.hide);
+  const hasMore = visibleProjects.length > uiSettings.sectionLimits.projects;
   const visible = hasMore && !expanded
-    ? projects.slice(0, uiSettings.sectionLimits.projects)
-    : projects;
+    ? visibleProjects.slice(0, uiSettings.sectionLimits.projects)
+    : visibleProjects;
 
-  if (projects.length === 0) return null;
+  if (visibleProjects.length === 0) return null;
 
   return (
     <section
@@ -44,7 +45,7 @@ export default function Projects() {
         <div className="mt-10 flex justify-center">
           <ShowMoreButton
             expanded={expanded}
-            hiddenCount={projects.length - uiSettings.sectionLimits.projects}
+            hiddenCount={visibleProjects.length - uiSettings.sectionLimits.projects}
             onClick={() => setExpanded((value) => !value)}
           />
         </div>

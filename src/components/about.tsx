@@ -3,6 +3,7 @@ import SkillsSection from "./skills-section";
 import { portfolio } from "@/data/projects";
 
 const { profile, aboutStats } = portfolio;
+const visibleStats = aboutStats.filter((stat) => !stat.hide);
 
 export default function About() {
   return (
@@ -18,7 +19,7 @@ export default function About() {
       <div className="mt-12 grid gap-10 md:grid-cols-5">
         <div
           className={`space-y-4 text-zinc-600 dark:text-zinc-400 ${
-            aboutStats.length > 0 ? "md:col-span-3" : "md:col-span-5"
+            visibleStats.length > 0 ? "md:col-span-3" : "md:col-span-5"
           }`}
         >
           <p className="text-lg leading-8">
@@ -40,7 +41,7 @@ export default function About() {
             — architecture, implementation, testing, and documentation.
           </p>
         </div>
-        {aboutStats.length > 0 && (
+        {visibleStats.length > 0 && (
           <div className="md:col-span-2">
             <div className="rounded-2xl bg-gradient-to-br from-violet-500 via-fuchsia-500 to-amber-400 p-px shadow-lg shadow-fuchsia-500/10">
               <div className="rounded-2xl bg-white p-6 dark:bg-zinc-950">
@@ -48,7 +49,7 @@ export default function About() {
                   Quick facts
                 </h3>
                 <dl className="mt-5 space-y-5">
-                  {aboutStats.map((stat) => (
+                  {visibleStats.map((stat) => (
                     <div
                       key={stat.label}
                       className="flex items-baseline justify-between border-b border-dashed border-zinc-200 pb-4 last:border-0 last:pb-0 dark:border-zinc-800"
