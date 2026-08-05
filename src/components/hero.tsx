@@ -10,10 +10,14 @@ type HeroProps = {
 };
 
 export default function Hero({ data, resumeHref }: HeroProps) {
-  const { profile, skills, uiSettings } = data;
+  const { profile, skills, uiSettings, experience } = data;
   const [firstName, ...rest] = profile.name.split(" ");
   const showPortfolioImage = uiSettings.showPortfolioImage;
   const image = profile.image;
+  // "View my work" scrolls to the Experience timeline when it has entries,
+  // otherwise it falls back to the Projects section.
+  const hasExperience = experience.some((job) => !job.hide);
+  const workHref = hasExperience ? "#experience" : "#projects";
   // Portrait renders only when both the UI toggle is on AND an image is provided.
   const showPortrait = showPortfolioImage && Boolean(image);
   // Derived from the skills so the marquee stays in sync with them.
@@ -99,7 +103,7 @@ export default function Hero({ data, resumeHref }: HeroProps) {
             }`}
           >
             <a
-              href="#projects"
+              href={workHref}
               className="group inline-flex select-none items-center gap-2 rounded-full bg-zinc-950 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-zinc-900/10 transition-all hover:-translate-y-0.5 hover:shadow-xl dark:bg-zinc-50 dark:text-zinc-950 dark:shadow-black/20"
             >
               View my work{" "}

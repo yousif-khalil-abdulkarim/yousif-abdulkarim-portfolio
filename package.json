@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "resume:generate": "tsx --import ./src/scripts/stub-assets.mjs src/scripts/generate-resumes.ts",
-    "build": "npm run resume:generate && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "eslint"
   },
