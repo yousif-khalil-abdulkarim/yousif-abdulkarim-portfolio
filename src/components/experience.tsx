@@ -5,11 +5,14 @@ import SectionHeading from "./section-heading";
 import ExperienceModal from "./experience-modal";
 import ExperienceCard from "./experience-card";
 import ShowMoreButton from "./show-more-button";
-import { portfolio, type Experience } from "@/data/projects";
+import type { Experience, PortfolioData } from "@/data/types";
 
-const { experience, uiSettings } = portfolio;
+type ExperienceProps = {
+  data: PortfolioData;
+};
 
-export default function Experience() {
+export default function Experience({ data }: ExperienceProps) {
+  const { experience, uiSettings } = data;
   const [expanded, setExpanded] = useState(false);
   const [activeJob, setActiveJob] = useState<Experience | null>(null);
   const closeJobModal = useCallback(() => setActiveJob(null), []);

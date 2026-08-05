@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import SkillBadge from "./skill-badge";
-import type { Certificate } from "@/data/projects";
+import type { Certificate } from "@/data/types";
 
 type CertificateModalProps = {
   certificate: Certificate;

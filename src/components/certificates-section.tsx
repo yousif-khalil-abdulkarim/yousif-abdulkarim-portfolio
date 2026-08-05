@@ -5,11 +5,16 @@ import SectionHeading from "./section-heading";
 import CertificateModal from "./certificate-modal";
 import CertificateCard from "./certificate-card";
 import ShowMoreButton from "./show-more-button";
-import { portfolio, type Certificate } from "@/data/projects";
+import type { Certificate, PortfolioData } from "@/data/types";
 
-const { certificates, uiSettings } = portfolio;
+type CertificatesSectionProps = {
+  data: PortfolioData;
+};
 
-export default function CertificatesSection() {
+export default function CertificatesSection({
+  data,
+}: CertificatesSectionProps) {
+  const { certificates, uiSettings } = data;
   const [expanded, setExpanded] = useState(false);
   const [activeCertificate, setActiveCertificate] =
     useState<Certificate | null>(null);

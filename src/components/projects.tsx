@@ -5,11 +5,14 @@ import SectionHeading from "./section-heading";
 import ProjectModal from "./project-modal";
 import ProjectCard from "./project-card";
 import ShowMoreButton from "./show-more-button";
-import { portfolio, type Project } from "@/data/projects";
+import type { Project, PortfolioData } from "@/data/types";
 
-const { projects, uiSettings } = portfolio;
+type ProjectsProps = {
+  data: PortfolioData;
+};
 
-export default function Projects() {
+export default function Projects({ data }: ProjectsProps) {
+  const { projects, uiSettings } = data;
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [expanded, setExpanded] = useState(false);
   const closeModal = useCallback(() => setActiveProject(null), []);

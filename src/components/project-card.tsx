@@ -2,7 +2,7 @@
 
 import SkillBadge from "./skill-badge";
 import ViewMoreButton from "./view-more-button";
-import type { Project } from "@/data/projects";
+import type { Project } from "@/data/types";
 
 type ProjectCardProps = {
   project: Project;

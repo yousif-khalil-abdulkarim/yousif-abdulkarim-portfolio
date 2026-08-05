@@ -1,7 +1,7 @@
 "use client";
 
 import ViewMoreButton from "./view-more-button";
-import type { Certificate } from "@/data/projects";
+import type { Certificate } from "@/data/types";
 
 type CertificateCardProps = {
   certificate: Certificate;

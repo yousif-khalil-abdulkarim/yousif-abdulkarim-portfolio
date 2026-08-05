@@ -1,9 +1,12 @@
 import Image from "next/image";
-import { portfolio } from "@/data/projects";
+import type { PortfolioData } from "@/data/types";
 
-const { profile, skills, uiSettings } = portfolio;
+type HeroProps = {
+  data: PortfolioData;
+};
 
-export default function Hero() {
+export default function Hero({ data }: HeroProps) {
+  const { profile, skills, uiSettings } = data;
   const [firstName, ...rest] = profile.name.split(" ");
   const showPortfolioImage = uiSettings.showPortfolioImage;
   // Derived from the skills so the marquee stays in sync with them.

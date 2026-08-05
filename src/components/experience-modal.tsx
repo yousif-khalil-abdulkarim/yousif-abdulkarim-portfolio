@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import SkillBadge from "./skill-badge";
-import type { Experience } from "@/data/projects";
+import type { Experience } from "@/data/types";
 
 type ExperienceModalProps = {
   job: Experience;

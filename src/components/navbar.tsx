@@ -1,7 +1,5 @@
 import ThemeToggle from "./theme-toggle";
-import { portfolio } from "@/data/projects";
-
-const { profile } = portfolio;
+import type { PortfolioData } from "@/data/types";
 
 const navLinks = [
   { label: "About", href: "#about" },
@@ -11,7 +9,12 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-export default function Navbar() {
+type NavbarProps = {
+  data: PortfolioData;
+};
+
+export default function Navbar({ data }: NavbarProps) {
+  const { profile } = data;
   const initials = `${profile.firstName[0]}${profile.name.split(" ").pop()?.[0] ?? ""}`;
 
   return (

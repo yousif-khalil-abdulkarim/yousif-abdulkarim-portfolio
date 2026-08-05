@@ -1,8 +1,11 @@
-import { portfolio } from "@/data/projects";
+import type { PortfolioData } from "@/data/types";
 
-const { profile } = portfolio;
+type FooterProps = {
+  data: PortfolioData;
+};
 
-export default function Footer() {
+export default function Footer({ data }: FooterProps) {
+  const { profile } = data;
   return (
     <footer className="border-t border-zinc-200 dark:border-zinc-800">
       <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">

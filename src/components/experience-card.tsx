@@ -2,7 +2,7 @@
 
 import SkillBadge from "./skill-badge";
 import ViewMoreButton from "./view-more-button";
-import type { Experience } from "@/data/projects";
+import type { Experience } from "@/data/types";
 
 type ExperienceCardProps = {
   job: Experience;

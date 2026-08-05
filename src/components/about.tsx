@@ -1,11 +1,14 @@
 import SectionHeading from "./section-heading";
 import SkillsSection from "./skills-section";
-import { portfolio } from "@/data/projects";
+import type { PortfolioData } from "@/data/types";
 
-const { profile, aboutStats } = portfolio;
-const visibleStats = aboutStats.filter((stat) => !stat.hide);
+type AboutProps = {
+  data: PortfolioData;
+};
 
-export default function About() {
+export default function About({ data }: AboutProps) {
+  const { profile, aboutStats } = data;
+  const visibleStats = aboutStats.filter((stat) => !stat.hide);
   return (
     <section
       id="about"
@@ -75,7 +78,7 @@ export default function About() {
       </div>
 
       <div className="mt-10">
-        <SkillsSection />
+        <SkillsSection data={data} />
       </div>
     </section>
   );

@@ -1,85 +1,7 @@
-import { allSkills, type Skill } from "./all-skills";
+import { allSkills } from "../all-skills";
+import type { PortfolioData } from "../types";
 
-export type Profile = {
-  name: string;
-  firstName: string;
-  role: string;
-  tagline: string;
-  availableForWork: boolean;
-  location: string;
-  email: string;
-  phone: string;
-  github?: string;
-  linkedin?: string;
-  twitter?: string;
-  youtube?: string;
-};
-
-// UI toggles for quickly enabling/disabling page features.
-export type UiSettings = {
-  showMarquee: boolean;
-  showPortfolioImage: boolean;
-  sectionLimits: {
-    experience: number;
-    projects: number;
-    skills: number;
-    certificates: number;
-  };
-};
-
-export type Project = {
-  hide: boolean;
-  title: string;
-  description: string;
-  tech: Skill[];
-  year: string;
-  featured?: boolean;
-  highlights?: string[];
-  liveUrl?: string;
-  repoUrl?: string;
-};
-
-export type Experience = {
-  hide: boolean;
-  role: string;
-  company: string;
-  period: string;
-  points: string[];
-  stack?: Skill[];
-  summary?: string;
-};
-
-export type Certificate = {
-  hide: boolean;
-  title: string;
-  issuer: string;
-  year: string;
-  description: string;
-  credentialUrl?: string;
-  credentialId?: string;
-  skills?: Skill[];
-};
-
-export type AboutStat = {
-  hide: boolean;
-  value: string;
-  label: string;
-};
-
-// Single source of truth for all portfolio data — one type, one object.
-export type PortfolioData = {
-  profile: Profile;
-  uiSettings: UiSettings;
-  projects: Project[];
-  experience: Experience[];
-  certificates: Certificate[];
-  aboutStats: AboutStat[];
-  // Skills grouped by category, referencing the shared skill map.
-  skills: Record<string, Skill[]>;
-};
-
-// All portfolio data in one place.
-export const portfolio: PortfolioData = {
+export const mainPortfolio: PortfolioData = {
   profile: {
     name: "Yousif Abdulkarim",
     firstName: "Yousif",
@@ -98,7 +20,6 @@ export const portfolio: PortfolioData = {
   uiSettings: {
     showMarquee: true,
     showPortfolioImage: true,
-    // Number of items shown by default before the "Show more" button appears.
     sectionLimits: {
       experience: 6,
       projects: 6,
@@ -162,7 +83,11 @@ export const portfolio: PortfolioData = {
         "Recursive descent parser built from scratch.",
         "Hands-on exploration of compiler and parsing fundamentals.",
       ],
-      tech: [allSkills["TypeScript"], allSkills["Compilers"], allSkills["Parsing"]],
+      tech: [
+        allSkills["TypeScript"],
+        allSkills["Compilers"],
+        allSkills["Parsing"],
+      ],
       year: "2023",
     },
   ],
@@ -337,7 +262,11 @@ export const portfolio: PortfolioData = {
         "Comprehensive backend engineering bootcamp — REST APIs, authentication, databases, deployment, and testing with Node.js.",
       credentialId: "UDEMY-NODE-2023",
       credentialUrl: "https://www.udemy.com/certificate",
-      skills: [allSkills["Node.js"], allSkills["Express"], allSkills["MongoDB"]],
+      skills: [
+        allSkills["Node.js"],
+        allSkills["Express"],
+        allSkills["MongoDB"],
+      ],
     },
     {
       hide: false,
@@ -378,7 +307,7 @@ export const portfolio: PortfolioData = {
     { hide: false, value: "30K+", label: "Lines of code shipped" },
     { hide: false, value: "600+", label: "Monthly community users" },
   ],
-  // Skills grouped by category, referencing the shared skill map.
+  sectionOrder: ["experience", "projects", "certificates"],
   skills: {
     Backend: [
       allSkills["Node.js"],
@@ -399,7 +328,11 @@ export const portfolio: PortfolioData = {
       allSkills["TanStack Query"],
       allSkills["TanStack Start"],
     ],
-    Databases: [allSkills["PostgreSQL"], allSkills["MongoDB"], allSkills["SQLite"]],
+    Databases: [
+      allSkills["PostgreSQL"],
+      allSkills["MongoDB"],
+      allSkills["SQLite"],
+    ],
     "Testing & DevOps": [
       allSkills["Jest"],
       allSkills["Vitest"],

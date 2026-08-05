@@ -1,9 +1,12 @@
 import SectionHeading from "./section-heading";
-import { portfolio } from "@/data/projects";
+import type { PortfolioData } from "@/data/types";
 
-const { profile } = portfolio;
+type ContactProps = {
+  data: PortfolioData;
+};
 
-export default function Contact() {
+export default function Contact({ data }: ContactProps) {
+  const { profile } = data;
   return (
     <section
       id="contact"

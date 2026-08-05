@@ -3,12 +3,15 @@
 import { useCallback, useState } from "react";
 import SkillCategoryModal from "./skill-category-modal";
 import SkillCategoryCard from "./skill-category-card";
-import { portfolio } from "@/data/projects";
+import type { PortfolioData } from "@/data/types";
 import type { Skill } from "@/data/all-skills";
 
-const { skills, uiSettings } = portfolio;
+type SkillsSectionProps = {
+  data: PortfolioData;
+};
 
-export default function SkillsSection() {
+export default function SkillsSection({ data }: SkillsSectionProps) {
+  const { skills, uiSettings } = data;
   const [activeCategory, setActiveCategory] = useState<{
     category: string;
     skills: Skill[];

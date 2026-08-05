@@ -1,6 +1,6 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
+import { getTheme } from "@/lib/theme";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,26 +17,17 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Yousif Abdulkarim | Fullstack Software Engineer",
-  description:
-    "Portfolio of Yousif Abdulkarim — fullstack software engineer specializing in Node.js, TypeScript, and React, building modular monoliths and scalable web applications.",
-};
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  const theme = await getTheme();
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${spaceGrotesk.variable} h-full antialiased ${
+        theme === "dark" ? "dark" : ""
+      }`}
       suppressHydrationWarning
     >
-      <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}}catch(e){}})();`,
-          }}
-        />
-      </head>
       <body className="min-h-full flex flex-col" suppressHydrationWarning>
         {children}
       </body>

@@ -3,11 +3,9 @@
 export default function ThemeToggle() {
   function toggleTheme() {
     const isDark = document.documentElement.classList.toggle("dark");
-    try {
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-    } catch {
-      // ignore storage errors
-    }
+    const theme = isDark ? "dark" : "light";
+    // Persist the theme in a cookie so the server respects it on the next request.
+    document.cookie = `theme=${theme}; path=/; max-age=${60 * 60 * 24 * 365}; SameSite=Lax`;
   }
 
   return (
