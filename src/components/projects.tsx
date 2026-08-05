@@ -1,11 +1,11 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import SectionHeading from "./SectionHeading";
-import ProjectModal from "./ProjectModal";
-import SkillBadge from "./SkillBadge";
-import ViewMoreButton from "./ViewMoreButton";
-import ShowMoreButton from "./ShowMoreButton";
+import SectionHeading from "./section-heading";
+import ProjectModal from "./project-modal";
+import SkillBadge from "./skill-badge";
+import ViewMoreButton from "./view-more-button";
+import ShowMoreButton from "./show-more-button";
 import { projects, uiSettings } from "@/data/projects";
 import type { Project } from "@/data/projects";
 

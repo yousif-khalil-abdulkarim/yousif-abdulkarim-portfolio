@@ -1,5 +1,5 @@
-import SectionHeading from "./SectionHeading";
-import SkillsSection from "./SkillsSection";
+import SectionHeading from "./section-heading";
+import SkillsSection from "./skills-section";
 import { profile, aboutStats } from "@/data/projects";
 
 export default function About() {

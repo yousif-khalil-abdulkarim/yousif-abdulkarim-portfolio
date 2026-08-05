@@ -1,11 +1,11 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import SectionHeading from "./SectionHeading";
-import ExperienceModal from "./ExperienceModal";
-import SkillBadge from "./SkillBadge";
-import ViewMoreButton from "./ViewMoreButton";
-import ShowMoreButton from "./ShowMoreButton";
+import SectionHeading from "./section-heading";
+import ExperienceModal from "./experience-modal";
+import SkillBadge from "./skill-badge";
+import ViewMoreButton from "./view-more-button";
+import ShowMoreButton from "./show-more-button";
 import { experience, uiSettings } from "@/data/projects";
 import type { Experience } from "@/data/projects";
 

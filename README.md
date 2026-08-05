@@ -35,10 +35,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## Customization
 
 - **Personal details**: Update your name, bio, and links in `src/components/` and `src/data/projects.ts`.
-- **Profile image**: Replace `public/avatar.svg` with your own photo (keep the same filename or update the `src` in `src/components/Hero.tsx`).
+- **Profile image**: Replace `public/avatar.svg` with your own photo (keep the same filename or update the `src` in `src/components/hero.tsx`).
 - **Projects**: Edit the `projects` array in `src/data/projects.ts`.
 - **Skills**: Edit the `skills` and `marqueeItems` arrays in `src/data/projects.ts`.
-- **Email**: Replace `hello@example.com` in `src/data/projects.ts` and `src/components/Contact.tsx`.
+- **Email**: Replace `hello@example.com` in `src/data/projects.ts` and `src/components/contact.tsx`.
 - **Theme**: Custom colors/animations live in `src/app/globals.css` (gradient accents, keyframes, grid background).
 
 ## Deploy on Vercel

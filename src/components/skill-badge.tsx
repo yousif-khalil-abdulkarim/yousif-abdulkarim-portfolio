@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import SkillModal from "./SkillModal";
+import SkillModal from "./skill-modal";
 import type { Skill } from "@/data/projects";
 
 type SkillBadgeProps = {

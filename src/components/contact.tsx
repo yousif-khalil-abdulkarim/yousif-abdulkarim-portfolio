@@ -1,4 +1,4 @@
-import SectionHeading from "./SectionHeading";
+import SectionHeading from "./section-heading";
 import { profile } from "@/data/projects";
 
 export default function Contact() {

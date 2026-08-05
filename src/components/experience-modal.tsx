@@ -1,18 +1,18 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import SkillBadge from "./SkillBadge";
-import type { Project } from "@/data/projects";
+import SkillBadge from "./skill-badge";
+import type { Experience } from "@/data/projects";
 
-type ProjectModalProps = {
-  project: Project;
+type ExperienceModalProps = {
+  job: Experience;
   onClose: () => void;
 };
 
-export default function ProjectModal({
-  project,
+export default function ExperienceModal({
+  job,
   onClose,
-}: ProjectModalProps) {
+}: ExperienceModalProps) {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -34,7 +34,7 @@ export default function ProjectModal({
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
       role="dialog"
       aria-modal="true"
-      aria-labelledby="project-modal-title"
+      aria-labelledby="experience-modal-title"
     >
       {/* backdrop */}
       <button
@@ -53,13 +53,13 @@ export default function ProjectModal({
           <div className="flex items-start justify-between gap-4">
             <div>
               <h3
-                id="project-modal-title"
+                id="experience-modal-title"
                 className="font-display text-2xl font-bold tracking-tight"
               >
-                {project.title}
+                {job.role}
               </h3>
               <p className="mt-1 font-mono text-xs text-zinc-400">
-                {project.year}
+                {job.company} · {job.period}
               </p>
             </div>
             <button
@@ -85,58 +85,33 @@ export default function ProjectModal({
             </button>
           </div>
 
-          <p className="mt-4 text-sm leading-7 text-zinc-600 dark:text-zinc-400">
-            {project.description}
-          </p>
-
-          {project.highlights && (
-            <>
-              <h4 className="mt-6 font-mono text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
-                Highlights
-              </h4>
-              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-zinc-600 marker:text-fuchsia-400 dark:text-zinc-400">
-                {project.highlights.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </>
+          {job.summary && (
+            <p className="mt-4 text-sm leading-7 text-zinc-600 dark:text-zinc-400">
+              {job.summary}
+            </p>
           )}
 
-          <div className="mt-6">
-            <h4 className="font-mono text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
-              Tech stack
-            </h4>
-            <ul className="mt-3 flex flex-wrap gap-2">
-              {project.tech.map((tech) => (
-                <li key={tech.name}>
-                  <SkillBadge skill={tech} />
-                </li>
-              ))}
-            </ul>
-          </div>
+          <h4 className="mt-6 font-mono text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+            What I did
+          </h4>
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-zinc-600 marker:text-fuchsia-400 dark:text-zinc-400">
+            {job.points.map((point) => (
+              <li key={point}>{point}</li>
+            ))}
+          </ul>
 
-          {(project.liveUrl || project.repoUrl) && (
-            <div className="mt-6 flex flex-wrap gap-4 border-t border-zinc-200 pt-5 dark:border-zinc-800">
-              {project.liveUrl && (
-                <a
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-zinc-900 hover:text-fuchsia-600 dark:text-zinc-100 dark:hover:text-fuchsia-400"
-                >
-                  Live demo ↗
-                </a>
-              )}
-              {project.repoUrl && (
-                <a
-                  href={project.repoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-                >
-                  Source code ↗
-                </a>
-              )}
+          {job.stack && (
+            <div className="mt-6">
+              <h4 className="font-mono text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+                Tech stack
+              </h4>
+              <ul className="mt-3 flex flex-wrap gap-2">
+                {job.stack.map((tech) => (
+                  <li key={tech.name}>
+                    <SkillBadge skill={tech} />
+                  </li>
+                ))}
+              </ul>
             </div>
           )}
         </div>

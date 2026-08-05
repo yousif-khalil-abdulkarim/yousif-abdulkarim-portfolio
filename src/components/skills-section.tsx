@@ -1,9 +1,9 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import SkillBadge from "./SkillBadge";
-import SkillCategoryModal from "./SkillCategoryModal";
-import ShowMoreButton from "./ShowMoreButton";
+import SkillBadge from "./skill-badge";
+import SkillCategoryModal from "./skill-category-modal";
+import ShowMoreButton from "./show-more-button";
 import { skills, uiSettings } from "@/data/projects";
 import type { Skill } from "@/data/projects";
 
