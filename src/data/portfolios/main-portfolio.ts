@@ -4,8 +4,8 @@ import imageUrl from "../../../public/portrait.jpg"
 
 export const mainPortfolio: PortfolioData = {
   profile: {
-    name: "Yousif Abdulkarim",
     firstName: "Yousif",
+    lastName: "Abdulkarim",
     role: "Fullstack Software Engineer — Node & TypeScript & React",
     tagline:
       "I build scalable, modular web applications with Node, TypeScript, and React.",

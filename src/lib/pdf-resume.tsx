@@ -202,14 +202,16 @@ export function ResumeDocument({ data }: { data: PortfolioData }) {
 
   return (
     <Document
-      title={`${profile.name} - Resume`}
-      author={profile.name}
+      title={`${profile.firstName} ${profile.lastName} - Resume`}
+      author={`${profile.firstName} ${profile.lastName}`}
       subject="Resume"
     >
       <Page size="A4" style={styles.page}>
         {/* Header — mirrors the Hero section on the site */}
         <View style={styles.header}>
-          <Text style={styles.name}>{profile.name}</Text>
+          <Text style={styles.name}>
+            {profile.firstName} {profile.lastName}
+          </Text>
           <Text style={styles.role}>{profile.role}</Text>
           {profile.tagline ? (
             <Text style={styles.tagline}>{profile.tagline}</Text>
@@ -266,9 +268,6 @@ export async function renderResumePdf(data: PortfolioData): Promise<Buffer> {
  */
 export function resumeFileName(data: PortfolioData, key: string): string {
   const firstName = data.profile.firstName;
-  const lastName = data.profile.name
-    .split(" ")
-    .filter((part) => part !== firstName)
-    .join("_");
+  const lastName = data.profile.lastName;
   return `${firstName}_${lastName}_resume_${key}.pdf`.toLowerCase();
 }

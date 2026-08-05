@@ -6,10 +6,10 @@ import type { Skill } from "./all-skills";
  * About, Contact, Footer).
  */
 export type Profile = {
-  /** Full legal / professional name, e.g. "Yousif Abdulkarim". Used in the Hero heading, footer, and portrait alt text. */
-  name: string;
   /** First name only, used for the greeting in the Hero heading and the navbar logo text. */
   firstName: string;
+  /** Last / family name, e.g. "Abdulkarim". Used in the Hero heading, footer, and portrait alt text. */
+  lastName: string;
   /** Professional title / headline, e.g. "Fullstack Software Engineer — Node & TypeScript & React". */
   role: string;
   /** Short one-line pitch shown under the Hero heading. */

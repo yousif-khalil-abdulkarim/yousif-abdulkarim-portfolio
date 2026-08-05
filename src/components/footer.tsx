@@ -11,7 +11,7 @@ export default function Footer({ data }: FooterProps) {
       <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
         <p className="text-sm text-zinc-500 dark:text-zinc-400">
           Designed &amp; built with <span className="text-sky-500">♥</span>{" "}
-          by {profile.name}. © {new Date().getFullYear()}
+          by {profile.firstName} {profile.lastName}. © {new Date().getFullYear()}
         </p>
         <div className="flex items-center gap-5 text-sm text-zinc-500 dark:text-zinc-400">
           {profile.github && (

@@ -15,7 +15,7 @@ type NavbarProps = {
 
 export default function Navbar({ data }: NavbarProps) {
   const { profile } = data;
-  const initials = `${profile.firstName[0]}${profile.name.split(" ").pop()?.[0] ?? ""}`;
+  const initials = `${profile.firstName[0]}${profile.lastName[0] ?? ""}`;
 
   return (
     <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/80 backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/80">

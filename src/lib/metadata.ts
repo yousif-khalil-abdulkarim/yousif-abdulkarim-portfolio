@@ -5,7 +5,7 @@ import type { PortfolioData } from "@/data/types";
 export function portfolioMetadata(data: PortfolioData): Metadata {
   const { profile } = data;
   return {
-    title: `${profile.name} | ${profile.role}`,
-    description: `${profile.name} — ${profile.tagline}`,
+    title: `${profile.firstName} ${profile.lastName} | ${profile.role}`,
+    description: `${profile.firstName} ${profile.lastName} — ${profile.tagline}`,
   };
 }

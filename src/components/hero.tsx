@@ -11,7 +11,6 @@ type HeroProps = {
 
 export default function Hero({ data, resumeHref }: HeroProps) {
   const { profile, skills, uiSettings, experience } = data;
-  const [firstName, ...rest] = profile.name.split(" ");
   const showPortfolioImage = uiSettings.showPortfolioImage;
   const image = profile.image;
   // "View my work" scrolls to the Experience timeline when it has entries,
@@ -76,9 +75,9 @@ export default function Hero({ data, resumeHref }: HeroProps) {
             {profile.role}
           </p>
           <h1 className="animate-fade-up [animation-delay:150ms] mt-3 font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
-            {firstName}{" "}
+            {profile.firstName}{" "}
             <span className="text-gradient animate-gradient-x">
-              {rest.join(" ")}
+              {profile.lastName}
             </span>
           </h1>
           <p
@@ -190,7 +189,7 @@ export default function Hero({ data, resumeHref }: HeroProps) {
             <div className="relative rounded-4xl bg-linear-to-br from-blue-500 via-sky-500 to-amber-400 p-1.5 shadow-2xl shadow-sky-500/20">
               <Image
                 src={image}
-                alt={`Portrait of ${profile.name}`}
+                alt={`Portrait of ${profile.firstName} ${profile.lastName}`}
                 width={320}
                 height={320}
                 priority
