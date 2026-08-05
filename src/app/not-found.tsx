@@ -6,7 +6,7 @@ export default function NotFound() {
       {/* background decorations */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_60%_60%_at_50%_35%,black,transparent)]"
+        className="pointer-events-none absolute inset-0 bg-grid mask-[radial-gradient(ellipse_60%_60%_at_50%_35%,black,transparent)]"
       />
       <div
         aria-hidden
@@ -26,7 +26,7 @@ export default function NotFound() {
           <span className="text-gradient animate-gradient-x">found</span>
         </h1>
         <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-          The page you&apos;re looking for doesn&apos;t exist or may have moved.
+          The page you&apos;re looking for does not exist or may have moved.
           Head back to the portfolio to keep exploring.
         </p>
         <Link

@@ -18,7 +18,7 @@ export default function SectionHeading({
         <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
           {title}
         </h2>
-        <span className="h-px flex-1 bg-gradient-to-r from-zinc-300 to-transparent dark:from-zinc-700" />
+        <span className="h-px flex-1 bg-linear-to-r from-zinc-300 to-transparent dark:from-zinc-700" />
       </div>
       {subtitle && (
         <p className="mt-4 max-w-2xl text-zinc-600 dark:text-zinc-400">

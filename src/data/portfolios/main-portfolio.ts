@@ -25,7 +25,7 @@ export const mainPortfolio: PortfolioData = {
     sectionLimits: {
       experience: 6,
       projects: 6,
-      skills: 12,
+      skills: 4,
       certificates: 6,
     },
   },

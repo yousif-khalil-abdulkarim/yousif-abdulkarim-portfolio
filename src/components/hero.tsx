@@ -25,7 +25,7 @@ export default function Hero({ data, resumeHref }: HeroProps) {
       {/* background decorations */}
       <div
         aria-hidden
-        className="pointer-events-none absolute inset-0 bg-grid [mask-image:radial-gradient(ellipse_60%_60%_at_50%_35%,black,transparent)]"
+        className="pointer-events-none absolute inset-0 bg-grid mask-[radial-gradient(ellipse_60%_60%_at_50%_35%,black,transparent)]"
       />
       <div
         aria-hidden
@@ -181,9 +181,9 @@ export default function Hero({ data, resumeHref }: HeroProps) {
           <div className="animate-fade-up [animation-delay:250ms] relative mx-auto w-64 sm:w-80">
             <div
               aria-hidden
-              className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-blue-500 via-sky-500 to-amber-400 opacity-70 blur-2xl animate-float"
+              className="absolute -inset-4 rounded-4xl bg-linear-to-br from-blue-500 via-sky-500 to-amber-400 opacity-70 blur-2xl animate-float"
             />
-            <div className="relative rounded-[2rem] bg-gradient-to-br from-blue-500 via-sky-500 to-amber-400 p-1.5 shadow-2xl shadow-sky-500/20">
+            <div className="relative rounded-4xl bg-linear-to-br from-blue-500 via-sky-500 to-amber-400 p-1.5 shadow-2xl shadow-sky-500/20">
               <Image
                 src={image}
                 alt={`Portrait of ${profile.name}`}

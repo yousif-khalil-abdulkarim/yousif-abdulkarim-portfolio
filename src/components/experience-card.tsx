@@ -14,7 +14,7 @@ export default function ExperienceCard({ job }: ExperienceCardProps) {
     <div className="relative">
       <span
         aria-hidden
-        className="absolute -left-[2.45rem] top-1.5 h-4 w-4 rounded-full border-2 border-sky-500 bg-white dark:bg-zinc-950"
+        className="absolute left-[-2.45rem] top-1.5 h-4 w-4 rounded-full border-2 border-sky-500 bg-white dark:bg-zinc-950"
       />
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
         <h3 className="font-display text-lg font-semibold">

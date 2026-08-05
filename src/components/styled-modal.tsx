@@ -29,7 +29,7 @@ function ModalContent({
   const dialog = useDialogContext();
   const contentRef = useRef<HTMLDivElement>(null);
 
-  // Escape closes the top-most open dialog. (Ark's native dismissable can fail to
+  // Escape closes the top-most open dialog. (Ark's native dismissal handler can fail to
   // register with lazyMount in production, so we close explicitly and let each
   // mounted dialog decide whether it is the one on top.)
   useEffect(() => {
@@ -65,7 +65,7 @@ function ModalContent({
         >
           <div
             aria-hidden
-            className="h-1.5 bg-gradient-to-r from-blue-500 via-sky-500 to-amber-400"
+            className="h-1.5 bg-linear-to-r from-blue-500 via-sky-500 to-amber-400"
           />
           <div className="max-h-[75vh] overflow-y-auto p-6">
             <div className="flex items-start justify-between gap-4">

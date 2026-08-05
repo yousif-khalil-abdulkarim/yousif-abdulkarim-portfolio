@@ -33,7 +33,7 @@ export default function SkillCategoryCard({
       {hasMore && (
         <SkillCategoryModal
           category={category}
-          skills={items}
+          skills={items.slice(limit)}
           trigger={
             <ShowMoreButton
               expanded={false}

@@ -36,7 +36,7 @@ export default function CertificatesSection({
         title="Certificates"
         subtitle="Certifications and credentials that back my skills. Click View more to see the details."
       />
-      <ul className="mt-10 grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))]">
+      <ul className="mt-10 grid gap-4 grid-cols-[repeat(auto-fit,minmax(220px,1fr))]">
         {visible.map((cert) => (
           <CertificateCard
             key={`${cert.title}-${cert.issuer}`}
