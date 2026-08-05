@@ -22,6 +22,8 @@ export type Profile = {
   email: string;
   /** Public contact phone number (shown as a tel: link in Contact). */
   phone: string;
+  /** Optional floating stat badge shown over the portrait in the Hero, e.g. { value: "4+ years", label: "full-stack experience" }. Hidden when unset. */
+  heroBadge?: { value: string; label: string };
   /** Optional portrait image (Next.js static import) shown in the Hero. The portrait column is hidden when unset. */
   image?: StaticImageData;
   /** Optional GitHub profile URL. Social icon is hidden when absent. */

@@ -1,6 +1,6 @@
 import { allSkills } from "@/data/all-skills";
 import type { PortfolioData } from "@/data/types";
-// import imageUrl from "../../../public/portrait.jpg"
+import imageUrl from "../../../public/portrait.jpg"
 
 export const mainPortfolio: PortfolioData = {
   profile: {
@@ -13,7 +13,11 @@ export const mainPortfolio: PortfolioData = {
     location: "Malmö, Sweden",
     email: "yousefkhalil125@gmail.com",
     phone: "+46 72 913 68 33",
-    // image: imageUrl,
+    heroBadge: {
+      value: "4+ years",
+      label: "full-stack experience",
+    },
+    image: imageUrl,
     github: "https://github.com/yousif-khalil-abdulkarim",
     linkedin: "https://www.linkedin.com/in/yousef-abdulkarim/",
     // twitter: "https://x.com/yousif-khalil-abdulkarim",
@@ -21,7 +25,7 @@ export const mainPortfolio: PortfolioData = {
   },
   uiSettings: {
     showMarquee: true,
-    showPortfolioImage: false,
+    showPortfolioImage: true,
     sectionLimits: {
       experience: 6,
       projects: 6,

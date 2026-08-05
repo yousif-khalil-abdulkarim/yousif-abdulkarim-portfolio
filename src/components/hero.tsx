@@ -196,12 +196,16 @@ export default function Hero({ data, resumeHref }: HeroProps) {
                 className="aspect-square w-full rounded-[1.7rem] object-cover"
               />
             </div>
-            <div className="absolute -bottom-5 -left-5 animate-float rounded-2xl border border-zinc-200 bg-white/90 px-4 py-3 text-left shadow-xl backdrop-blur [animation-delay:2s] dark:border-zinc-700 dark:bg-zinc-900/90">
-              <p className="font-display text-lg font-bold">4+ years</p>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400">
-                full-stack experience
-              </p>
-            </div>
+            {profile.heroBadge && (
+              <div className="absolute -bottom-5 -left-5 animate-float rounded-2xl border border-zinc-200 bg-white/90 px-4 py-3 text-left shadow-xl backdrop-blur [animation-delay:2s] dark:border-zinc-700 dark:bg-zinc-900/90">
+                <p className="font-display text-lg font-bold">
+                  {profile.heroBadge.value}
+                </p>
+                <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                  {profile.heroBadge.label}
+                </p>
+              </div>
+            )}
           </div>
         )}
       </div>
