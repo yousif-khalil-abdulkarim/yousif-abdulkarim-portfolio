@@ -1,11 +1,12 @@
 "use client";
 
 import { useCallback, useState } from "react";
-import SkillBadge from "./skill-badge";
 import SkillCategoryModal from "./skill-category-modal";
-import ShowMoreButton from "./show-more-button";
-import { skills, uiSettings } from "@/data/projects";
+import SkillCategoryCard from "./skill-category-card";
+import { portfolio } from "@/data/projects";
 import type { Skill } from "@/data/all-skills";
+
+const { skills, uiSettings } = portfolio;
 
 export default function SkillsSection() {
   const [activeCategory, setActiveCategory] = useState<{
@@ -23,35 +24,18 @@ export default function SkillsSection() {
       <h3 className="font-mono text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
         Skills
       </h3>
-      <div className="mt-4 space-y-4">
+      <div className="mt-4 grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))]">
         {Object.entries(skills)
           .filter(([, items]) => items.length > 0)
-          .map(([category, items]) => {
-            const hasMore = items.length > limit;
-          const visible = hasMore ? items.slice(0, limit) : items;
-          return (
-            <div key={category}>
-              <h4 className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
-                {category}
-              </h4>
-              <ul className="mt-2 flex flex-wrap gap-2">
-                {visible.map((skill) => (
-                  <li key={skill.name}>
-                    <SkillBadge skill={skill} />
-                  </li>
-                ))}
-              </ul>
-              {hasMore && (
-                <ShowMoreButton
-                  expanded={false}
-                  hiddenCount={items.length - limit}
-                  onClick={() => setActiveCategory({ category, skills: items })}
-                  className="mt-2"
-                />
-              )}
-            </div>
-          );
-        })}
+          .map(([category, items]) => (
+            <SkillCategoryCard
+              key={category}
+              category={category}
+              items={items}
+              limit={limit}
+              onShowMore={() => setActiveCategory({ category, skills: items })}
+            />
+          ))}
       </div>
       {activeCategory && (
         <SkillCategoryModal

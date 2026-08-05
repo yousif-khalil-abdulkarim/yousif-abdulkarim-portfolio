@@ -1,8 +1,15 @@
 import Image from "next/image";
-import { profile, marqueeItems, uiSettings } from "@/data/projects";
+import { portfolio } from "@/data/projects";
+
+const { profile, skills, uiSettings } = portfolio;
 
 export default function Hero() {
   const [firstName, ...rest] = profile.name.split(" ");
+  const showPortfolioImage = uiSettings.showPortfolioImage;
+  // Derived from the skills so the marquee stays in sync with them.
+  const marqueeItems = Object.values(skills)
+    .flat()
+    .map((skill) => skill.name);
   return (
     <section id="home" className="relative overflow-hidden">
       {/* background decorations */}
@@ -23,9 +30,15 @@ export default function Hero() {
         className="pointer-events-none absolute bottom-0 -left-20 h-72 w-72 rounded-full bg-amber-400/20 blur-3xl animate-blob [animation-delay:6s] dark:bg-amber-400/10"
       />
 
-      <div className="relative mx-auto grid w-full max-w-5xl items-center gap-12 px-6 py-20 sm:py-28 lg:grid-cols-[1.2fr_1fr]">
+      <div
+        className={`relative mx-auto grid w-full max-w-5xl items-center gap-12 px-6 py-20 sm:py-28 ${
+          showPortfolioImage ? "lg:grid-cols-[1.2fr_1fr]" : "lg:grid-cols-1"
+        }`}
+      >
         {/* Left: text */}
-        <div className="text-center lg:text-left">
+        <div
+          className={`text-center ${showPortfolioImage ? "lg:text-left" : ""}`}
+        >
           <span
             className={`animate-fade-up inline-flex items-center gap-2 rounded-full border bg-white/70 px-4 py-1.5 text-sm font-medium backdrop-blur dark:bg-zinc-900/60 ${
               profile.availableForWork
@@ -54,7 +67,11 @@ export default function Hero() {
               {rest.join(" ")}
             </span>
           </h1>
-          <p className="animate-fade-up [animation-delay:200ms] mx-auto mt-6 max-w-xl text-lg leading-8 text-zinc-600 dark:text-zinc-400 lg:mx-0">
+          <p
+            className={`animate-fade-up [animation-delay:200ms] mx-auto mt-6 max-w-xl text-lg leading-8 text-zinc-600 dark:text-zinc-400 ${
+              showPortfolioImage ? "lg:mx-0" : ""
+            }`}
+          >
             {profile.tagline} I specialize in{" "}
             <span className="font-medium text-zinc-900 dark:text-zinc-100">
               modular monoliths
@@ -66,7 +83,11 @@ export default function Hero() {
             .
           </p>
 
-          <div className="animate-fade-up [animation-delay:300ms] mt-9 flex flex-wrap items-center justify-center gap-4 lg:justify-start">
+          <div
+            className={`animate-fade-up [animation-delay:300ms] mt-9 flex flex-wrap items-center justify-center gap-4 ${
+              showPortfolioImage ? "lg:justify-start" : ""
+            }`}
+          >
             <a
               href="#projects"
               className="group inline-flex items-center gap-2 rounded-full bg-zinc-950 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-zinc-900/10 transition-all hover:-translate-y-0.5 hover:shadow-xl dark:bg-zinc-50 dark:text-zinc-950 dark:shadow-black/20"
@@ -84,7 +105,11 @@ export default function Hero() {
             </a>
           </div>
 
-          <div className="animate-fade-up [animation-delay:400ms] mt-10 flex items-center justify-center gap-3 text-zinc-500 dark:text-zinc-400 lg:justify-start">
+          <div
+            className={`animate-fade-up [animation-delay:400ms] mt-10 flex items-center justify-center gap-3 text-zinc-500 dark:text-zinc-400 ${
+              showPortfolioImage ? "lg:justify-start" : ""
+            }`}
+          >
             {profile.github && (
               <a
                 href={profile.github}
@@ -141,28 +166,30 @@ export default function Hero() {
         </div>
 
         {/* Right: portrait image */}
-        <div className="animate-fade-up [animation-delay:250ms] relative mx-auto w-64 sm:w-80">
-          <div
-            aria-hidden
-            className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-violet-500 via-fuchsia-500 to-amber-400 opacity-70 blur-2xl animate-float"
-          />
-          <div className="relative rounded-[2rem] bg-gradient-to-br from-violet-500 via-fuchsia-500 to-amber-400 p-1.5 shadow-2xl shadow-fuchsia-500/20">
-            <Image
-              src="/avatar.svg"
-              alt={`Portrait of ${profile.name}`}
-              width={320}
-              height={320}
-              priority
-              className="aspect-square w-full rounded-[1.7rem] object-cover"
+        {showPortfolioImage && (
+          <div className="animate-fade-up [animation-delay:250ms] relative mx-auto w-64 sm:w-80">
+            <div
+              aria-hidden
+              className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-violet-500 via-fuchsia-500 to-amber-400 opacity-70 blur-2xl animate-float"
             />
+            <div className="relative rounded-[2rem] bg-gradient-to-br from-violet-500 via-fuchsia-500 to-amber-400 p-1.5 shadow-2xl shadow-fuchsia-500/20">
+              <Image
+                src="/avatar.svg"
+                alt={`Portrait of ${profile.name}`}
+                width={320}
+                height={320}
+                priority
+                className="aspect-square w-full rounded-[1.7rem] object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-5 -left-5 animate-float rounded-2xl border border-zinc-200 bg-white/90 px-4 py-3 text-left shadow-xl backdrop-blur [animation-delay:2s] dark:border-zinc-700 dark:bg-zinc-900/90">
+              <p className="font-display text-lg font-bold">4+ years</p>
+              <p className="text-xs text-zinc-500 dark:text-zinc-400">
+                full-stack experience
+              </p>
+            </div>
           </div>
-          <div className="absolute -bottom-5 -left-5 animate-float rounded-2xl border border-zinc-200 bg-white/90 px-4 py-3 text-left shadow-xl backdrop-blur [animation-delay:2s] dark:border-zinc-700 dark:bg-zinc-900/90">
-            <p className="font-display text-lg font-bold">4+ years</p>
-            <p className="text-xs text-zinc-500 dark:text-zinc-400">
-              full-stack experience
-            </p>
-          </div>
-        </div>
+        )}
       </div>
 
       {uiSettings.showMarquee && (

@@ -1,6 +1,8 @@
 import SectionHeading from "./section-heading";
 import SkillsSection from "./skills-section";
-import { profile, aboutStats } from "@/data/projects";
+import { portfolio } from "@/data/projects";
+
+const { profile, aboutStats } = portfolio;
 
 export default function About() {
   return (
@@ -37,7 +39,6 @@ export default function About() {
             e-commerce platforms and SDKs, I enjoy owning problems end to end
             — architecture, implementation, testing, and documentation.
           </p>
-          <SkillsSection />
         </div>
         {aboutStats.length > 0 && (
           <div className="md:col-span-2">
@@ -70,6 +71,10 @@ export default function About() {
             </div>
           </div>
         )}
+      </div>
+
+      <div className="mt-10">
+        <SkillsSection />
       </div>
     </section>
   );

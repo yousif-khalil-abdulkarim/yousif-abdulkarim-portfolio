@@ -1,0 +1,63 @@
+"use client";
+
+import { useCallback, useState } from "react";
+import SectionHeading from "./section-heading";
+import CertificateModal from "./certificate-modal";
+import CertificateCard from "./certificate-card";
+import ShowMoreButton from "./show-more-button";
+import { portfolio, type Certificate } from "@/data/projects";
+
+const { certificates, uiSettings } = portfolio;
+
+export default function CertificatesSection() {
+  const [expanded, setExpanded] = useState(false);
+  const [activeCertificate, setActiveCertificate] =
+    useState<Certificate | null>(null);
+  const closeModal = useCallback(() => setActiveCertificate(null), []);
+  const hasMore =
+    certificates.length > uiSettings.sectionLimits.certificates;
+  const visible = hasMore && !expanded
+    ? certificates.slice(0, uiSettings.sectionLimits.certificates)
+    : certificates;
+
+  if (certificates.length === 0) return null;
+
+  return (
+    <section
+      id="certificates"
+      className="mx-auto w-full max-w-5xl scroll-mt-20 px-6 py-24"
+    >
+      <SectionHeading
+        index="04"
+        title="Certificates"
+        subtitle="Certifications and credentials that back my skills. Click View more to see the details."
+      />
+      <ul className="mt-10 grid gap-4 [grid-template-columns:repeat(auto-fit,minmax(220px,1fr))]">
+        {visible.map((cert) => (
+          <CertificateCard
+            key={`${cert.title}-${cert.issuer}`}
+            certificate={cert}
+            onViewMore={() => setActiveCertificate(cert)}
+          />
+        ))}
+      </ul>
+      {hasMore && (
+        <div className="mt-10 flex justify-center">
+          <ShowMoreButton
+            expanded={expanded}
+            hiddenCount={
+              certificates.length - uiSettings.sectionLimits.certificates
+            }
+            onClick={() => setExpanded((value) => !value)}
+          />
+        </div>
+      )}
+      {activeCertificate && (
+        <CertificateModal
+          certificate={activeCertificate}
+          onClose={closeModal}
+        />
+      )}
+    </section>
+  );
+}

@@ -1,10 +1,13 @@
 import ThemeToggle from "./theme-toggle";
-import { profile } from "@/data/projects";
+import { portfolio } from "@/data/projects";
+
+const { profile } = portfolio;
 
 const navLinks = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
+  { label: "Certificates", href: "#certificates" },
   { label: "Contact", href: "#contact" },
 ];
 

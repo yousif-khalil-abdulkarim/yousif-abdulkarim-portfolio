@@ -1,4 +1,6 @@
-import { profile } from "@/data/projects";
+import { portfolio } from "@/data/projects";
+
+const { profile } = portfolio;
 
 export default function Footer() {
   return (
