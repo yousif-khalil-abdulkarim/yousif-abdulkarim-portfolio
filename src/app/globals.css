@@ -1,26 +1,116 @@
 @import "tailwindcss";
 
+/* Enable class-based dark mode for Tailwind v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafafa;
+  --foreground: #18181b;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #09090b;
+  --foreground: #ededed;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
+
+/* ---------- Custom keyframes ---------- */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes blob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(24px, -32px) scale(1.1); }
+  66% { transform: translate(-18px, 20px) scale(0.94); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.55); }
+  70% { box-shadow: 0 0 0 7px rgba(16, 185, 129, 0); }
+}
+
+@keyframes gradient-x {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ---------- Animation utility classes ---------- */
+.animate-fade-up { animation: fade-up 0.7s ease-out both; }
+.animate-marquee { animation: marquee 32s linear infinite; }
+.animate-blob { animation: blob 14s ease-in-out infinite; }
+.animate-pulse-dot { animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
+.animate-gradient-x { background-size: 200% 200%; animation: gradient-x 6s ease infinite; }
+.animate-float { animation: float 6s ease-in-out infinite; }
+
+/* ---------- Background grid ---------- */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(0 0 0 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(0 0 0 / 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+.dark .bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+}
+
+/* ---------- Gradient text ---------- */
+.text-gradient {
+  background-image: linear-gradient(90deg, #6366f1, #d946ef, #f59e0b);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------- Selection & scrollbar ---------- */
+::selection {
+  background: #d946ef;
+  color: #fff;
+}
+
+/* Visible caret on form fields in both themes */
+input,
+textarea,
+select {
+  caret-color: #d946ef;
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgb(120 113 108 / 0.4);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgb(120 113 108 / 0.7); }
