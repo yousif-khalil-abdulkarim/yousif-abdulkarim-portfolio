@@ -10,7 +10,7 @@ export default function Footer({ data }: FooterProps) {
     <footer className="border-t border-zinc-200 dark:border-zinc-800">
       <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 px-6 py-8 sm:flex-row">
         <p className="text-sm text-zinc-500 dark:text-zinc-400">
-          Designed &amp; built with <span className="text-fuchsia-500">♥</span>{" "}
+          Designed &amp; built with <span className="text-sky-500">♥</span>{" "}
           by {profile.name}. © {new Date().getFullYear()}
         </p>
         <div className="flex items-center gap-5 text-sm text-zinc-500 dark:text-zinc-400">
@@ -56,7 +56,7 @@ export default function Footer({ data }: FooterProps) {
           )}
           <a
             href="#home"
-            className="inline-flex items-center gap-1 font-medium text-zinc-700 transition-colors hover:text-fuchsia-600 dark:text-zinc-300 dark:hover:text-fuchsia-400"
+            className="inline-flex items-center gap-1 font-medium text-zinc-700 transition-colors hover:text-sky-600 dark:text-zinc-300 dark:hover:text-sky-400"
           >
             Back to top ↑
           </a>

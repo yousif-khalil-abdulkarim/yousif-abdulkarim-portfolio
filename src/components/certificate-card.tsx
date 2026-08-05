@@ -27,7 +27,7 @@ export default function CertificateCard({
             href={credentialUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-xs font-semibold text-zinc-900 transition-colors hover:text-fuchsia-600 dark:text-zinc-100 dark:hover:text-fuchsia-400"
+            className="inline-flex items-center gap-1 text-xs font-semibold text-zinc-900 transition-colors hover:text-sky-600 dark:text-zinc-100 dark:hover:text-sky-400"
           >
             Verify credential ↗
           </a>

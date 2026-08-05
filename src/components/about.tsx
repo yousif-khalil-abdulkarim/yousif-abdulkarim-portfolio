@@ -46,7 +46,7 @@ export default function About({ data }: AboutProps) {
         </div>
         {visibleStats.length > 0 && (
           <div className="md:col-span-2">
-            <div className="rounded-2xl bg-gradient-to-br from-violet-500 via-fuchsia-500 to-amber-400 p-px shadow-lg shadow-fuchsia-500/10">
+            <div className="rounded-2xl bg-gradient-to-br from-blue-500 via-sky-500 to-amber-400 p-px shadow-lg shadow-sky-500/10">
               <div className="rounded-2xl bg-white p-6 dark:bg-zinc-950">
                 <h3 className="font-mono text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
                   Quick facts

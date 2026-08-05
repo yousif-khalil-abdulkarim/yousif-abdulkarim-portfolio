@@ -43,7 +43,7 @@ export default function SkillModal({ skill, onClose }: SkillModalProps) {
       <div className="relative w-full max-w-md overflow-hidden rounded-2xl bg-white shadow-2xl dark:bg-zinc-950">
         <div
           aria-hidden
-          className="h-1.5 bg-gradient-to-r from-violet-500 via-fuchsia-500 to-amber-400"
+          className="h-1.5 bg-gradient-to-r from-blue-500 via-sky-500 to-amber-400"
         />
         <div className="p-6">
           <div className="flex items-start justify-between gap-4">
@@ -58,7 +58,7 @@ export default function SkillModal({ skill, onClose }: SkillModalProps) {
               type="button"
               onClick={onClose}
               aria-label="Close"
-              className="rounded-full border border-zinc-300 p-1.5 text-zinc-500 transition-colors hover:border-fuchsia-500 hover:text-fuchsia-500 dark:border-zinc-700 dark:text-zinc-400"
+              className="rounded-full border border-zinc-300 p-1.5 text-zinc-500 transition-colors hover:border-sky-500 hover:text-sky-500 dark:border-zinc-700 dark:text-zinc-400"
             >
               <svg
                 className="h-5 w-5"

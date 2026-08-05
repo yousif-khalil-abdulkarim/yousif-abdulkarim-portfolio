@@ -19,7 +19,7 @@ export default function ShowMoreButton({
     <button
       type="button"
       onClick={onClick}
-      className={`inline-flex items-center gap-1.5 rounded-full border border-zinc-300 px-4 py-1.5 text-sm font-semibold text-zinc-800 transition-colors hover:border-fuchsia-500 hover:text-fuchsia-600 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-fuchsia-500 dark:hover:text-fuchsia-400 ${className}`}
+      className={`inline-flex items-center gap-1.5 rounded-full border border-zinc-300 px-4 py-1.5 text-sm font-semibold text-zinc-800 transition-colors hover:border-sky-500 hover:text-sky-600 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-sky-500 dark:hover:text-sky-400 ${className}`}
       {...props}
     >
       {expanded ? (

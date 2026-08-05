@@ -12,7 +12,7 @@ export default function SectionHeading({
   return (
     <div>
       <div className="flex items-center gap-4">
-        <span className="font-mono text-sm font-medium text-fuchsia-500 dark:text-fuchsia-400">
+        <span className="font-mono text-sm font-medium text-sky-500 dark:text-sky-400">
           {index}
         </span>
         <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">

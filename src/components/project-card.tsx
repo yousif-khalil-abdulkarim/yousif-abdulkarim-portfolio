@@ -19,7 +19,7 @@ export default function ProjectCard({
     <article className="group relative">
       <div
         aria-hidden
-        className="absolute -inset-px rounded-2xl bg-gradient-to-br from-violet-500 via-fuchsia-500 to-amber-400 opacity-0 blur transition-opacity duration-300 group-hover:opacity-40"
+        className="absolute -inset-px rounded-2xl bg-gradient-to-br from-blue-500 via-sky-500 to-amber-400 opacity-0 blur transition-opacity duration-300 group-hover:opacity-40"
       />
       <div className="relative flex h-full flex-col rounded-2xl border border-zinc-200 bg-white p-6 transition-transform duration-300 group-hover:-translate-y-1 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="flex items-center justify-between">
@@ -28,7 +28,7 @@ export default function ProjectCard({
           </span>
           <div className="flex items-center gap-2">
             {project.featured && (
-              <span className="rounded-full bg-fuchsia-500/10 px-2.5 py-1 text-xs font-semibold text-fuchsia-600 dark:text-fuchsia-400">
+              <span className="rounded-full bg-sky-500/10 px-2.5 py-1 text-xs font-semibold text-sky-600 dark:text-sky-400">
                 ★ Featured
               </span>
             )}
@@ -57,7 +57,7 @@ export default function ProjectCard({
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-zinc-900 transition-colors hover:text-fuchsia-600 dark:text-zinc-100 dark:hover:text-fuchsia-400"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-zinc-900 transition-colors hover:text-sky-600 dark:text-zinc-100 dark:hover:text-sky-400"
             >
               Live demo{" "}
               <span

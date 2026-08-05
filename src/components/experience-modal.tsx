@@ -47,7 +47,7 @@ export default function ExperienceModal({
       <div className="relative w-full max-w-lg overflow-hidden rounded-2xl bg-white shadow-2xl dark:bg-zinc-950">
         <div
           aria-hidden
-          className="h-1.5 bg-gradient-to-r from-violet-500 via-fuchsia-500 to-amber-400"
+          className="h-1.5 bg-gradient-to-r from-blue-500 via-sky-500 to-amber-400"
         />
         <div className="max-h-[75vh] overflow-y-auto p-6">
           <div className="flex items-start justify-between gap-4">
@@ -67,7 +67,7 @@ export default function ExperienceModal({
               type="button"
               onClick={onClose}
               aria-label="Close"
-              className="rounded-full border border-zinc-300 p-1.5 text-zinc-500 transition-colors hover:border-fuchsia-500 hover:text-fuchsia-500 dark:border-zinc-700 dark:text-zinc-400"
+              className="rounded-full border border-zinc-300 p-1.5 text-zinc-500 transition-colors hover:border-sky-500 hover:text-sky-500 dark:border-zinc-700 dark:text-zinc-400"
             >
               <svg
                 className="h-5 w-5"
@@ -94,7 +94,7 @@ export default function ExperienceModal({
           <h4 className="mt-6 font-mono text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
             What I did
           </h4>
-          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-zinc-600 marker:text-fuchsia-400 dark:text-zinc-400">
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-zinc-600 marker:text-sky-400 dark:text-zinc-400">
             {job.points.map((point) => (
               <li key={point}>{point}</li>
             ))}

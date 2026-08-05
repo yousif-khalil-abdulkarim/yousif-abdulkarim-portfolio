@@ -24,11 +24,11 @@ export default function Hero({ data, resumeHref }: HeroProps) {
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-24 left-1/4 h-80 w-80 rounded-full bg-violet-500/30 blur-3xl animate-blob dark:bg-violet-500/20"
+        className="pointer-events-none absolute -top-24 left-1/4 h-80 w-80 rounded-full bg-blue-500/30 blur-3xl animate-blob dark:bg-blue-500/20"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute top-48 -right-24 h-80 w-80 rounded-full bg-fuchsia-500/20 blur-3xl animate-blob [animation-delay:3s] dark:bg-fuchsia-500/15"
+        className="pointer-events-none absolute top-48 -right-24 h-80 w-80 rounded-full bg-sky-500/20 blur-3xl animate-blob [animation-delay:3s] dark:bg-sky-500/15"
       />
       <div
         aria-hidden
@@ -63,7 +63,7 @@ export default function Hero({ data, resumeHref }: HeroProps) {
               : "Not currently available"}
           </span>
 
-          <p className="animate-fade-up [animation-delay:100ms] mt-7 font-mono text-sm font-medium uppercase tracking-widest text-fuchsia-500 dark:text-fuchsia-400">
+          <p className="animate-fade-up [animation-delay:100ms] mt-7 font-mono text-sm font-medium uppercase tracking-widest text-sky-500 dark:text-sky-400">
             {profile.role}
           </p>
           <h1 className="animate-fade-up [animation-delay:150ms] mt-3 font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl lg:text-7xl">
@@ -184,9 +184,9 @@ export default function Hero({ data, resumeHref }: HeroProps) {
           <div className="animate-fade-up [animation-delay:250ms] relative mx-auto w-64 sm:w-80">
             <div
               aria-hidden
-              className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-violet-500 via-fuchsia-500 to-amber-400 opacity-70 blur-2xl animate-float"
+              className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-blue-500 via-sky-500 to-amber-400 opacity-70 blur-2xl animate-float"
             />
-            <div className="relative rounded-[2rem] bg-gradient-to-br from-violet-500 via-fuchsia-500 to-amber-400 p-1.5 shadow-2xl shadow-fuchsia-500/20">
+            <div className="relative rounded-[2rem] bg-gradient-to-br from-blue-500 via-sky-500 to-amber-400 p-1.5 shadow-2xl shadow-sky-500/20">
               <Image
                 src="/avatar.svg"
                 alt={`Portrait of ${profile.name}`}
@@ -215,7 +215,7 @@ export default function Hero({ data, resumeHref }: HeroProps) {
                   key={i}
                   className="flex items-center gap-8 whitespace-nowrap text-sm font-medium uppercase tracking-widest text-zinc-500 dark:text-zinc-400"
                 >
-                  {item} <span className="text-fuchsia-500">✦</span>
+                  {item} <span className="text-sky-500">✦</span>
                 </span>
               ))}
             </div>

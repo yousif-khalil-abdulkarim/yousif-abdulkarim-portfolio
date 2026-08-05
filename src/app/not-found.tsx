@@ -10,15 +10,15 @@ export default function NotFound() {
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-24 left-1/4 h-80 w-80 rounded-full bg-violet-500/30 blur-3xl animate-blob dark:bg-violet-500/20"
+        className="pointer-events-none absolute -top-24 left-1/4 h-80 w-80 rounded-full bg-blue-500/30 blur-3xl animate-blob dark:bg-blue-500/20"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute top-48 -right-24 h-80 w-80 rounded-full bg-fuchsia-500/20 blur-3xl animate-blob [animation-delay:3s] dark:bg-fuchsia-500/15"
+        className="pointer-events-none absolute top-48 -right-24 h-80 w-80 rounded-full bg-sky-500/20 blur-3xl animate-blob [animation-delay:3s] dark:bg-sky-500/15"
       />
 
       <div className="relative text-center">
-        <p className="font-mono text-sm font-medium uppercase tracking-widest text-fuchsia-500 dark:text-fuchsia-400">
+        <p className="font-mono text-sm font-medium uppercase tracking-widest text-sky-500 dark:text-sky-400">
           404
         </p>
         <h1 className="mt-3 font-display text-5xl font-bold tracking-tight sm:text-6xl lg:text-7xl">
