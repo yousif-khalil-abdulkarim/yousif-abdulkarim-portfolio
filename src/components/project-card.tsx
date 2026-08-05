@@ -13,11 +13,7 @@ type ProjectCardProps = {
 export default function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <article className="group relative">
-      <div
-        aria-hidden
-        className="absolute -inset-px rounded-2xl bg-gradient-to-br from-blue-500 via-sky-500 to-amber-400 opacity-0 blur transition-opacity duration-300 group-hover:opacity-40"
-      />
-      <div className="relative flex h-full flex-col rounded-2xl border border-zinc-200 bg-white p-6 transition-transform duration-300 group-hover:-translate-y-1 dark:border-zinc-800 dark:bg-zinc-950">
+      <div className="relative flex h-full flex-col rounded-2xl border border-zinc-200 bg-white p-6 transition-all hover:-translate-y-0.5 hover:border-sky-500 hover:shadow-lg hover:shadow-sky-500/10 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="flex items-center justify-between">
           <span className="font-mono text-sm text-zinc-400">
             0{index + 1}

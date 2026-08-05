@@ -1,3 +1,4 @@
+import { StaticImageData } from "next/image";
 import type { Skill } from "./all-skills";
 
 /**
@@ -21,6 +22,8 @@ export type Profile = {
   email: string;
   /** Public contact phone number (shown as a tel: link in Contact). */
   phone: string;
+  /** Optional portrait image (Next.js static import) shown in the Hero. The portrait column is hidden when unset. */
+  image?: StaticImageData;
   /** Optional GitHub profile URL. Social icon is hidden when absent. */
   github?: string;
   /** Optional LinkedIn profile URL. Social icon is hidden when absent. */

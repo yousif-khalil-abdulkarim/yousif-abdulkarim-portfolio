@@ -19,7 +19,7 @@ export default function SkillCategoryCard({
   const hasMore = items.length > limit;
   const visible = hasMore ? items.slice(0, limit) : items;
   return (
-    <div className="rounded-2xl border border-zinc-200 bg-white/60 p-5 dark:border-zinc-800 dark:bg-zinc-900/30">
+    <div className="rounded-2xl border border-zinc-200 bg-white/60 p-5 transition-all hover:-translate-y-0.5 hover:border-sky-500 hover:shadow-lg hover:shadow-sky-500/10 dark:border-zinc-800 dark:bg-zinc-900/30">
       <h4 className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
         {category}
       </h4>

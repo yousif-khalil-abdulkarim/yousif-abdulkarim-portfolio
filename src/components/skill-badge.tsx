@@ -15,12 +15,12 @@ export default function SkillBadge({ skill }: SkillBadgeProps) {
         <button
           type="button"
           aria-label={`View more about ${skill.name}`}
-          className="group inline-flex items-center gap-1.5 rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-700 transition-colors hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
+          className="inline-flex cursor-pointer items-center gap-1.5 rounded-md bg-zinc-100 px-2 py-1 text-xs font-medium text-zinc-700 hover:bg-zinc-200 dark:bg-zinc-800 dark:text-zinc-300 dark:hover:bg-zinc-700"
         >
           {skill.name}
           <svg
             aria-hidden
-            className="h-3 w-3 shrink-0 text-zinc-400 transition-transform group-hover:translate-x-0.5 dark:text-zinc-500"
+            className="h-3 w-3 shrink-0 text-zinc-400 dark:text-zinc-500"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"

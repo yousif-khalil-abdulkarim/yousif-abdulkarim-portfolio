@@ -11,7 +11,7 @@ type CertificateCardProps = {
 export default function CertificateCard({ certificate }: CertificateCardProps) {
   const { title, issuer, year, credentialUrl } = certificate;
   return (
-    <li className="group flex flex-col rounded-xl border border-zinc-200 bg-white/60 p-4 transition-colors hover:border-zinc-300 dark:border-zinc-800 dark:bg-zinc-900/30 dark:hover:border-zinc-700">
+    <li className="group flex flex-col rounded-xl border border-zinc-200 bg-white/60 p-4 transition-all hover:-translate-y-0.5 hover:border-sky-500 hover:shadow-lg hover:shadow-sky-500/10 dark:border-zinc-800 dark:bg-zinc-900/30">
       <h3 className="font-display text-sm font-semibold tracking-tight">
         {title}
       </h3>
