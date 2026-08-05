@@ -2,20 +2,19 @@
 
 import SkillBadge from "./skill-badge";
 import ShowMoreButton from "./show-more-button";
+import SkillCategoryModal from "./skill-category-modal";
 import type { Skill } from "@/data/all-skills";
 
 type SkillCategoryCardProps = {
   category: string;
   items: Skill[];
   limit: number;
-  onShowMore: () => void;
 };
 
 export default function SkillCategoryCard({
   category,
   items,
   limit,
-  onShowMore,
 }: SkillCategoryCardProps) {
   const hasMore = items.length > limit;
   const visible = hasMore ? items.slice(0, limit) : items;
@@ -32,11 +31,16 @@ export default function SkillCategoryCard({
         ))}
       </ul>
       {hasMore && (
-        <ShowMoreButton
-          expanded={false}
-          hiddenCount={items.length - limit}
-          onClick={onShowMore}
-          className="mt-2"
+        <SkillCategoryModal
+          category={category}
+          skills={items}
+          trigger={
+            <ShowMoreButton
+              expanded={false}
+              hiddenCount={items.length - limit}
+              className="mt-2"
+            />
+          }
         />
       )}
     </div>

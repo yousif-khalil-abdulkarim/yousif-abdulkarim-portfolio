@@ -1,17 +1,14 @@
 "use client";
 
 import ViewMoreButton from "./view-more-button";
+import CertificateModal from "./certificate-modal";
 import type { Certificate } from "@/data/types";
 
 type CertificateCardProps = {
   certificate: Certificate;
-  onViewMore: () => void;
 };
 
-export default function CertificateCard({
-  certificate,
-  onViewMore,
-}: CertificateCardProps) {
+export default function CertificateCard({ certificate }: CertificateCardProps) {
   const { title, issuer, year, credentialUrl } = certificate;
   return (
     <li className="group flex flex-col rounded-xl border border-zinc-200 bg-white/60 p-4 transition-colors hover:border-zinc-300 dark:border-zinc-800 dark:bg-zinc-900/30 dark:hover:border-zinc-700">
@@ -32,7 +29,7 @@ export default function CertificateCard({
             Verify credential ↗
           </a>
         )}
-        <ViewMoreButton onClick={onViewMore} />
+        <CertificateModal certificate={certificate} trigger={<ViewMoreButton />} />
       </div>
     </li>
   );

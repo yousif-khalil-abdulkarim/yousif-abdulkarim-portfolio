@@ -1,10 +1,7 @@
 "use client";
 
-import { useCallback, useState } from "react";
-import SkillCategoryModal from "./skill-category-modal";
 import SkillCategoryCard from "./skill-category-card";
 import type { PortfolioData } from "@/data/types";
-import type { Skill } from "@/data/all-skills";
 
 type SkillsSectionProps = {
   data: PortfolioData;
@@ -12,11 +9,6 @@ type SkillsSectionProps = {
 
 export default function SkillsSection({ data }: SkillsSectionProps) {
   const { skills, uiSettings } = data;
-  const [activeCategory, setActiveCategory] = useState<{
-    category: string;
-    skills: Skill[];
-  } | null>(null);
-  const closeCategoryModal = useCallback(() => setActiveCategory(null), []);
   const limit = uiSettings.sectionLimits.skills;
 
   const hasSkills = Object.values(skills).some((items) => items.length > 0);
@@ -36,17 +28,9 @@ export default function SkillsSection({ data }: SkillsSectionProps) {
               category={category}
               items={items}
               limit={limit}
-              onShowMore={() => setActiveCategory({ category, skills: items })}
             />
           ))}
       </div>
-      {activeCategory && (
-        <SkillCategoryModal
-          category={activeCategory.category}
-          skills={activeCategory.skills}
-          onClose={closeCategoryModal}
-        />
-      )}
     </div>
   );
 }

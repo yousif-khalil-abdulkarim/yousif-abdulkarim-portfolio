@@ -1,11 +1,10 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import SectionHeading from "./section-heading";
-import CertificateModal from "./certificate-modal";
 import CertificateCard from "./certificate-card";
 import ShowMoreButton from "./show-more-button";
-import type { Certificate, PortfolioData } from "@/data/types";
+import type { PortfolioData } from "@/data/types";
 
 type CertificatesSectionProps = {
   data: PortfolioData;
@@ -16,9 +15,6 @@ export default function CertificatesSection({
 }: CertificatesSectionProps) {
   const { certificates, uiSettings } = data;
   const [expanded, setExpanded] = useState(false);
-  const [activeCertificate, setActiveCertificate] =
-    useState<Certificate | null>(null);
-  const closeModal = useCallback(() => setActiveCertificate(null), []);
   const visibleCertificates = certificates.filter(
     (cert) => !cert.hide
   );
@@ -45,7 +41,6 @@ export default function CertificatesSection({
           <CertificateCard
             key={`${cert.title}-${cert.issuer}`}
             certificate={cert}
-            onViewMore={() => setActiveCertificate(cert)}
           />
         ))}
       </ul>
@@ -59,12 +54,6 @@ export default function CertificatesSection({
             onClick={() => setExpanded((value) => !value)}
           />
         </div>
-      )}
-      {activeCertificate && (
-        <CertificateModal
-          certificate={activeCertificate}
-          onClose={closeModal}
-        />
       )}
     </section>
   );

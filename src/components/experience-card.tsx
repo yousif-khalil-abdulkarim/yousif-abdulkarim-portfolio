@@ -2,17 +2,14 @@
 
 import SkillBadge from "./skill-badge";
 import ViewMoreButton from "./view-more-button";
+import ExperienceModal from "./experience-modal";
 import type { Experience } from "@/data/types";
 
 type ExperienceCardProps = {
   job: Experience;
-  onViewMore: () => void;
 };
 
-export default function ExperienceCard({
-  job,
-  onViewMore,
-}: ExperienceCardProps) {
+export default function ExperienceCard({ job }: ExperienceCardProps) {
   return (
     <div className="relative">
       <span
@@ -42,7 +39,7 @@ export default function ExperienceCard({
           ))}
         </ul>
       )}
-      <ViewMoreButton onClick={onViewMore} className="mt-4" />
+      <ExperienceModal job={job} trigger={<ViewMoreButton className="mt-4" />} />
     </div>
   );
 }

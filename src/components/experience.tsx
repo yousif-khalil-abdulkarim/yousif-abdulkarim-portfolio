@@ -1,11 +1,10 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import SectionHeading from "./section-heading";
-import ExperienceModal from "./experience-modal";
 import ExperienceCard from "./experience-card";
 import ShowMoreButton from "./show-more-button";
-import type { Experience, PortfolioData } from "@/data/types";
+import type { PortfolioData } from "@/data/types";
 
 type ExperienceProps = {
   data: PortfolioData;
@@ -14,8 +13,6 @@ type ExperienceProps = {
 export default function Experience({ data }: ExperienceProps) {
   const { experience, uiSettings } = data;
   const [expanded, setExpanded] = useState(false);
-  const [activeJob, setActiveJob] = useState<Experience | null>(null);
-  const closeJobModal = useCallback(() => setActiveJob(null), []);
   const visibleJobs = experience.filter((job) => !job.hide);
   const hasMore = visibleJobs.length > uiSettings.sectionLimits.experience;
   const visible = hasMore && !expanded
@@ -39,7 +36,6 @@ export default function Experience({ data }: ExperienceProps) {
           <ExperienceCard
             key={`${job.role}-${job.company}`}
             job={job}
-            onViewMore={() => setActiveJob(job)}
           />
         ))}
       </div>
@@ -51,9 +47,6 @@ export default function Experience({ data }: ExperienceProps) {
             onClick={() => setExpanded((value) => !value)}
           />
         </div>
-      )}
-      {activeJob && (
-        <ExperienceModal job={activeJob} onClose={closeJobModal} />
       )}
     </section>
   );

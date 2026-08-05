@@ -2,19 +2,15 @@
 
 import SkillBadge from "./skill-badge";
 import ViewMoreButton from "./view-more-button";
+import ProjectModal from "./project-modal";
 import type { Project } from "@/data/types";
 
 type ProjectCardProps = {
   project: Project;
   index: number;
-  onViewMore: () => void;
 };
 
-export default function ProjectCard({
-  project,
-  index,
-  onViewMore,
-}: ProjectCardProps) {
+export default function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <article className="group relative">
       <div
@@ -51,7 +47,7 @@ export default function ProjectCard({
           ))}
         </ul>
         <div className="mt-5 flex flex-wrap items-center gap-4">
-          <ViewMoreButton onClick={onViewMore} />
+          <ProjectModal project={project} trigger={<ViewMoreButton />} />
           {project.liveUrl && (
             <a
               href={project.liveUrl}
