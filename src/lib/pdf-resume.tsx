@@ -13,6 +13,7 @@ import type {
   Certificate,
 } from "@/data/types";
 import type { Skill } from "@/data/all-skills";
+import { bioToPlainText } from "@/lib/bio";
 
 const styles = StyleSheet.create({
   page: {
@@ -214,7 +215,7 @@ export function ResumeDocument({ data }: { data: PortfolioData }) {
           </Text>
           <Text style={styles.role}>{profile.role}</Text>
           {profile.tagline ? (
-            <Text style={styles.tagline}>{profile.tagline}</Text>
+            <Text style={styles.tagline}>{bioToPlainText(profile.tagline)}</Text>
           ) : null}
           {contact ? <Text style={styles.contact}>{contact}</Text> : null}
           {socials ? <Text style={styles.socials}>{socials}</Text> : null}

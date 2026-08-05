@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import SectionHeading from "@/components/section-heading";
 import SkillsSection from "@/components/skills-section";
 import type { PortfolioData } from "@/data/types";
@@ -17,7 +18,7 @@ export default function About({ data }: AboutProps) {
       <SectionHeading
         index="01"
         title="About me"
-        subtitle="Fullstack software engineer focused on building scalable, sustainable systems."
+        subtitle={profile.aboutSubtitle}
       />
       <div className="mt-12 grid gap-10 md:grid-cols-5">
         <div
@@ -25,24 +26,25 @@ export default function About({ data }: AboutProps) {
             visibleStats.length > 0 ? "md:col-span-3" : "md:col-span-5"
           }`}
         >
-          <p className="text-lg leading-8">
-            I&apos;m a fullstack software engineer with 4 years of professional
-            experience, specializing in{" "}
-            <span className="font-medium text-zinc-900 dark:text-zinc-100">
-              Node.js, TypeScript, and React
-            </span>
-            . I focus on building modular monoliths and scalable web
-            applications — passionate about{" "}
-            <span className="font-medium text-zinc-900 dark:text-zinc-100">
-              domain decoupling
-            </span>{" "}
-            and extendable, adaptable architecture.
-          </p>
-          <p className="leading-8">
-            From leading engineering at eridu-tech and FillerDepot to shipping
-            e-commerce platforms and SDKs, I enjoy owning problems end to end
-            — architecture, implementation, testing, and documentation.
-          </p>
+          {profile.bio.map((paragraph, pIndex) => (
+            <p
+              key={pIndex}
+              className={pIndex === 0 ? "text-lg leading-8" : "leading-8"}
+            >
+              {paragraph.map((run, rIndex) =>
+                run.emphasis ? (
+                  <span
+                    key={rIndex}
+                    className="font-medium text-zinc-900 dark:text-zinc-100"
+                  >
+                    {run.text}
+                  </span>
+                ) : (
+                  <Fragment key={rIndex}>{run.text}</Fragment>
+                )
+              )}
+            </p>
+          ))}
         </div>
         {visibleStats.length > 0 && (
           <div className="md:col-span-2">

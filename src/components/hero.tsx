@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Image from "next/image";
 import { FaGithub, FaLinkedin, FaXTwitter, FaYoutube } from "react-icons/fa6";
 import Marquee from "@/components/marquee";
@@ -85,15 +86,18 @@ export default function Hero({ data, resumeHref }: HeroProps) {
               showPortrait ? "lg:mx-0" : ""
             }`}
           >
-            {profile.tagline} I specialize in{" "}
-            <span className="font-medium text-zinc-900 dark:text-zinc-100">
-              modular monoliths
-            </span>{" "}
-            and{" "}
-            <span className="font-medium text-zinc-900 dark:text-zinc-100">
-              domain-decoupled architecture
-            </span>
-            .
+            {profile.tagline.map((run, rIndex) =>
+              run.emphasis ? (
+                <span
+                  key={rIndex}
+                  className="font-medium text-zinc-900 dark:text-zinc-100"
+                >
+                  {run.text}
+                </span>
+              ) : (
+                <Fragment key={rIndex}>{run.text}</Fragment>
+              )
+            )}
           </p>
 
           <div

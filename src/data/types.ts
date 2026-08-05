@@ -2,6 +2,19 @@ import { StaticImageData } from "next/image";
 import type { Skill } from "@/data/all-skills";
 
 /**
+ * A single styled run of text within a bio paragraph. `emphasis` renders the
+ * run with bold/accent styling (e.g. key technologies).
+ */
+export type BioText = {
+  text: string;
+  /** Whether to render this run with emphasis styling. */
+  emphasis?: boolean;
+};
+
+/** One paragraph of the About bio, composed of styled text runs. */
+export type BioParagraph = BioText[];
+
+/**
  * Personal and professional information shown across the site (Hero, Navbar,
  * About, Contact, Footer).
  */
@@ -12,8 +25,12 @@ export type Profile = {
   lastName: string;
   /** Professional title / headline, e.g. "Fullstack Software Engineer — Node & TypeScript & React". */
   role: string;
-  /** Short one-line pitch shown under the Hero heading. */
-  tagline: string;
+  /** One-line pitch shown under the Hero heading, as styled runs (emphasis renders bold/accent). */
+  tagline: BioParagraph;
+  /** Subtitle shown under the "About me" heading. */
+  aboutSubtitle: string;
+  /** Bio paragraphs rendered in the About section, each a sequence of styled runs. */
+  bio: BioParagraph[];
   /** Whether the person is currently open to new opportunities. Controls the green "Available" badge in the Hero. */
   availableForWork: boolean;
   /** Location shown in the About quick facts and Contact sections, e.g. "Malmö, Sweden". */

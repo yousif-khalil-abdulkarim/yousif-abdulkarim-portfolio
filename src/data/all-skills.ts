@@ -12,6 +12,16 @@ export const allSkills = {
     description:
       "JavaScript runtime for building fast, scalable server-side applications — my primary backend platform.",
   },
+  Bun: {
+    name: "Bun",
+    description:
+      "Fast all-in-one JavaScript runtime with a built-in bundler, test runner, and package manager.",
+  },
+  Deno: {
+    name: "Deno",
+    description:
+      "Secure, modern JavaScript/TypeScript runtime with built-in tooling and web-standard APIs.",
+  },
   TypeScript: {
     name: "TypeScript",
     description:
@@ -73,6 +83,11 @@ export const allSkills = {
     description:
       "Utility-first CSS framework for rapidly building custom, responsive designs.",
   },
+  CSS: {
+    name: "CSS",
+    description:
+      "Core styling language for laying out and designing responsive web pages.",
+  },
   "TanStack Query": {
     name: "TanStack Query",
     description:
@@ -98,6 +113,11 @@ export const allSkills = {
     description:
       "Embedded, zero-config database ideal for local and lightweight storage.",
   },
+  MySQL: {
+    name: "MySQL",
+    description:
+      "Relational database I use for structured, SQL-based data storage at scale.",
+  },
   // Testing & DevOps
   Jest: {
     name: "Jest",
@@ -121,6 +141,11 @@ export const allSkills = {
     name: "Playwright",
     description:
       "End-to-end browser testing across Chromium, Firefox, and WebKit.",
+  },
+  "Test Automation": {
+    name: "Test Automation",
+    description:
+      "Designing and maintaining automated test suites for reliable, regression-safe code.",
   },
   Docker: {
     name: "Docker",
@@ -150,6 +175,56 @@ export const allSkills = {
     description:
       "Web server and reverse proxy for routing and serving production apps.",
   },
+  // Architecture
+  "Adapter Pattern": {
+    name: "Adapter Pattern",
+    description:
+      "Design pattern that unifies multiple backends behind one common interface — the foundation of the eridu-tech architecture.",
+  },
+  "Modular Monoliths": {
+    name: "Modular Monoliths",
+    description:
+      "Monolith architecture organized into clear modules for maintainability without distributed complexity.",
+  },
+  "Majestic Monoliths": {
+    name: "Majestic Monoliths",
+    description:
+      "A modular monolith designed to stay simple and deployable as it grows.",
+  },
+  "Service Pattern": {
+    name: "Service Pattern",
+    description: "Structuring business logic into focused, reusable service layers.",
+  },
+  "Clean Architecture": {
+    name: "Clean Architecture",
+    description:
+      "Layering business logic to keep systems maintainable, testable, and framework-independent.",
+  },
+  "Event Bus": {
+    name: "Event Bus",
+    description:
+      "Publish/subscribe backbone for decoupling components and driving async workflows.",
+  },
+  Caching: {
+    name: "Caching",
+    description:
+      "Storing frequently accessed data in memory to speed up reads and reduce load.",
+  },
+  "Distributed Locking": {
+    name: "Distributed Locking",
+    description:
+      "Coordinating access to shared resources across processes and instances.",
+  },
+  "Rate Limiting": {
+    name: "Rate Limiting",
+    description:
+      "Controlling request throughput to protect APIs from abuse and overload.",
+  },
+  "Circuit Breakers": {
+    name: "Circuit Breakers",
+    description:
+      "Failure-handling pattern that prevents cascading failures on repeated errors.",
+  },
   // From projects
   Redis: {
     name: "Redis",
@@ -170,6 +245,11 @@ export const allSkills = {
     name: "Mantine UI",
     description:
       "Accessible React component library with production-ready UI primitives.",
+  },
+  "Google OAuth": {
+    name: "Google OAuth",
+    description:
+      "Third-party authentication via Google's OAuth 2.0 for seamless sign-in.",
   },
   Compilers: {
     name: "Compilers",
