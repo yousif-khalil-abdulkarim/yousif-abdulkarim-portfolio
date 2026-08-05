@@ -5,7 +5,7 @@ import SkillBadge from "./skill-badge";
 import SkillCategoryModal from "./skill-category-modal";
 import ShowMoreButton from "./show-more-button";
 import { skills, uiSettings } from "@/data/projects";
-import type { Skill } from "@/data/projects";
+import type { Skill } from "@/data/all-skills";
 
 export default function SkillsSection() {
   const [activeCategory, setActiveCategory] = useState<{

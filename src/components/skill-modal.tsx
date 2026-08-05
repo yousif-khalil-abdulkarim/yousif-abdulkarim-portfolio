@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import type { Skill } from "@/data/projects";
+import type { Skill } from "@/data/all-skills";
 
 type SkillModalProps = {
   skill: Skill;

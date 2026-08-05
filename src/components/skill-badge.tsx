@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from "react";
 import SkillModal from "./skill-modal";
-import type { Skill } from "@/data/projects";
+import type { Skill } from "@/data/all-skills";
 
 type SkillBadgeProps = {
   skill: Skill;
