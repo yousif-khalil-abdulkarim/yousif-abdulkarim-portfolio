@@ -1,5 +1,5 @@
-import { allSkills } from "../all-skills";
-import type { PortfolioData } from "../types";
+import { allSkills } from "@/data/all-skills";
+import type { PortfolioData } from "@/data/types";
 // import imageUrl from "../../../public/portrait.jpg"
 
 export const mainPortfolio: PortfolioData = {

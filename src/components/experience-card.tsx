@@ -1,8 +1,8 @@
 "use client";
 
-import SkillBadge from "./skill-badge";
-import ViewMoreButton from "./view-more-button";
-import ExperienceModal from "./experience-modal";
+import SkillBadge from "@/components/skill-badge";
+import ViewMoreButton from "@/components/view-more-button";
+import ExperienceModal from "@/components/experience-modal";
 import type { Experience } from "@/data/types";
 
 type ExperienceCardProps = {

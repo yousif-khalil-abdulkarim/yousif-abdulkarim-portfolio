@@ -1,7 +1,7 @@
 "use client";
 
-import ViewMoreButton from "./view-more-button";
-import CertificateModal from "./certificate-modal";
+import ViewMoreButton from "@/components/view-more-button";
+import CertificateModal from "@/components/certificate-modal";
 import type { Certificate } from "@/data/types";
 
 type CertificateCardProps = {

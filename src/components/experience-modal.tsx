@@ -1,8 +1,8 @@
 "use client";
 
 import type { ReactElement } from "react";
-import StyledModal from "./styled-modal";
-import SkillBadge from "./skill-badge";
+import StyledModal from "@/components/styled-modal";
+import SkillBadge from "@/components/skill-badge";
 import type { Experience } from "@/data/types";
 
 type ExperienceModalProps = {

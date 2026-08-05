@@ -1,4 +1,4 @@
-import ThemeToggle from "./theme-toggle";
+import ThemeToggle from "@/components/theme-toggle";
 import type { PortfolioData } from "@/data/types";
 
 const navLinks = [

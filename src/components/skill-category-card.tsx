@@ -1,8 +1,8 @@
 "use client";
 
-import SkillBadge from "./skill-badge";
-import ShowMoreButton from "./show-more-button";
-import SkillCategoryModal from "./skill-category-modal";
+import SkillBadge from "@/components/skill-badge";
+import ShowMoreButton from "@/components/show-more-button";
+import SkillCategoryModal from "@/components/skill-category-modal";
 import type { Skill } from "@/data/all-skills";
 
 type SkillCategoryCardProps = {

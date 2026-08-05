@@ -1,5 +1,5 @@
 import { StaticImageData } from "next/image";
-import type { Skill } from "./all-skills";
+import type { Skill } from "@/data/all-skills";
 
 /**
  * Personal and professional information shown across the site (Hero, Navbar,

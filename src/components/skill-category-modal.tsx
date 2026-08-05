@@ -1,7 +1,7 @@
 "use client";
 
 import type { ReactElement } from "react";
-import StyledModal from "./styled-modal";
+import StyledModal from "@/components/styled-modal";
 import type { Skill } from "@/data/all-skills";
 
 type SkillCategoryModalProps = {

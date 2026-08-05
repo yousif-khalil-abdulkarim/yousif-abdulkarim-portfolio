@@ -1,12 +1,12 @@
 import type { ComponentType } from "react";
-import Navbar from "./navbar";
-import Hero from "./hero";
-import About from "./about";
-import Experience from "./experience";
-import Projects from "./projects";
-import CertificatesSection from "./certificates-section";
-import Contact from "./contact";
-import Footer from "./footer";
+import Navbar from "@/components/navbar";
+import Hero from "@/components/hero";
+import About from "@/components/about";
+import Experience from "@/components/experience";
+import Projects from "@/components/projects";
+import CertificatesSection from "@/components/certificates-section";
+import Contact from "@/components/contact";
+import Footer from "@/components/footer";
 import type { PortfolioData, Section } from "@/data/types";
 
 const sectionComponents: Record<

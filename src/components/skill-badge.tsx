@@ -1,6 +1,6 @@
 "use client";
 
-import SkillModal from "./skill-modal";
+import SkillModal from "@/components/skill-modal";
 import type { Skill } from "@/data/all-skills";
 
 type SkillBadgeProps = {

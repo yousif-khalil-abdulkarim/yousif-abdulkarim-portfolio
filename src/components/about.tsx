@@ -1,5 +1,5 @@
-import SectionHeading from "./section-heading";
-import SkillsSection from "./skills-section";
+import SectionHeading from "@/components/section-heading";
+import SkillsSection from "@/components/skills-section";
 import type { PortfolioData } from "@/data/types";
 
 type AboutProps = {

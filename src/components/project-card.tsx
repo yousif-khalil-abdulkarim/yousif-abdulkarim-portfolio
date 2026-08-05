@@ -1,8 +1,8 @@
 "use client";
 
-import SkillBadge from "./skill-badge";
-import ViewMoreButton from "./view-more-button";
-import ProjectModal from "./project-modal";
+import SkillBadge from "@/components/skill-badge";
+import ViewMoreButton from "@/components/view-more-button";
+import ProjectModal from "@/components/project-modal";
 import type { Project } from "@/data/types";
 
 type ProjectCardProps = {

@@ -1,6 +1,6 @@
 "use client";
 
-import SkillCategoryCard from "./skill-category-card";
+import SkillCategoryCard from "@/components/skill-category-card";
 import type { PortfolioData } from "@/data/types";
 
 type SkillsSectionProps = {

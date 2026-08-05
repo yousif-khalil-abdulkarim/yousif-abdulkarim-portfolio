@@ -1,5 +1,5 @@
-import SectionHeading from "./section-heading";
-import ContactCard from "./contact-card";
+import SectionHeading from "@/components/section-heading";
+import ContactCard from "@/components/contact-card";
 import { FaGithub, FaLinkedin, FaXTwitter, FaYoutube } from "react-icons/fa6";
 import type { PortfolioData } from "@/data/types";
 

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { FaGithub, FaLinkedin, FaXTwitter, FaYoutube } from "react-icons/fa6";
-import Marquee from "./marquee";
+import Marquee from "@/components/marquee";
 import type { PortfolioData } from "@/data/types";
 
 type HeroProps = {

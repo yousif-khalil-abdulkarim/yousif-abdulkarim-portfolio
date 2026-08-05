@@ -1,7 +1,7 @@
 import { mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { allPortfolios } from "../data/portfolios";
-import { renderResumePdf, resumeFileName } from "../lib/pdf-resume";
+import { allPortfolios } from "@/data/portfolios";
+import { renderResumePdf, resumeFileName } from "@/lib/pdf-resume";
 
 // Output directory relative to the project root (scripts run from the repo root).
 const outputDir = resolve(process.cwd(), "public/resumes");

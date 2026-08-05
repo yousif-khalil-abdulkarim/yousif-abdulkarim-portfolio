@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import SectionHeading from "./section-heading";
-import CertificateCard from "./certificate-card";
-import ShowMoreButton from "./show-more-button";
+import SectionHeading from "@/components/section-heading";
+import CertificateCard from "@/components/certificate-card";
+import ShowMoreButton from "@/components/show-more-button";
 import type { PortfolioData } from "@/data/types";
 
 type CertificatesSectionProps = {
