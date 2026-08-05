@@ -20,14 +20,16 @@ const sectionComponents: Record<
 
 type PortfolioProps = {
   data: PortfolioData;
+  /** Optional link to a downloadable resume PDF, forwarded to the Hero. */
+  resumeHref?: string;
 };
 
-export default function Portfolio({ data }: PortfolioProps) {
+export default function Portfolio({ data, resumeHref }: PortfolioProps) {
   return (
     <>
       <Navbar data={data} />
       <main className="flex flex-1 flex-col">
-        <Hero data={data} />
+        <Hero data={data} resumeHref={resumeHref} />
         <About data={data} />
         {data.sectionOrder.map((section) => {
           const SectionComponent = sectionComponents[section];

@@ -3,9 +3,11 @@ import type { PortfolioData } from "@/data/types";
 
 type HeroProps = {
   data: PortfolioData;
+  /** Optional link to a downloadable resume PDF. Renders a "Resume" button when set. */
+  resumeHref?: string;
 };
 
-export default function Hero({ data }: HeroProps) {
+export default function Hero({ data, resumeHref }: HeroProps) {
   const { profile, skills, uiSettings } = data;
   const [firstName, ...rest] = profile.name.split(" ");
   const showPortfolioImage = uiSettings.showPortfolioImage;
@@ -106,6 +108,15 @@ export default function Hero({ data }: HeroProps) {
             >
               Get in touch
             </a>
+            {resumeHref && (
+              <a
+                href={resumeHref}
+                download
+                className="inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-white/60 px-7 py-3.5 text-sm font-semibold text-zinc-800 backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-white dark:border-zinc-700 dark:bg-zinc-900/60 dark:text-zinc-200 dark:hover:bg-zinc-900"
+              >
+                Resume
+              </a>
+            )}
           </div>
 
           <div
