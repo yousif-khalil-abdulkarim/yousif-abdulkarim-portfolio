@@ -67,7 +67,7 @@ function ModalContent({
             aria-hidden
             className="h-1.5 bg-linear-to-r from-blue-500 via-sky-500 to-amber-400"
           />
-          <div className="max-h-[75vh] overflow-y-auto p-6">
+          <div className="p-6">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <Dialog.Title className="font-display text-2xl font-bold tracking-tight">
@@ -98,7 +98,9 @@ function ModalContent({
                 </svg>
               </Dialog.CloseTrigger>
             </div>
-            {children}
+            <div className="max-h-[60vh] overflow-y-auto">
+              {children}
+            </div>
           </div>
         </Dialog.Content>
       </Dialog.Positioner>
