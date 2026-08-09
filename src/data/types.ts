@@ -156,6 +156,32 @@ export type AboutStat = {
 };
 
 /**
+ * Proficiency levels for spoken languages.
+ */
+export type LanguageLevel =
+  | "Native"
+  | "Fluent"
+  | "Advanced"
+  | "Proficient"
+  | "Intermediate"
+  | "Conversational"
+  | "Basic"
+  | "Beginner";
+
+/**
+ * A spoken language shown in the Languages section (e.g. "Arabic"), rendered
+ * before the Skills section in the About area.
+ */
+export type Language = {
+  /** When true, the language is filtered out and never rendered. */
+  hide: boolean;
+  /** Language name, e.g. "Arabic". */
+  name: string;
+  /** Proficiency level, e.g. "Native", "Fluent", "Intermediate". */
+  level: LanguageLevel;
+};
+
+/**
  * The sections whose order can be customized via `PortfolioData.sectionOrder`.
  */
 export type Section = "experience" | "projects" | "certificates";
@@ -179,6 +205,8 @@ export type PortfolioData = {
   aboutStats: AboutStat[];
   /** Order in which the Experience, Projects, and Certificates sections render on the page. */
   sectionOrder: Section[];
+  /** Spoken languages shown in the Languages section, rendered before Skills. */
+  languages: Language[];
   /** Skills grouped by category (e.g. Backend, Frontend), referencing the shared `allSkills` map. */
   skills: Record<string, Skill[]>;
 };

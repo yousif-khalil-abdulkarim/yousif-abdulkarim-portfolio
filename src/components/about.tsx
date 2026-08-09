@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import SectionHeading from "@/components/section-heading";
+import LanguagesSection from "@/components/languages-section";
 import SkillsSection from "@/components/skills-section";
 import type { PortfolioData } from "@/data/types";
 
@@ -79,6 +80,9 @@ export default function About({ data }: AboutProps) {
         )}
       </div>
 
+      <div className="mt-10">
+        <LanguagesSection data={data} />
+      </div>
       <div className="mt-10">
         <SkillsSection data={data} />
       </div>

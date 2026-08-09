@@ -248,9 +248,13 @@ export const mainPortfolio: PortfolioData = {
     { hide: false, value: "4+", label: "Years of experience" },
     { hide: false, value: "8+", label: "Years of programming" },
     { hide: false, value: "30K+", label: "Lines of code shipped" },
-    { hide: false, value: "600+", label: "Monthly community users" },
+    // { hide: false, value: "600+", label: "Monthly community users" },
   ],
   sectionOrder: ["experience", "projects", "certificates"],
+  languages: [
+    { hide: false, name: "English", level: "Fluent" },
+    { hide: false, name: "Swedish", level: "Native" },
+  ],
   skills: {
     Backend: [
       allSkills["TypeScript"],
