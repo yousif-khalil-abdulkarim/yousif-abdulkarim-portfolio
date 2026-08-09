@@ -14,7 +14,7 @@ export default function LanguagesSection({ data }: LanguagesSectionProps) {
       <h3 className="font-mono text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
         Languages
       </h3>
-      <div className="mt-4 grid gap-4 grid-cols-[repeat(auto-fit,minmax(220px,1fr))]">
+      <div className="mt-4 grid gap-4 grid-cols-[repeat(auto-fit,minmax(13.75rem,1fr))]">
         {visibleLanguages.map((language) => (
           <div
             key={language.name}

@@ -98,7 +98,7 @@ function ModalContent({
                 </svg>
               </Dialog.CloseTrigger>
             </div>
-            <div className="max-h-[60vh] overflow-y-auto">
+            <div className="max-h-[40rem] overflow-y-auto">
               {children}
             </div>
           </div>

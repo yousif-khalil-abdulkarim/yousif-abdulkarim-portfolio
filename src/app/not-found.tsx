@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function NotFound() {
   return (
-    <section className="relative flex min-h-[70vh] flex-1 flex-col items-center justify-center overflow-hidden px-6 py-24">
+    <section className="relative flex min-h-[35rem] flex-1 flex-col items-center justify-center overflow-hidden px-6 py-24">
       {/* background decorations */}
       <div
         aria-hidden
