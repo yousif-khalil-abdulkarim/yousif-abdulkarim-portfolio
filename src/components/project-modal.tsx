@@ -3,6 +3,7 @@
 import type { ReactElement } from "react";
 import StyledModal from "@/components/styled-modal";
 import SkillBadge from "@/components/skill-badge";
+import ProofBadge from "@/components/proof-badge";
 import type { Project } from "@/data/types";
 
 type ProjectModalProps = {
@@ -28,6 +29,21 @@ export default function ProjectModal({ project, trigger }: ProjectModalProps) {
             ))}
           </ul>
         </>
+      )}
+
+      {project.proof && (
+        <div className="mt-6">
+          <h4 className="font-mono text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+            Proof
+          </h4>
+          <ul className="mt-3 flex flex-wrap gap-2">
+            {project.proof.map((item) => (
+              <li key={item}>
+                <ProofBadge label={item} />
+              </li>
+            ))}
+          </ul>
+        </div>
       )}
 
       <div className="mt-6">

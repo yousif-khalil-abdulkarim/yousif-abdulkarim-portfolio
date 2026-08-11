@@ -1,6 +1,7 @@
 "use client";
 
 import SkillBadge from "@/components/skill-badge";
+import ProofBadge from "@/components/proof-badge";
 import ViewMoreButton from "@/components/view-more-button";
 import ExperienceModal from "@/components/experience-modal";
 import type { Experience } from "@/data/types";
@@ -11,7 +12,7 @@ type ExperienceCardProps = {
 
 export default function ExperienceCard({ job }: ExperienceCardProps) {
   return (
-    <div className="relative">
+    <div className="group relative">
       <span
         aria-hidden
         className="absolute left-[-2.45rem] top-1.5 h-4 w-4 rounded-full border-2 border-sky-500 bg-white dark:bg-zinc-950"
@@ -39,7 +40,34 @@ export default function ExperienceCard({ job }: ExperienceCardProps) {
           ))}
         </ul>
       )}
-      <ExperienceModal job={job} trigger={<ViewMoreButton className="mt-4" />} />
+      {job.proof && (
+        <ul className="mt-3 flex flex-wrap gap-2">
+          {job.proof.map((item) => (
+            <li key={item}>
+              <ProofBadge label={item} />
+            </li>
+          ))}
+        </ul>
+      )}
+      <div className="mt-5 flex flex-wrap items-center gap-4">
+        <ExperienceModal job={job} trigger={<ViewMoreButton />} />
+        {job.liveUrl && (
+          <a
+            href={job.liveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-zinc-900 transition-colors hover:text-sky-600 dark:text-zinc-100 dark:hover:text-sky-400"
+          >
+            Live site{" "}
+            <span
+              aria-hidden
+              className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            >
+              ↗
+            </span>
+          </a>
+        )}
+      </div>
     </div>
   );
 }

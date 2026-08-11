@@ -1,6 +1,6 @@
 import { allSkills } from "@/data/all-skills";
 import type { PortfolioData } from "@/data/types";
-import imageUrl from "../../../public/portrait.jpg"
+import imageUrl from "../../../public/portrait.jpg";
 
 export const mainPortfolio: PortfolioData = {
   profile: {
@@ -123,6 +123,7 @@ export const mainPortfolio: PortfolioData = {
         allSkills["Adapter Pattern"],
         allSkills["Modular Monoliths"],
       ],
+      liveUrl: "https://eridu-tech.io",
     },
     {
       hide: false,

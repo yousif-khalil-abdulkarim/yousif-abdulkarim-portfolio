@@ -97,6 +97,8 @@ export type Project = {
   liveUrl?: string;
   /** Optional link to the source repository. Renders a "Source ↗" link. */
   repoUrl?: string;
+  /** Optional proof / evidence of the work (e.g. metrics), rendered as accent badges. */
+  proof?: string[];
 };
 
 /**
@@ -118,6 +120,10 @@ export type Experience = {
   stack?: Skill[];
   /** Optional longer paragraph shown in the "View more" modal. */
   summary?: string;
+  /** Optional link to a live deployment / site. Renders a "Live site ↗" link. */
+  liveUrl?: string;
+  /** Optional proof / evidence of the work (e.g. metrics), rendered as accent badges. */
+  proof?: string[];
 };
 
 /**

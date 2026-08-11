@@ -1,6 +1,7 @@
 "use client";
 
 import SkillBadge from "@/components/skill-badge";
+import ProofBadge from "@/components/proof-badge";
 import ViewMoreButton from "@/components/view-more-button";
 import ProjectModal from "@/components/project-modal";
 import type { Project } from "@/data/types";
@@ -42,6 +43,15 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             </li>
           ))}
         </ul>
+        {project.proof && (
+          <ul className="mt-3 flex flex-wrap gap-2">
+            {project.proof.map((item) => (
+              <li key={item}>
+                <ProofBadge label={item} />
+              </li>
+            ))}
+          </ul>
+        )}
         <div className="mt-5 flex flex-wrap items-center gap-4">
           <ProjectModal project={project} trigger={<ViewMoreButton />} />
           {project.liveUrl && (
