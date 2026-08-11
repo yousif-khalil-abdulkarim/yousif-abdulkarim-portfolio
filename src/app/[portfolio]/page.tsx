@@ -17,9 +17,7 @@ export async function generateMetadata({
   params,
 }: PortfolioPageProps): Promise<Metadata> {
   const { portfolio } = await params;
-  const data = allPortfolios[portfolio as keyof typeof allPortfolios];
-  if (!data) return { title: "Portfolio not found" };
-  return portfolioMetadata(data);
+  return portfolioMetadata(allPortfolios[portfolio]);
 }
 
 export default async function PortfolioPage({
