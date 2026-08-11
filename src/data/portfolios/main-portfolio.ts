@@ -17,11 +17,16 @@ export const mainPortfolio: PortfolioData = {
       { text: "." },
     ],
     aboutSubtitle:
-      "Backend software engineer focused on building scalable, sustainable systems.",
+      "Backend platform engineer building modular, production-grade systems — from full-stack web applications to distributed infrastructure tooling used by 600+ monthly developers.",
     bio: [
       [
         {
-          text: "Backend platform engineer with 4+ years of professional experience. I build modular, production-grade systems—from full-stack web applications to distributed infrastructure tooling used by 600+ monthly developers. I'm the founder and lead maintainer of eridu-tech, an open-source TypeScript toolkit for caching, rate limiting, circuit breakers, and multi-runtime adapters.",
+          text: "Backend platform engineer with 4+ years of professional experience and 8+ years of programming. I design and build modular, production-grade systems — from full-stack web applications to distributed infrastructure tooling — grounded in modular monoliths, domain-decoupled architecture, and clean architecture.",
+        },
+      ],
+      [
+        {
+          text: "Founder and lead maintainer of eridu-tech, an open-source TypeScript backend toolkit used by 600+ monthly developers. It ships reusable primitives for caching, rate limiting, distributed locking, circuit breakers, and event buses behind adapter patterns that run across Node.js, Bun, Deno, serverless, and edge runtimes — with 30K+ lines of shipped TypeScript and 100K+ total source lines.",
         },
       ],
     ],
@@ -54,12 +59,13 @@ export const mainPortfolio: PortfolioData = {
       hide: false,
       title: "Outstanding Resumes",
       description:
-        "A modular resume-building platform engineered for 'majestic monoliths' — adapter & service patterns, Google OAuth, and optimistic UI updates with tRPC and React Query.",
+        "A modular resume-building platform engineered as a 'majestic monolith' — business logic organized into adapter and service patterns, end-to-end type-safe APIs with tRPC, optimistic UI updates via React Query, Google OAuth authentication, MongoDB persistence, and accessible UI built with Mantine UI.",
       highlights: [
-        "Modular 'majestic monolith' architecture using adapter and service patterns.",
-        "Seamless registration via Google OAuth.",
-        "Optimistic UI updates powered by tRPC and React Query.",
-        "Designed for long-lived, sustainable codebases over distributed complexity.",
+        "Architected as a modular 'majestic monolith' using adapter and service patterns for a long-lived, sustainable codebase.",
+        "Implemented seamless registration and authentication via Google OAuth.",
+        "Built end-to-end type-safe APIs with tRPC and optimistic UI updates with React Query.",
+        "Modeled data with MongoDB and shipped accessible UI components with Mantine UI.",
+        "Deliberately favored a single deployable monolith over distributed complexity to stay simple to operate and evolve.",
       ],
       tech: [
         allSkills["Next.js"],
@@ -78,11 +84,11 @@ export const mainPortfolio: PortfolioData = {
       hide: false,
       title: "The Primitive Language",
       description:
-        "A custom programming language built from scratch with a TypeScript-based interpreter and a recursive descent parser.",
+        "A custom programming language built from scratch — a TypeScript-based interpreter paired with a from-scratch recursive descent parser, exploring compiler and parsing fundamentals end to end.",
       highlights: [
-        "Custom programming language with a TypeScript-based interpreter.",
-        "Recursive descent parser built from scratch.",
-        "Hands-on exploration of compiler and parsing fundamentals.",
+        "Designed and built a custom programming language with a TypeScript-based interpreter.",
+        "Implemented a recursive descent parser from scratch, covering grammar design, parsing, and evaluation.",
+        "Explored compiler and interpreter internals end to end to deepen understanding of language tooling.",
       ],
       tech: [
         allSkills["TypeScript"],
@@ -99,14 +105,14 @@ export const mainPortfolio: PortfolioData = {
       company: "eridu-tech (Open Source)",
       period: "Aug 2024 — Present",
       summary:
-        "Open-source, framework-agnostic backend toolkit. Designed a modular, composable architecture based on the adapter pattern, enabling seamless integration across Node.js, Bun, and Deno runtimes while serving a community of roughly 600 monthly users.",
+        "Open-source, framework-agnostic backend toolkit for modular monoliths. Designed a modular, composable architecture based on the adapter pattern, unifying caching, rate limiting, distributed locking, circuit breakers, and an event bus behind common interfaces that run across Node.js, Bun, Deno, serverless, and edge — serving a community of roughly 600 monthly developers.",
       points: [
         "Architect and maintain a framework-agnostic backend library ecosystem — 30K+ lines of shipped TypeScript and 100K+ total source lines.",
         "Design a modular, composable architecture based on the adapter pattern, integrating across Node.js, Bun, Deno, serverless, and edge runtimes.",
-        "Build and ship reusable backend components for modular monoliths: HTTP routing, caching, distributed locking, rate limiting, circuit breakers, and an event bus.",
-        "Engineer runtime and database integrations across PostgreSQL, MongoDB, MySQL, SQLite, and Redis.",
-        "Deliver comprehensive unit, integration, and database tests with Docker-based CI/CD, serving ~600 monthly users.",
-        "Author and maintain developer documentation for a community of roughly 600 monthly users.",
+        "Build and ship reusable backend primitives for modular monoliths: HTTP routing, caching, distributed locking, rate limiting, circuit breakers, and an event bus.",
+        "Engineer runtime- and database-agnostic integrations across PostgreSQL, MongoDB, MySQL, SQLite, and Redis.",
+        "Deliver comprehensive unit, integration, and database tests with Docker-based CI/CD via GitHub Actions, serving ~600 monthly users.",
+        "Author and maintain developer documentation and API guides for a community of roughly 600 monthly users.",
       ],
       stack: [
         allSkills["TypeScript"],
@@ -124,6 +130,12 @@ export const mainPortfolio: PortfolioData = {
         allSkills["Modular Monoliths"],
       ],
       liveUrl: "https://eridu-tech.io",
+      proof: [
+        "30K+ lines of TypeScript shipped",
+        "100K+ total source lines",
+        "600+ monthly users",
+        "Runs on Node, Bun, Deno, serverless & edge",
+      ],
     },
     {
       hide: false,
@@ -131,11 +143,12 @@ export const mainPortfolio: PortfolioData = {
       company: "FillerDepot",
       period: "Oct 2025 — Present",
       summary:
-        "Led the end-to-end full-stack development of the AMS Portal — a centralized modular monolith automating event registration for aesthetic medicine companies, replacing a high-risk manual email workflow.",
+        "Led end-to-end full-stack development of the AMS Portal — a centralized modular monolith automating event registration for aesthetic medicine companies, replacing a high-risk, manual email workflow prone to data loss and booking conflicts.",
       points: [
-        "Spearhead end-to-end full-stack development of the AMS Portal — a modular monolith automating event registration for aesthetic medicine companies.",
+        "Lead end-to-end full-stack development of the AMS Portal — a modular monolith automating event registration for aesthetic medicine companies.",
         "Digitized booth reservations, marketing assets, and stage appointments, eliminating data loss and booking conflicts.",
         "Integrated automated invoicing, order tracking, and real-time inventory management for clients and internal teams.",
+        "Built the platform with Next.js, Payload CMS, TanStack Start, TanStack Query, TypeScript, and PostgreSQL, deployed and operated on a VPS with Docker, Nginx, and SSH.",
       ],
       stack: [
         allSkills["TypeScript"],
@@ -151,6 +164,11 @@ export const mainPortfolio: PortfolioData = {
         allSkills["SSH"],
         allSkills["VPS"],
       ],
+      proof: [
+        "Replaced a manual email workflow",
+        "Eliminated data loss & booking conflicts",
+        "Real-time inventory & automated invoicing",
+      ],
     },
     {
       hide: false,
@@ -158,11 +176,12 @@ export const mainPortfolio: PortfolioData = {
       company: "Stride — Shopify Select Partner",
       period: "Aug 2025 — Oct 2025",
       summary:
-        "Worked within a three-person team at a Shopify Select Partner agency, owning independent features and projects end to end — from Liquid templating to React-based chat widget integrations for client CRMs.",
+        "Worked within a three-person team at a Shopify Select Partner agency, owning independent features and projects end to end — from Liquid templating and Shopify storefront development to React-based chat widget integrations for client CRMs.",
       points: [
-        "Worked within a three-person team, taking full ownership of independent tasks and features.",
-        "Developed pagination and contact filtering using the Liquid templating language.",
+        "Took end-to-end ownership of independent features and projects within a three-person team at a Shopify Select Partner agency.",
+        "Implemented pagination and contact filtering using Liquid templating for Shopify storefronts.",
         "Engineered a React-based chat widget and integrated it into a customer's CRM.",
+        "Built storefront functionality with JavaScript, TypeScript, React, and Remix within the Shopify ecosystem.",
       ],
       stack: [
         allSkills["Liquid"],
@@ -173,6 +192,11 @@ export const mainPortfolio: PortfolioData = {
         allSkills["Shopify"],
         allSkills["CSS"],
       ],
+      proof: [
+        "React chat widget shipped into client CRMs",
+        "Liquid pagination & contact filtering on Shopify",
+        "Shopify Select Partner agency — 3-person team",
+      ],
     },
     {
       hide: false,
@@ -180,10 +204,11 @@ export const mainPortfolio: PortfolioData = {
       company: "Greentake",
       period: "Mar 2024 — Aug 2025",
       summary:
-        "Built a custom e-commerce platform tailored to client requirements, featuring a fully integrated CMS, secure authentication, automated email invoicing, and SEO-optimized, mobile-first design.",
+        "Built a custom e-commerce platform tailored to client requirements on a headless commerce stack — fully integrated CMS, secure authentication, automated email invoicing, and SEO-optimized, mobile-first design.",
       points: [
-        "Built a custom e-commerce platform tailored to client requirements, with a fully integrated CMS.",
+        "Built a custom e-commerce platform tailored to client requirements using Next.js, NestJS, and the Vendure headless commerce framework.",
         "Implemented secure user authentication and an automated email invoicing system for checkout and payments.",
+        "Exposed e-commerce data through a GraphQL API backed by PostgreSQL, containerized with Docker.",
         "Drove organic traffic and engagement through responsive, mobile-first design and robust SEO.",
       ],
       stack: [
@@ -205,11 +230,12 @@ export const mainPortfolio: PortfolioData = {
       company: "Bionamic AB",
       period: "Jan 2024 — Dec 2024",
       summary:
-        "Performed a comprehensive performance analysis of WebAssembly versus JavaScript for the Bionamic SaaS platform, benchmarking algorithmic execution to guide optimization strategy.",
+        "Conducted a comprehensive performance analysis of WebAssembly versus JavaScript for the Bionamic SaaS platform, benchmarking algorithmic execution to guide optimization strategy.",
       points: [
-        "Conducted a comprehensive performance analysis comparing WebAssembly and JavaScript to evaluate optimization strategies for the Bionamic SaaS platform.",
-        "Benchmarked algorithmic performance, proving C-compiled WebAssembly ran common algorithms 5–91% faster than JavaScript.",
+        "Designed and executed a benchmark suite comparing WebAssembly and JavaScript to evaluate optimization strategies for the Bionamic SaaS platform.",
+        "Proved through controlled benchmarking that C-compiled WebAssembly ran common algorithms 5–91% faster than JavaScript.",
         "Demonstrated that AssemblyScript provided conditional performance gains depending on the use case.",
+        "Analyzed and visualized benchmark results with Python, Pandas, and Matplotlib to inform optimization decisions.",
       ],
       stack: [
         allSkills["C"],
@@ -227,11 +253,12 @@ export const mainPortfolio: PortfolioData = {
       company: "Bionamic AB",
       period: "Sep 2023 — Jan 2024",
       summary:
-        "Led a five-person team in building a REST API client and SDK for Bionamic's antibody research SaaS platform, guiding technical strategy and mentoring on event-sourcing architecture.",
+        "Led a five-person team building a REST API client and SDK for Bionamic's antibody research SaaS platform, guiding technical strategy and mentoring the team on event-sourcing architecture.",
       points: [
         "Directed a five-person team building a REST API client and SDK for Bionamic, a SaaS platform driving antibody research.",
         "Guided technical strategy and stack selection, bridging the team's Java background with JavaScript/TypeScript expertise.",
         "Mentored the team on event-sourcing architecture to ensure successful implementation.",
+        "Shipped the client library in TypeScript on Node.js and Express, consuming Bionamic's REST API.",
       ],
       stack: [
         allSkills["REST APIs"],
