@@ -51,6 +51,8 @@ export type Profile = {
   twitter?: string;
   /** Optional YouTube channel URL. Social icon is hidden when absent. */
   youtube?: string;
+  /** Optional blog URL. */
+  blog?: string;
 };
 
 /**

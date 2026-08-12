@@ -1,6 +1,6 @@
 import SectionHeading from "@/components/section-heading";
 import ContactCard from "@/components/contact-card";
-import { FaGithub, FaLinkedin, FaXTwitter, FaYoutube } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaXTwitter, FaYoutube, FaBlog } from "react-icons/fa6";
 import type { PortfolioData } from "@/data/types";
 
 type ContactProps = {
@@ -47,6 +47,14 @@ export default function Contact({ data }: ContactProps) {
             label="X (Twitter)"
             subtitle="Follow along"
             icon={<FaXTwitter className="h-5 w-5" />}
+          />
+        )}
+        {profile.blog && (
+          <ContactCard
+            href={profile.blog}
+            label="Blog"
+            subtitle="Writing & updates"
+            icon={<FaBlog className="h-5 w-5" />}
           />
         )}
         {profile.youtube && (

@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import Image from "next/image";
-import { FaGithub, FaLinkedin, FaXTwitter, FaYoutube } from "react-icons/fa6";
+import { FaGithub, FaLinkedin, FaXTwitter, FaYoutube, FaBlog } from "react-icons/fa6";
 import Marquee from "@/components/marquee";
 import type { PortfolioData } from "@/data/types";
 
@@ -178,6 +178,17 @@ export default function Hero({ data, resumeHref }: HeroProps) {
                 className="transition-all hover:-translate-y-0.5 hover:text-zinc-950 dark:hover:text-zinc-50"
               >
                 <FaYoutube className="h-6 w-6" />
+              </a>
+            )}
+            {profile.blog && (
+              <a
+                href={profile.blog}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Blog"
+                className="transition-all hover:-translate-y-0.5 hover:text-zinc-950 dark:hover:text-zinc-50"
+              >
+                <FaBlog className="h-5 w-5" />
               </a>
             )}
           </div>
