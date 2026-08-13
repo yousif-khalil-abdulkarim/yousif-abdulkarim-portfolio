@@ -1,7 +1,7 @@
 "use client";
 
 import SkillBadge from "@/components/skill-badge";
-import ProofBadge from "@/components/proof-badge";
+import ProofBadges from "@/components/proof-badges";
 import ViewMoreButton from "@/components/view-more-button";
 import ProjectModal from "@/components/project-modal";
 import type { Project } from "@/data/types";
@@ -9,9 +9,14 @@ import type { Project } from "@/data/types";
 type ProjectCardProps = {
   project: Project;
   index: number;
+  proofLimit: number;
 };
 
-export default function ProjectCard({ project, index }: ProjectCardProps) {
+export default function ProjectCard({
+  project,
+  index,
+  proofLimit,
+}: ProjectCardProps) {
   return (
     <article className="group relative">
       <div className="relative flex h-full flex-col rounded-2xl border border-zinc-200 bg-white p-6 transition-all hover:-translate-y-0.5 hover:border-sky-500 hover:shadow-lg hover:shadow-sky-500/10 dark:border-zinc-800 dark:bg-zinc-950">
@@ -43,15 +48,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             </li>
           ))}
         </ul>
-        {project.proof && (
-          <ul className="mt-3 flex flex-wrap gap-2">
-            {project.proof.map((item) => (
-              <li key={item}>
-                <ProofBadge label={item} />
-              </li>
-            ))}
-          </ul>
-        )}
+        {project.proof && <ProofBadges items={project.proof} limit={proofLimit} />}
         <div className="mt-5 flex flex-wrap items-center gap-4">
           <ProjectModal project={project} trigger={<ViewMoreButton />} />
           {project.liveUrl && (

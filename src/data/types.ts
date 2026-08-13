@@ -8,7 +8,7 @@ import type { Skill } from "@/data/all-skills";
 export type BioText = {
   text: string;
   /** Whether to render this run with emphasis styling. */
-  emphasis?: boolean;
+  emphasis: boolean | null;
 };
 
 /** One paragraph of the About bio, composed of styled text runs. */
@@ -40,19 +40,19 @@ export type Profile = {
   /** Public contact phone number (shown as a tel: link in Contact). */
   phone: string;
   /** Optional floating stat badge shown over the portrait in the Hero, e.g. { value: "4+ years", label: "full-stack experience" }. Hidden when unset. */
-  heroBadge?: { value: string; label: string };
+  heroBadge: { value: string; label: string } | null;
   /** Optional portrait image (Next.js static import) shown in the Hero. The portrait column is hidden when unset. */
-  image?: StaticImageData;
+  image: StaticImageData | null;
   /** Optional GitHub profile URL. Social icon is hidden when absent. */
-  github?: string;
+  github: string | null;
   /** Optional LinkedIn profile URL. Social icon is hidden when absent. */
-  linkedin?: string;
+  linkedin: string | null;
   /** Optional X (Twitter) profile URL. Social icon is hidden when absent. */
-  twitter?: string;
+  twitter: string | null;
   /** Optional YouTube channel URL. Social icon is hidden when absent. */
-  youtube?: string;
+  youtube: string | null;
   /** Optional blog URL. */
-  blog?: string;
+  blog: string | null;
 };
 
 /**
@@ -73,6 +73,10 @@ export type UiSettings = {
     skills: number;
     /** Max Certificates shown before "Show more". */
     certificates: number;
+    /** Max proof badges shown per entry before "Show more". */
+    proofLimit: number;
+    /** Max bullet points shown per experience entry before "Show more". */
+    pointsLimit: number;
   };
 };
 
@@ -92,15 +96,15 @@ export type Project = {
   /** Timeframe or year, e.g. "2024 — Present". */
   year: string;
   /** Marks the project as a highlight with a "★ Featured" badge. */
-  featured?: boolean;
+  featured: boolean | null;
   /** Bullet points of notable achievements, shown in the "View more" modal. */
-  highlights?: string[];
+  highlights: string[] | null;
   /** Optional link to a live deployment. Renders a "Live demo ↗" link. */
-  liveUrl?: string;
+  liveUrl: string | null;
   /** Optional link to the source repository. Renders a "Source ↗" link. */
-  repoUrl?: string;
+  repoUrl: string | null;
   /** Optional proof / evidence of the work (e.g. metrics), rendered as accent badges. */
-  proof?: string[];
+  proof: string[] | null;
 };
 
 /**
@@ -119,13 +123,13 @@ export type Experience = {
   /** Bullet points of responsibilities and achievements shown on the timeline. */
   points: string[];
   /** Technologies used, referencing entries from the shared `allSkills` map. Rendered as SkillBadges. */
-  stack?: Skill[];
+  stack: Skill[] | null;
   /** Optional longer paragraph shown in the "View more" modal. */
-  summary?: string;
+  summary: string | null;
   /** Optional link to a live deployment / site. Renders a "Live site ↗" link. */
-  liveUrl?: string;
+  liveUrl: string | null;
   /** Optional proof / evidence of the work (e.g. metrics), rendered as accent badges. */
-  proof?: string[];
+  proof: string[] | null;
 };
 
 /**
@@ -144,11 +148,11 @@ export type Certificate = {
   /** Description of what the certificate covers, shown in the modal. */
   description: string;
   /** Optional URL to verify the credential. Renders a "Verify credential ↗" link. */
-  credentialUrl?: string;
+  credentialUrl: string | null;
   /** Optional credential / verification ID shown in the modal. */
-  credentialId?: string;
+  credentialId: string | null;
   /** Related skills, referencing the shared `allSkills` map. Rendered as SkillBadges in the modal. */
-  skills?: Skill[];
+  skills: Skill[] | null;
 };
 
 /**

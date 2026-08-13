@@ -36,6 +36,8 @@ export default function Experience({ data }: ExperienceProps) {
           <ExperienceCard
             key={`${job.role}-${job.company}`}
             job={job}
+            proofLimit={uiSettings.sectionLimits.proofLimit}
+            pointsLimit={uiSettings.sectionLimits.pointsLimit}
           />
         ))}
       </div>

@@ -33,7 +33,12 @@ export default function Projects({ data }: ProjectsProps) {
       />
       <div className="mt-12 grid gap-6 md:grid-cols-2">
         {visible.map((project, i) => (
-          <ProjectCard key={project.title} project={project} index={i} />
+          <ProjectCard
+            key={project.title}
+            project={project}
+            index={i}
+            proofLimit={uiSettings.sectionLimits.proofLimit}
+          />
         ))}
       </div>
       {hasMore && (

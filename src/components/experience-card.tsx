@@ -1,16 +1,23 @@
 "use client";
 
 import SkillBadge from "@/components/skill-badge";
-import ProofBadge from "@/components/proof-badge";
+import ProofBadges from "@/components/proof-badges";
+import PointsList from "@/components/points-list";
 import ViewMoreButton from "@/components/view-more-button";
 import ExperienceModal from "@/components/experience-modal";
 import type { Experience } from "@/data/types";
 
 type ExperienceCardProps = {
   job: Experience;
+  proofLimit: number;
+  pointsLimit: number;
 };
 
-export default function ExperienceCard({ job }: ExperienceCardProps) {
+export default function ExperienceCard({
+  job,
+  proofLimit,
+  pointsLimit,
+}: ExperienceCardProps) {
   return (
     <div className="group relative">
       <span
@@ -26,11 +33,7 @@ export default function ExperienceCard({ job }: ExperienceCardProps) {
         </h3>
         <span className="font-mono text-xs text-zinc-400">{job.period}</span>
       </div>
-      <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-7 text-zinc-600 marker:text-sky-400 dark:text-zinc-400">
-        {job.points.map((point) => (
-          <li key={point}>{point}</li>
-        ))}
-      </ul>
+      <PointsList items={job.points} limit={pointsLimit} />
       {job.stack && (
         <ul className="mt-3 flex flex-wrap gap-2">
           {job.stack.map((tech) => (
@@ -40,15 +43,7 @@ export default function ExperienceCard({ job }: ExperienceCardProps) {
           ))}
         </ul>
       )}
-      {job.proof && (
-        <ul className="mt-3 flex flex-wrap gap-2">
-          {job.proof.map((item) => (
-            <li key={item}>
-              <ProofBadge label={item} />
-            </li>
-          ))}
-        </ul>
-      )}
+      {job.proof && <ProofBadges items={job.proof} limit={proofLimit} />}
       <div className="mt-5 flex flex-wrap items-center gap-4">
         <ExperienceModal job={job} trigger={<ViewMoreButton />} />
         {job.liveUrl && (
