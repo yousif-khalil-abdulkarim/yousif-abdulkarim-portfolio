@@ -248,6 +248,8 @@ export function ResumeDocument({ data }: { data: PortfolioData }) {
                   certs={visibleCertificates}
                 />
               );
+            case "writings":
+              return null;
           }
         })}
       </Page>

@@ -15,7 +15,7 @@ export default function Contact({ data }: ContactProps) {
       className="mx-auto w-full max-w-5xl scroll-mt-20 px-6 py-24"
     >
       <SectionHeading
-        index="05"
+        index="06"
         title="Get in touch"
         subtitle="Have a project in mind, an opportunity to discuss, or just want to say hi? Reach out through any channel below."
       />

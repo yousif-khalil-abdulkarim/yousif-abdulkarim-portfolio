@@ -168,6 +168,21 @@ export type AboutStat = {
 };
 
 /**
+ * A technical writing / write-up shown in the Technical Writings section,
+ * with a short description of what it covers and a link to the full article.
+ */
+export type TechnicalWriting = {
+  /** When true, the post is filtered out and never rendered. */
+  hide: boolean;
+  /** Writing title, e.g. "Why I Built Eridu Tech". */
+  title: string;
+  /** Short summary of what the writing is about. */
+  description: string;
+  /** Link to the full writing. */
+  url: string;
+};
+
+/**
  * Proficiency levels for spoken languages.
  */
 export type LanguageLevel =
@@ -196,7 +211,7 @@ export type Language = {
 /**
  * The sections whose order can be customized via `PortfolioData.sectionOrder`.
  */
-export type Section = "experience" | "projects" | "certificates";
+export type Section = "experience" | "projects" | "certificates" | "writings";
 
 /**
  * Single source of truth for all portfolio data — one type, one object.
@@ -213,6 +228,8 @@ export type PortfolioData = {
   experience: Experience[];
   /** Certifications shown in the Certificates section. */
   certificates: Certificate[];
+  /** Technical writings shown in the Technical Writings section. */
+  technicalWritings: TechnicalWriting[];
   /** Quick-fact stats shown in the About section. */
   aboutStats: AboutStat[];
   /** Order in which the Experience, Projects, and Certificates sections render on the page. */

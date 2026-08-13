@@ -141,7 +141,7 @@ export const mainPortfolio: PortfolioData = {
       summary:
         "After seeing teams constantly rebuild the same core capabilities across different frameworks and runtimes, I founded eridu-tech to provide a unified backend foundation. Owning product direction, architecture, DX, and delivery, I’ve grown it to serve 600+ monthly developers.",
       points: [
-        "Founded and maintain an open-source TypeScript backend toolkit to eliminate redundant infrastructure engineering, now adopted by 600+ monthly developers.",
+        "Founded and maintain an open-source TypeScript backend application & infrastructure foundation library to eliminate redundant infrastructure engineering, now adopted by 600+ monthly developers.",
         "Reduced portability friction by designing an adapter-first architecture that lets the same components run across Node.js, Bun, Deno, serverless, and edge environments.",
         "Reduced test setup overhead by adding in-memory adapters, allowing many integration scenarios to run without Docker while preserving the same component contracts.",
         "Replaced repeated implementations of common infrastructure with reusable caching, rate limiting, distributed locking, circuit breakers, and event-bus components exposed through stable adapter interfaces.",
@@ -384,6 +384,15 @@ export const mainPortfolio: PortfolioData = {
       proof: null,
     },
   ],
+  technicalWritings: [
+    {
+      hide: false,
+      title: "Why I Built Eridu Tech",
+      description:
+        "The story behind founding an open-source backend application & infrastructure foundation library — why teams keep rebuilding the same infrastructure and how an adapter-first design fixes it.",
+      url: "https://www.eridu-tech.io/blog/2026-08-06-announcing-eridu-tech",
+    },
+  ],
   certificates: [],
-  sectionOrder: ["experience", "projects", "certificates"],
+  sectionOrder: ["experience", "writings", "projects", "certificates"],
 };
