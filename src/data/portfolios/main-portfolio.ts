@@ -139,13 +139,13 @@ export const mainPortfolio: PortfolioData = {
       company: "eridu-tech (Open Source)",
       period: "Aug 2024 — Present",
       summary:
-        "Repeated backend infrastructure work across frameworks and runtimes made teams rebuild the same capabilities. I founded eridu-tech to provide a reusable backend foundation, owning product direction, architecture, developer experience, and delivery; it now serves 600+ monthly developers.",
+        "After seeing teams constantly rebuild the same core capabilities across different frameworks and runtimes, I founded eridu-tech to provide a unified backend foundation. Owning product direction, architecture, DX, and delivery, I’ve grown it to serve 600+ monthly developers.",
       points: [
-        "Addressed repeated backend infrastructure work by founding and maintaining a framework-agnostic TypeScript backend toolkit, growing it to 20 maintained components, 93 releases, and 600+ monthly developers.",
+        "Founded and maintain an open-source TypeScript backend toolkit to eliminate redundant infrastructure engineering, now adopted by 600+ monthly developers.",
         "Reduced portability friction by designing an adapter-first architecture that lets the same components run across Node.js, Bun, Deno, serverless, and edge environments.",
         "Reduced test setup overhead by adding in-memory adapters, allowing many integration scenarios to run without Docker while preserving the same component contracts.",
         "Replaced repeated implementations of common infrastructure with reusable caching, rate limiting, distributed locking, circuit breakers, and event-bus components exposed through stable adapter interfaces.",
-        "Increased confidence in the growing codebase by shipping 30K+ lines of TypeScript backed by 4,640+ integration and behavior tests and Docker-based GitHub Actions CI/CD.",
+        "Shipped 30K+ lines of production TypeScript (48K+ total LOC), backed by 4,640+ tests (predominantly integration and behavioral) and automated Docker powered GitHub Actions workflows for CI/CD and code quality checks.",
         "Improved adoption by owning API design, documentation, and developer guides alongside the implementation rather than treating developer experience as a separate concern.",
         "Kept the platform moving toward a broader backend foundation through a public roadmap covering 20+ planned capabilities, including scheduling, sessions, authentication, authorization, messaging, and observability.",
       ],
@@ -183,7 +183,6 @@ export const mainPortfolio: PortfolioData = {
       points: [
         "Turned unclear business needs into requirements, priorities, and shipped features, keeping delivery moving without dedicated QA or project-management support.",
         "Replaced the manual email workflow with the AMS Portal, giving the summit a centralized system for registration and eliminating the data loss and booking conflicts caused by the old process.",
-        "Kept changing deadlines and stakeholder needs under control by owning the roadmap and making trade-offs without a formal agile process.",
         "Digitized booth bookings, marketing assets, and stage appointments, creating a single workflow instead of scattered email coordination.",
         "Reduced manual operational work by adding automated invoicing, order tracking, and live inventory management.",
         "Built the platform as a modular monolith with Next.js, Payload CMS, TanStack Start, and PostgreSQL, then deployed and operated it on a VPS with Docker, Nginx, and SSH.",
