@@ -219,7 +219,7 @@ export const mainPortfolio: PortfolioData = {
       points: [
         "Owned client-facing features end to end within a three-person team, reducing handoffs between requirements, implementation, and delivery.",
         "Improved storefront browsing by adding Liquid-based pagination and contact filtering.",
-        "Connected storefront users to existing customer workflows by building a React chat widget integrated with a client CRM.",
+        "Engineered an in-app chat feature for a custom client CRM, enabling real-time communication directly within the platform.",
         "Delivered storefront functionality across Liquid, JavaScript, TypeScript, React, Remix, and Shopify while working within client-specific constraints.",
       ],
       stack: [
@@ -232,9 +232,8 @@ export const mainPortfolio: PortfolioData = {
         allSkills["CSS"],
       ],
       proof: [
-        "Shipped a React chat widget integrated into client CRMs",
-        "Faster storefront browsing via Liquid pagination & contact filtering",
-        "Owned independent features end to end within a 3-person agency team",
+        "Replaced third-party messaging tools with a native React chat app in a custom CRM.",
+        "Improved support experience by keeping history and messaging in one workspace.",
       ],
       liveUrl: null,
     },
@@ -247,7 +246,6 @@ export const mainPortfolio: PortfolioData = {
         "The client needed a commerce platform tailored to its requirements rather than a standard storefront. I owned the full delivery of a custom headless e-commerce system, from requirements and architecture through deployment.",
       points: [
         "Translated client requirements into a production e-commerce platform and owned delivery from planning through deployment.",
-        "Built a custom headless storefront that combined a responsive customer experience with the flexibility of a separate commerce backend.",
         "Improved checkout operations with secure user authentication and automated email invoicing for orders and payments.",
         "Centralized commerce data behind a GraphQL API backed by PostgreSQL, with Docker providing consistent deployment environments.",
         "Focused the storefront on mobile usability and SEO, helping the platform support organic traffic and engagement.",
@@ -266,9 +264,8 @@ export const mainPortfolio: PortfolioData = {
         allSkills["Docker"],
       ],
       proof: [
-        "Delivered a fully custom headless commerce platform",
+        "Delivered a fully custom commerce platform",
         "Automated email invoicing across checkout & payments",
-        "GraphQL API backed by PostgreSQL, containerized with Docker",
         "Drove organic traffic via an SEO-optimized, mobile-first storefront",
       ],
       liveUrl: null,
@@ -313,7 +310,7 @@ export const mainPortfolio: PortfolioData = {
       points: [
         "Reduced repeated API integration work by leading a five-person team to deliver a reusable REST API client and SDK for Bionamic's research platform.",
         "Helped a Java-focused team adopt JavaScript and TypeScript, giving the project a type-safe implementation aligned with the client library's needs.",
-        "Designed the SDK with Node.js and Express so consuming the REST API became a reusable developer workflow instead of one-off integration code.",
+        "Designed a Node.js and Express SDK from scratch, establishing a standardized, reusable API client for consuming the REST API.",
         "Mentored the team on event-sourcing concepts to strengthen the architecture and implementation approach.",
         "Shipped the client library to production as an reusable npm package and established REST API and SDK patterns that could be reused by the team.",
       ],
