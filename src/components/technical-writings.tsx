@@ -1,4 +1,8 @@
+"use client";
+
+import { useState } from "react";
 import SectionHeading from "@/components/section-heading";
+import ShowMoreButton from "@/components/show-more-button";
 import type { PortfolioData } from "@/data/types";
 
 type TechnicalWritingsProps = {
@@ -6,7 +10,14 @@ type TechnicalWritingsProps = {
 };
 
 export default function TechnicalWritings({ data }: TechnicalWritingsProps) {
-  const visiblePosts = data.technicalWritings.filter((post) => !post.hide);
+  const { technicalWritings, uiSettings } = data;
+  const [expanded, setExpanded] = useState(false);
+  const visiblePosts = technicalWritings.filter((post) => !post.hide);
+  const limit = uiSettings.sectionLimits.technicalWritings;
+  const hasMore = visiblePosts.length > limit;
+  const visible = hasMore && !expanded
+    ? visiblePosts.slice(0, limit)
+    : visiblePosts;
 
   if (visiblePosts.length === 0) return null;
 
@@ -21,7 +32,7 @@ export default function TechnicalWritings({ data }: TechnicalWritingsProps) {
         subtitle="Write-ups on the problems I solve and the tools I build."
       />
       <ul className="mt-12 grid gap-6 md:grid-cols-2">
-        {visiblePosts.map((post) => (
+        {visible.map((post) => (
           <li key={post.title}>
             <a
               href={post.url}
@@ -48,6 +59,15 @@ export default function TechnicalWritings({ data }: TechnicalWritingsProps) {
           </li>
         ))}
       </ul>
+      {hasMore && (
+        <div className="mt-10 flex justify-center">
+          <ShowMoreButton
+            expanded={expanded}
+            hiddenCount={visiblePosts.length - limit}
+            onClick={() => setExpanded((value) => !value)}
+          />
+        </div>
+      )}
     </section>
   );
 }

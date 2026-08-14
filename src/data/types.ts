@@ -73,6 +73,8 @@ export type UiSettings = {
     skills: number;
     /** Max Certificates shown before "Show more". */
     certificates: number;
+    /** Max Technical Writings shown before "Show more". */
+    technicalWritings: number;
     /** Max proof badges shown per entry before "Show more". */
     proofLimit: number;
     /** Max bullet points shown per experience entry before "Show more". */

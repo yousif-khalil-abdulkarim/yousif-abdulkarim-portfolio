@@ -19,7 +19,7 @@ export default function SkillsSection({ data }: SkillsSectionProps) {
       <h3 className="font-mono text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
         Skills
       </h3>
-      <div className="mt-4 grid gap-4 grid-cols-[repeat(auto-fit,minmax(13.75rem,1fr))]">
+      <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {Object.entries(skills)
           .filter(([, items]) => items.length > 0)
           .map(([category, items]) => (
