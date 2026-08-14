@@ -9,8 +9,9 @@ type AboutProps = {
 };
 
 export default function About({ data }: AboutProps) {
-  const { profile, aboutStats } = data;
+  const { profile, aboutStats, uiSettings } = data;
   const visibleStats = aboutStats.filter((stat) => !stat.hide);
+  const showQuickFacts = uiSettings.showQuickFacts && visibleStats.length > 0;
   return (
     <section
       id="about"
@@ -24,7 +25,7 @@ export default function About({ data }: AboutProps) {
       <div className="mt-12 grid gap-10 md:grid-cols-5">
         <div
           className={`space-y-4 text-zinc-600 dark:text-zinc-400 ${
-            visibleStats.length > 0 ? "md:col-span-3" : "md:col-span-5"
+            showQuickFacts ? "md:col-span-3" : "md:col-span-5"
           }`}
         >
           {profile.bio.map((paragraph, pIndex) => (
@@ -47,7 +48,7 @@ export default function About({ data }: AboutProps) {
             </p>
           ))}
         </div>
-        {visibleStats.length > 0 && (
+        {showQuickFacts && (
           <div className="md:col-span-2">
             <div className="rounded-2xl bg-linear-to-br from-blue-500 via-sky-500 to-amber-400 p-px shadow-lg shadow-sky-500/10">
               <div className="rounded-2xl bg-white p-6 dark:bg-zinc-950">

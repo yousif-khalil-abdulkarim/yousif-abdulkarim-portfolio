@@ -61,15 +61,15 @@ function ModalContent({
       <Dialog.Positioner className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center p-4">
         <Dialog.Content
           ref={contentRef}
-          className={`animate-modal-in pointer-events-auto relative w-full ${maxWidthClass} overflow-hidden rounded-2xl border border-zinc-200/70 bg-white shadow-2xl dark:border-zinc-800/70 dark:bg-zinc-950`}
+          className={`animate-modal-in pointer-events-auto relative flex max-h-[calc(100dvh-2rem)] w-full flex-col ${maxWidthClass} overflow-hidden rounded-2xl border border-zinc-200/70 bg-white shadow-2xl dark:border-zinc-800/70 dark:bg-zinc-950`}
         >
           <div
             aria-hidden
             className="h-1.5 bg-linear-to-r from-blue-500 via-sky-500 to-amber-400"
           />
-          <div className="p-6">
-            <div className="flex items-start justify-between gap-4">
-              <div>
+          <div className="flex min-h-0 flex-1 flex-col p-6">
+            <div className="flex shrink-0 items-start justify-between gap-4">
+              <div className="pb-3">
                 <Dialog.Title className="font-display text-2xl font-bold tracking-tight">
                   {title}
                 </Dialog.Title>
@@ -81,7 +81,7 @@ function ModalContent({
               </div>
               <Dialog.CloseTrigger
                 aria-label="Close"
-                className="rounded-full border border-zinc-300 p-1.5 text-zinc-500 transition-colors hover:border-sky-500 hover:text-sky-500 dark:border-zinc-700 dark:text-zinc-400"
+                className="hidden rounded-full border border-zinc-300 p-1.5 text-zinc-500 transition-colors hover:border-sky-500 hover:text-sky-500 dark:border-zinc-700 dark:text-zinc-400 sm:flex"
               >
                 <svg
                   className="h-5 w-5"
@@ -98,9 +98,15 @@ function ModalContent({
                 </svg>
               </Dialog.CloseTrigger>
             </div>
-            <div className="max-h-[40rem] overflow-y-auto">
+            <div className="min-h-0 flex-1 overflow-y-auto">
               {children}
             </div>
+            <Dialog.CloseTrigger
+              aria-label="Close"
+              className="mt-6 flex w-full shrink-0 items-center justify-center rounded-xl border border-zinc-300 px-4 py-3 text-sm font-semibold text-zinc-600 transition-colors hover:border-sky-500 hover:text-sky-500 dark:border-zinc-700 dark:text-zinc-400 sm:hidden"
+            >
+              Close
+            </Dialog.CloseTrigger>
           </div>
         </Dialog.Content>
       </Dialog.Positioner>
@@ -111,7 +117,7 @@ function ModalContent({
 export default function StyledModal({
   title,
   subtitle,
-  maxWidthClass = "max-w-lg",
+  maxWidthClass = "max-w-7xl",
   trigger,
   onClose,
   children,

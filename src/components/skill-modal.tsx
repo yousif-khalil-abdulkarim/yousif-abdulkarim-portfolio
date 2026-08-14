@@ -11,7 +11,7 @@ type SkillModalProps = {
 
 export default function SkillModal({ skill, trigger }: SkillModalProps) {
   return (
-    <StyledModal title={skill.name} maxWidthClass="max-w-md" trigger={trigger}>
+    <StyledModal title={skill.name} maxWidthClass="max-w-7xl" trigger={trigger}>
       <p className="mt-4 text-sm leading-7 text-zinc-600 dark:text-zinc-400">
         {skill.description}
       </p>

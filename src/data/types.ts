@@ -63,6 +63,8 @@ export type UiSettings = {
   showMarquee: boolean;
   /** Whether the portrait image column in the Hero is rendered. */
   showPortfolioImage: boolean;
+  /** Whether the "Quick facts" card in the About section is rendered. */
+  showQuickFacts: boolean;
   /** Default number of items shown per section before a "Show more" control appears. */
   sectionLimits: {
     /** Max Experience entries shown before "Show more". */

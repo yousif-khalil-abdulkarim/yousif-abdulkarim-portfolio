@@ -6,6 +6,7 @@ export const mainPortfolio: PortfolioData = {
   uiSettings: {
     showMarquee: true,
     showPortfolioImage: true,
+    showQuickFacts: false,
     sectionLimits: {
       experience: 6,
       projects: 6,
@@ -389,7 +390,7 @@ export const mainPortfolio: PortfolioData = {
       hide: false,
       title: "Why I Built Eridu Tech",
       description:
-        "The story behind founding an open-source backend application & infrastructure foundation library — why teams keep rebuilding the same infrastructure and how an adapter-first design fixes it.",
+        "Announcing eridu-tech - A composable backend foundation for TypeScript",
       url: "https://www.eridu-tech.io/blog/2026-08-06-announcing-eridu-tech",
     },
   ],
