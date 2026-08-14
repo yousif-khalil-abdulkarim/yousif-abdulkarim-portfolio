@@ -147,7 +147,7 @@ function ProjectsSection({ projects }: { projects: Project[] }) {
             <Text style={styles.itemMeta}>{project.year}</Text>
           </View>
           <Text style={styles.body}>{project.description}</Text>
-          {project.highlights && project.highlights.length > 0 ? (
+          {project.highlights.length > 0 ? (
             <BulletList items={project.highlights} />
           ) : null}
           {project.tech.length > 0 ? (

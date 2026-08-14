@@ -21,7 +21,7 @@ export default function ProjectModal({
         {project.description}
       </p>
 
-      {project.highlights && (
+      {project.highlights.length > 0 && (
         <>
           <h4 className="mt-6 font-mono text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
             Highlights
@@ -34,7 +34,7 @@ export default function ProjectModal({
         </>
       )}
 
-      {project.proof && (
+      {project.proof.length > 0 && (
         <div className="mt-6">
           <h4 className="font-mono text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
             Proof

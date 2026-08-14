@@ -1,21 +1,37 @@
-import type { PortfolioData } from "@/data/types";
+import type { PortfolioData, Section } from "@/data/types";
+
+export type NavLink = {
+  label: string;
+  href: string;
+};
+
+const sectionLinks: Record<Section, NavLink> = {
+  experience: { label: "Experience", href: "#experience" },
+  projects: { label: "Projects", href: "#projects" },
+  certificates: { label: "Certificates", href: "#certificates" },
+  writings: { label: "Writings", href: "#writings" },
+};
+
+const aboutLink: NavLink = { label: "About", href: "#about" };
+const contactLink: NavLink = { label: "Contact", href: "#contact" };
 
 /**
  * Shared navigation links used by the header (navbar) and footer so both
  * navigations stay synchronized and in the same order.
+ *
+ * Order matches the page: About first, then the Experience / Projects /
+ * Certificates / Writings sections in `sectionOrder`, then Contact. Empty
+ * sections (which render nothing) are omitted.
  */
-export const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Certificates", href: "#certificates" },
-  { label: "Writings", href: "#writings" },
-  { label: "Contact", href: "#contact" },
-];
-
-/** The visible (non-empty) navigation links for a given portfolio. */
-export function visibleNavLinks(data: PortfolioData) {
-  return navLinks.filter((link) => sectionHasContent(data, link.href.slice(1)));
+export function visibleNavLinks(data: PortfolioData): NavLink[] {
+  const sectionsInOrder = data.sectionOrder.filter((id) =>
+    sectionHasContent(data, id),
+  );
+  return [
+    aboutLink,
+    ...sectionsInOrder.map((id) => sectionLinks[id]),
+    contactLink,
+  ];
 }
 
 // Mirrors each section's empty-render check (they return null when empty).

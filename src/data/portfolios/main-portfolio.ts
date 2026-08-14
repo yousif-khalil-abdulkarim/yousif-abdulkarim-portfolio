@@ -12,7 +12,7 @@ export const mainPortfolio: PortfolioData = {
       projects: 6,
       skills: 6,
       certificates: 6,
-      technicalWritings: 2,
+      technicalWritings: 6,
       proofLimit: 6,
       pointsLimit: 8,
     },
@@ -24,29 +24,29 @@ export const mainPortfolio: PortfolioData = {
     tagline: [
       {
         text: "Lead developer and open-source founder who owns products ",
-        emphasis: null,
+        emphasis: false,
       },
       { text: "from start to finish", emphasis: true },
       {
         text: " — from planning and design to building and shipping ",
-        emphasis: null,
+        emphasis: false,
       },
       { text: "modular monoliths", emphasis: true },
-      { text: " and ", emphasis: null },
+      { text: " and ", emphasis: false },
       { text: "developer-first backend tools", emphasis: true },
-      { text: ".", emphasis: null },
+      { text: ".", emphasis: false },
     ],
     bio: [
       [
         {
           text: "Lead developer with 4+ years of professional experience and 8+ years of programming. I work best when a problem is unclear: I turn requirements into a practical plan, own the architecture and implementation, and ship systems that are easier to operate and evolve.",
-          emphasis: null,
+          emphasis: false,
         },
       ],
       [
         {
           text: "Founder and lead maintainer of eridu-tech, where I address repeated backend infrastructure work with 20 reusable components and adapter-based integrations across runtimes and data stores. The project has reached 600+ monthly developers, 30K+ lines of TypeScript, and 4,640+ integration and behavior tests.",
-          emphasis: null,
+          emphasis: false,
         },
       ],
     ],
@@ -356,10 +356,10 @@ export const mainPortfolio: PortfolioData = {
         allSkills["Adapter Pattern"],
       ],
       year: "2022 — Present",
-      featured: null,
+      featured: false,
       liveUrl: null,
       repoUrl: null,
-      proof: null,
+      proof: [],
     },
     {
       hide: false,
@@ -378,10 +378,10 @@ export const mainPortfolio: PortfolioData = {
         allSkills["Parsing"],
       ],
       year: "2023",
-      featured: null,
+      featured: false,
       liveUrl: null,
       repoUrl: null,
-      proof: null,
+      proof: [],
     },
   ],
   technicalWritings: [

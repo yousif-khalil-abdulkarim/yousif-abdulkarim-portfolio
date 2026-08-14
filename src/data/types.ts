@@ -8,7 +8,7 @@ import type { Skill } from "@/data/all-skills";
 export type BioText = {
   text: string;
   /** Whether to render this run with emphasis styling. */
-  emphasis: boolean | null;
+  emphasis: boolean;
 };
 
 /** One paragraph of the About bio, composed of styled text runs. */
@@ -69,12 +69,12 @@ export type UiSettings = {
     experience: number;
     /** Max Projects shown before "Show more". */
     projects: number;
+    /** Max Technical Writings shown before "Show more". */
+    technicalWritings: number;
     /** Max skills shown per category before "Show more". */
     skills: number;
     /** Max Certificates shown before "Show more". */
     certificates: number;
-    /** Max Technical Writings shown before "Show more". */
-    technicalWritings: number;
     /** Max proof badges shown per entry before "Show more". */
     proofLimit: number;
     /** Max bullet points shown per experience entry before "Show more". */
@@ -98,15 +98,15 @@ export type Project = {
   /** Timeframe or year, e.g. "2024 — Present". */
   year: string;
   /** Marks the project as a highlight with a "★ Featured" badge. */
-  featured: boolean | null;
+  featured: boolean;
   /** Bullet points of notable achievements, shown in the "View more" modal. */
-  highlights: string[] | null;
+  highlights: string[];
   /** Optional link to a live deployment. Renders a "Live demo ↗" link. */
   liveUrl: string | null;
   /** Optional link to the source repository. Renders a "Source ↗" link. */
   repoUrl: string | null;
   /** Optional proof / evidence of the work (e.g. metrics), rendered as accent badges. */
-  proof: string[] | null;
+  proof: string[];
 };
 
 /**
@@ -125,13 +125,13 @@ export type Experience = {
   /** Bullet points of responsibilities and achievements shown on the timeline. */
   points: string[];
   /** Technologies used, referencing entries from the shared `allSkills` map. Rendered as SkillBadges. */
-  stack: Skill[] | null;
+  stack: Skill[];
   /** Optional longer paragraph shown in the "View more" modal. */
   summary: string | null;
   /** Optional link to a live deployment / site. Renders a "Live site ↗" link. */
   liveUrl: string | null;
   /** Optional proof / evidence of the work (e.g. metrics), rendered as accent badges. */
-  proof: string[] | null;
+  proof: string[];
 };
 
 /**
@@ -154,7 +154,7 @@ export type Certificate = {
   /** Optional credential / verification ID shown in the modal. */
   credentialId: string | null;
   /** Related skills, referencing the shared `allSkills` map. Rendered as SkillBadges in the modal. */
-  skills: Skill[] | null;
+  skills: Skill[];
 };
 
 /**

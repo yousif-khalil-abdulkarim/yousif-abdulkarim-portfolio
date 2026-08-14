@@ -34,7 +34,7 @@ export default function ExperienceCard({
         <span className="font-mono text-xs text-zinc-400">{job.period}</span>
       </div>
       <PointsList items={job.points} limit={pointsLimit} />
-      {job.stack && (
+      {job.stack.length > 0 && (
         <ul className="mt-3 flex flex-wrap gap-2">
           {job.stack.map((tech) => (
             <li key={tech.name}>
@@ -43,7 +43,7 @@ export default function ExperienceCard({
           ))}
         </ul>
       )}
-      {job.proof && <ProofBadges items={job.proof} limit={proofLimit} />}
+      {job.proof.length > 0 && <ProofBadges items={job.proof} limit={proofLimit} />}
       <div className="mt-5 flex flex-wrap items-center gap-4">
         <ExperienceModal job={job} trigger={<ViewMoreButton />} />
         {job.liveUrl && (

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import ThemeToggle from "@/components/theme-toggle";
-import { navLinks, visibleNavLinks } from "@/lib/nav-links";
+import { visibleNavLinks } from "@/lib/nav-links";
 import type { PortfolioData } from "@/data/types";
 
 type NavbarProps = {
@@ -15,11 +15,12 @@ export default function Navbar({ data }: NavbarProps) {
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
+    const links = visibleNavLinks(data);
     const handleScroll = () => {
       // A section is "active" once its top passes the upper third of the viewport.
       const marker = window.scrollY + window.innerHeight / 3;
       let current = "";
-      for (const link of navLinks) {
+      for (const link of links) {
         const el = document.getElementById(link.href.slice(1));
         if (el && el.offsetTop <= marker) current = link.href.slice(1);
       }
@@ -28,7 +29,7 @@ export default function Navbar({ data }: NavbarProps) {
     handleScroll();
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [data]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/80 backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/80">

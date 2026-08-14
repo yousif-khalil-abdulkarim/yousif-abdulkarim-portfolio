@@ -48,7 +48,7 @@ export default function ProjectCard({
             </li>
           ))}
         </ul>
-        {project.proof && <ProofBadges items={project.proof} limit={proofLimit} />}
+        {project.proof.length > 0 && <ProofBadges items={project.proof} limit={proofLimit} />}
         <div className="mt-5 flex flex-wrap items-center gap-4">
           <ProjectModal project={project} trigger={<ViewMoreButton />} />
           {project.liveUrl && (

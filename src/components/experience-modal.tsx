@@ -47,7 +47,7 @@ export default function ExperienceModal({
         ))}
       </ul>
 
-      {job.proof && (
+      {job.proof.length > 0 && (
         <div className="mt-6">
           <h4 className="font-mono text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
             Proof
@@ -62,7 +62,7 @@ export default function ExperienceModal({
         </div>
       )}
 
-      {job.stack && (
+      {job.stack.length > 0 && (
         <div className="mt-6">
           <h4 className="font-mono text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
             Tech stack

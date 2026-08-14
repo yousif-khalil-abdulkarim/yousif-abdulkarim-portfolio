@@ -24,7 +24,7 @@ export default function CertificateModal({
         {certificate.description}
       </p>
 
-      {certificate.skills && certificate.skills.length > 0 && (
+      {certificate.skills.length > 0 && (
         <div className="mt-6">
           <h4 className="font-mono text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
             Skills
