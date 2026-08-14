@@ -13,7 +13,7 @@ export const mainPortfolio: PortfolioData = {
       skills: 6,
       certificates: 6,
       proofLimit: 6,
-      pointsLimit: 10,
+      pointsLimit: 8,
     },
   },
   profile: {
@@ -35,8 +35,6 @@ export const mainPortfolio: PortfolioData = {
       { text: "developer-first backend tools", emphasis: true },
       { text: ".", emphasis: null },
     ],
-    aboutSubtitle:
-      "Lead developer, technical product owner, and open-source founder. I turn unclear requirements and recurring backend problems into modular, production-grade systems used by 600+ monthly developers.",
     bio: [
       [
         {
@@ -127,7 +125,7 @@ export const mainPortfolio: PortfolioData = {
       allSkills["Event Bus"],
     ],
   },
-  aboutStats: [
+  quickFacts: [
     { hide: false, value: "4+", label: "Years of experience" },
     { hide: false, value: "8+", label: "Years of programming" },
     { hide: false, value: "30K+", label: "Lines of code shipped" },

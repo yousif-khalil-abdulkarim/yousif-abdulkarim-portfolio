@@ -6,6 +6,7 @@
 :root {
   --background: #fafafa;
   --foreground: #18181b;
+  --text-cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><g fill='none' stroke='%2318181b' stroke-width='1.5' stroke-linecap='round'><path d='M12 3v18'/><path d='M8.5 3.5h7'/><path d='M8.5 20.5h7'/></g></svg>") 12 12, text;
 }
 
 @theme inline {
@@ -19,6 +20,7 @@
 .dark {
   --background: #09090b;
   --foreground: #ededed;
+  --text-cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><g fill='none' stroke='%23f4f4f5' stroke-width='1.5' stroke-linecap='round'><path d='M12 3v18'/><path d='M8.5 3.5h7'/><path d='M8.5 20.5h7'/></g></svg>") 12 12, text;
 }
 
 html {
@@ -75,7 +77,7 @@ body {
 
 /* ---------- Animation utility classes ---------- */
 .animate-fade-up { animation: fade-up 0.7s ease-out both; }
-.animate-marquee { animation: marquee 48s linear infinite; }
+.animate-marquee { animation: marquee 72s linear infinite; }
 .animate-blob { animation: blob 14s ease-in-out infinite; }
 .animate-pulse-dot { animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
 .animate-gradient-x { background-size: 200% 200%; animation: gradient-x 6s ease infinite; }
@@ -117,6 +119,18 @@ input,
 textarea,
 select {
   caret-color: #0ea5e9;
+}
+
+/* High-contrast mouse cursor (I-beam) over text, visible on light & dark */
+p,
+h1, h2, h3, h4, h5, h6,
+li,
+dt, dd,
+blockquote,
+figcaption,
+td, th,
+pre, code {
+  cursor: var(--text-cursor);
 }
 
 ::-webkit-scrollbar { width: 10px; }

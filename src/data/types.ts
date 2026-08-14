@@ -27,8 +27,6 @@ export type Profile = {
   role: string;
   /** One-line pitch shown under the Hero heading, as styled runs (emphasis renders bold/accent). */
   tagline: BioParagraph;
-  /** Subtitle shown under the "About me" heading. */
-  aboutSubtitle: string;
   /** Bio paragraphs rendered in the About section, each a sequence of styled runs. */
   bio: BioParagraph[];
   /** Whether the person is currently open to new opportunities. Controls the green "Available" badge in the Hero. */
@@ -232,8 +230,8 @@ export type PortfolioData = {
   certificates: Certificate[];
   /** Technical writings shown in the Technical Writings section. */
   technicalWritings: TechnicalWriting[];
-  /** Quick-fact stats shown in the About section. */
-  aboutStats: AboutStat[];
+  /** Quick facts shown in the About section. */
+  quickFacts: AboutStat[];
   /** Order in which the Experience, Projects, and Certificates sections render on the page. */
   sectionOrder: Section[];
   /** Spoken languages shown in the Languages section, rendered before Skills. */

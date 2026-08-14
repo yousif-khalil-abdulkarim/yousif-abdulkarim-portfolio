@@ -9,8 +9,8 @@ type AboutProps = {
 };
 
 export default function About({ data }: AboutProps) {
-  const { profile, aboutStats, uiSettings } = data;
-  const visibleStats = aboutStats.filter((stat) => !stat.hide);
+  const { profile, quickFacts, uiSettings } = data;
+  const visibleStats = quickFacts.filter((stat) => !stat.hide);
   const showQuickFacts = uiSettings.showQuickFacts && visibleStats.length > 0;
   return (
     <section
@@ -20,7 +20,6 @@ export default function About({ data }: AboutProps) {
       <SectionHeading
         index="01"
         title="About me"
-        subtitle={profile.aboutSubtitle}
       />
       <div className="mt-12 grid gap-10 md:grid-cols-5">
         <div
