@@ -136,9 +136,9 @@ export default function Hero({ data, resumeHref }: HeroProps) {
               showPortrait ? "lg:justify-start" : ""
             }`}
           >
-            {profile.github && (
+            {profile.githubUrl && (
               <a
-                href={profile.github}
+                href={profile.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"

@@ -8,13 +8,13 @@ export const mainPortfolio: PortfolioData = {
     showPortfolioImage: true,
     showQuickFacts: false,
     sectionLimits: {
-      experience: 1,
-      projects: 2,
-      skills: 1,
-      certificates: 1,
-      technicalWritings: 2,
-      proofLimit: 1,
-      pointsLimit: 1,
+      experience: 6,
+      projects: 6,
+      skills: 6,
+      certificates: 6,
+      technicalWritings: 6,
+      proofLimit: 6,
+      pointsLimit: 8,
     },
   },
   profile: {
@@ -59,7 +59,7 @@ export const mainPortfolio: PortfolioData = {
       label: "backend experience",
     },
     image: imageUrl,
-    github: "https://github.com/yousif-khalil-abdulkarim",
+    githubUrl: "https://github.com/yousif-khalil-abdulkarim",
     linkedin: "https://www.linkedin.com/in/yousef-abdulkarim/",
     twitter: "https://x.com/abrafk75624061",
     blog: "https://www.eridu-tech.io/blog",
@@ -165,6 +165,7 @@ export const mainPortfolio: PortfolioData = {
         allSkills["Modular Monoliths"],
       ],
       liveUrl: "https://eridu-tech.io",
+      repoUrl: null,
       proof: [
         "20 maintained backend components",
         "4,640+ integration & behavior tests",
@@ -207,6 +208,7 @@ export const mainPortfolio: PortfolioData = {
         "Real-time inventory & automated invoicing",
       ],
       liveUrl: null,
+      repoUrl: null,
     },
     {
       hide: false,
@@ -235,6 +237,7 @@ export const mainPortfolio: PortfolioData = {
         "Improved support experience by keeping history and messaging in one workspace.",
       ],
       liveUrl: null,
+      repoUrl: null,
     },
     {
       hide: false,
@@ -268,6 +271,7 @@ export const mainPortfolio: PortfolioData = {
         "Drove organic traffic via an SEO-optimized, mobile-first storefront",
       ],
       liveUrl: null,
+      repoUrl: null,
     },
     {
       hide: false,
@@ -298,6 +302,7 @@ export const mainPortfolio: PortfolioData = {
         "Python, Pandas & Matplotlib analysis",
       ],
       liveUrl: null,
+      repoUrl: null,
     },
     {
       hide: false,
@@ -329,6 +334,7 @@ export const mainPortfolio: PortfolioData = {
         "Mentored the team on event-sourcing",
       ],
       liveUrl: null,
+      repoUrl: null,
     },
   ],
   projects: [
@@ -358,7 +364,7 @@ export const mainPortfolio: PortfolioData = {
       year: "2022 — Present",
       featured: false,
       liveUrl: null,
-      repoUrl: null,
+      repoUrl: "https://github.com/yousif-khalil-abdulkarim/outstanding-resumes-old",
       proof: [],
     },
     {
@@ -379,30 +385,8 @@ export const mainPortfolio: PortfolioData = {
       ],
       year: "2023",
       featured: false,
-      liveUrl: null,
-      repoUrl: null,
-      proof: [],
-    },
-    {
-      hide: false,
-      title: "The Primitive Language2",
-      description:
-        "To understand language implementation beyond theory, I built a programming language from scratch, taking the project from grammar design through parsing, evaluation, and execution.",
-      highlights: [
-        "Turned compiler theory into a working system by designing a custom programming language and implementing its execution pipeline.",
-        "Built a recursive descent parser from scratch, translating grammar into an executable syntax tree.",
-        "Implemented a TypeScript interpreter that evaluates the parsed language end to end.",
-        "Used the project to deepen practical understanding of compiler, parser, and interpreter architecture.",
-      ],
-      tech: [
-        allSkills["TypeScript"],
-        allSkills["Compilers"],
-        allSkills["Parsing"],
-      ],
-      year: "2023",
-      featured: false,
-      liveUrl: null,
-      repoUrl: null,
+      liveUrl: "https://yousif-khalil-abdulkarim.github.io/the-primitive-language/public/main",
+      repoUrl: "https://github.com/yousif-khalil-abdulkarim/the-primitive-language",
       proof: [],
     },
   ],
@@ -410,20 +394,6 @@ export const mainPortfolio: PortfolioData = {
     {
       hide: false,
       title: "Why I Built Eridu Tech1",
-      description:
-        "Announcing eridu-tech - A composable backend foundation for TypeScript",
-      url: "https://www.eridu-tech.io/blog/2026-08-06-announcing-eridu-tech",
-    },
-      {
-      hide: false,
-      title: "Why I Built Eridu Tech2",
-      description:
-        "Announcing eridu-tech - A composable backend foundation for TypeScript",
-      url: "https://www.eridu-tech.io/blog/2026-08-06-announcing-eridu-tech",
-    },
-      {
-      hide: false,
-      title: "Why I Built Eridu Tech3",
       description:
         "Announcing eridu-tech - A composable backend foundation for TypeScript",
       url: "https://www.eridu-tech.io/blog/2026-08-06-announcing-eridu-tech",

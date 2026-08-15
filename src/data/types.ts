@@ -42,7 +42,7 @@ export type Profile = {
   /** Optional portrait image (Next.js static import) shown in the Hero. The portrait column is hidden when unset. */
   image: StaticImageData | null;
   /** Optional GitHub profile URL. Social icon is hidden when absent. */
-  github: string | null;
+  githubUrl: string | null;
   /** Optional LinkedIn profile URL. Social icon is hidden when absent. */
   linkedin: string | null;
   /** Optional X (Twitter) profile URL. Social icon is hidden when absent. */
@@ -130,6 +130,8 @@ export type Experience = {
   summary: string | null;
   /** Optional link to a live deployment / site. Renders a "Live site ↗" link. */
   liveUrl: string | null;
+  /** Optional link to the source repository. Renders a "Source ↗" link. */
+  repoUrl: string | null;
   /** Optional proof / evidence of the work (e.g. metrics), rendered as accent badges. */
   proof: string[];
 };

@@ -193,7 +193,7 @@ export function ResumeDocument({ data }: { data: PortfolioData }) {
     .filter(Boolean)
     .join("  ·  ");
   const socials = [
-    profile.github,
+    profile.githubUrl,
     profile.linkedin,
     profile.twitter,
     profile.youtube,

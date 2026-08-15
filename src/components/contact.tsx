@@ -25,9 +25,9 @@ export default function Contact({ data }: ContactProps) {
         together.
       </p>
       <div className="mt-8 grid gap-4 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-5">
-        {profile.github && (
+        {profile.githubUrl && (
           <ContactCard
-            href={profile.github}
+            href={profile.githubUrl}
             label="GitHub"
             subtitle="Code &amp; open source"
             icon={<FaGithub className="h-6 w-6" />}

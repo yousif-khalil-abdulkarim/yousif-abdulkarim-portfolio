@@ -29,9 +29,9 @@ export default function Footer({ data }: FooterProps) {
       </div>
       <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 border-t border-zinc-200 px-6 py-6 sm:flex-row dark:border-zinc-800">
         <div className="flex items-center gap-5 text-sm text-zinc-500 dark:text-zinc-400">
-          {profile.github && (
+          {profile.githubUrl && (
             <a
-              href={profile.github}
+              href={profile.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="transition-colors hover:text-zinc-950 dark:hover:text-zinc-50"

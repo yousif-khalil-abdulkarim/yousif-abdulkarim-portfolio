@@ -90,7 +90,7 @@ function SocialChip({ path, label }: SocialChipProps) {
 function SocialRow({ data }: { data: PortfolioData }) {
   const { profile } = data;
   const socials = [
-    { href: profile.github, label: "GitHub", path: GITHUB_PATH },
+    { href: profile.githubUrl, label: "GitHub", path: GITHUB_PATH },
     { href: profile.linkedin, label: "LinkedIn", path: LINKEDIN_PATH },
     { href: profile.twitter, label: "X", path: X_PATH },
     { href: profile.youtube, label: "YouTube", path: YOUTUBE_PATH },
