@@ -1,8 +1,10 @@
 "use client";
 
 import { Collapsible } from "@ark-ui/react/collapsible";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import SectionHeading from "@/components/section-heading";
 import MoreButton from "@/components/more-button";
+import { useCollapsibleState } from "@/hooks/use-collapsible-state";
 import type { PortfolioData, TechnicalWriting } from "@/data/types";
 
 type TechnicalWritingsProps = {
@@ -11,6 +13,8 @@ type TechnicalWritingsProps = {
 
 export default function TechnicalWritings({ data }: TechnicalWritingsProps) {
   const { technicalWritings, uiSettings } = data;
+  const [extraRef] = useAutoAnimate();
+  const { open, handleOpenChange } = useCollapsibleState();
   const visiblePosts = technicalWritings.filter((post) => !post.hide);
   const limit = uiSettings.sectionLimits.technicalWritings;
   const shownPosts = visiblePosts.slice(0, limit);
@@ -55,15 +59,15 @@ export default function TechnicalWritings({ data }: TechnicalWritingsProps) {
         title="Technical Writings"
         subtitle="Write-ups on the problems I solve and the tools I build."
       />
-      <Collapsible.Root>
+      <Collapsible.Root open={open} onOpenChange={handleOpenChange}>
         <ul className="mt-12 grid gap-6 md:grid-cols-2">
           {shownPosts.map(renderPost)}
           {extraPosts.length > 0 && (
-            <Collapsible.Content className="col-span-full">
-              <ul className="grid gap-6 md:grid-cols-2">
-                {extraPosts.map(renderPost)}
+            <li className="col-span-full">
+              <ul ref={extraRef} className="grid gap-6 md:grid-cols-2">
+                {open && extraPosts.map(renderPost)}
               </ul>
-            </Collapsible.Content>
+            </li>
           )}
         </ul>
         {extraPosts.length > 0 && (

@@ -1,9 +1,11 @@
 "use client";
 
 import { Collapsible } from "@ark-ui/react/collapsible";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import SectionHeading from "@/components/section-heading";
 import ExperienceCard from "@/components/experience-card";
 import MoreButton from "@/components/more-button";
+import { useCollapsibleState } from "@/hooks/use-collapsible-state";
 import type { PortfolioData } from "@/data/types";
 
 type ExperienceProps = {
@@ -12,6 +14,8 @@ type ExperienceProps = {
 
 export default function Experience({ data }: ExperienceProps) {
   const { experience, uiSettings } = data;
+  const [extraRef] = useAutoAnimate();
+  const { open, handleOpenChange } = useCollapsibleState();
   const visibleJobs = experience.filter((job) => !job.hide);
   const limit = uiSettings.sectionLimits.experience;
   const shownJobs = visibleJobs.slice(0, limit);
@@ -29,7 +33,7 @@ export default function Experience({ data }: ExperienceProps) {
         title="Experience"
         subtitle="Where I've worked and what I've built along the way."
       />
-      <Collapsible.Root>
+      <Collapsible.Root open={open} onOpenChange={handleOpenChange}>
         <div className="relative mt-12 space-y-10 border-l border-zinc-200 pl-8 dark:border-zinc-800">
           {shownJobs.map((job) => (
             <ExperienceCard
@@ -39,8 +43,8 @@ export default function Experience({ data }: ExperienceProps) {
               pointsLimit={uiSettings.sectionLimits.pointsLimit}
             />
           ))}
-          <Collapsible.Content className="space-y-10">
-            {extraJobs.map((job) => (
+          <div ref={extraRef} className="space-y-10">
+            {open && extraJobs.map((job) => (
               <ExperienceCard
                 key={`${job.role}-${job.company}`}
                 job={job}
@@ -48,7 +52,7 @@ export default function Experience({ data }: ExperienceProps) {
                 pointsLimit={uiSettings.sectionLimits.pointsLimit}
               />
             ))}
-          </Collapsible.Content>
+          </div>
         </div>
         {extraJobs.length > 0 && (
           <div className="mt-10 flex justify-center">

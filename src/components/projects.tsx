@@ -1,9 +1,11 @@
 "use client";
 
 import { Collapsible } from "@ark-ui/react/collapsible";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 import SectionHeading from "@/components/section-heading";
 import ProjectCard from "@/components/project-card";
 import MoreButton from "@/components/more-button";
+import { useCollapsibleState } from "@/hooks/use-collapsible-state";
 import type { PortfolioData } from "@/data/types";
 
 type ProjectsProps = {
@@ -12,6 +14,8 @@ type ProjectsProps = {
 
 export default function Projects({ data }: ProjectsProps) {
   const { projects, uiSettings } = data;
+  const [extraRef] = useAutoAnimate();
+  const { open, handleOpenChange } = useCollapsibleState();
   const visibleProjects = projects.filter((project) => !project.hide);
   const limit = uiSettings.sectionLimits.projects;
   const shownProjects = visibleProjects.slice(0, limit);
@@ -29,7 +33,7 @@ export default function Projects({ data }: ProjectsProps) {
         title="Projects"
         subtitle="A selection of products and open-source work I've built. Click View more to dive deeper."
       />
-      <Collapsible.Root>
+      <Collapsible.Root open={open} onOpenChange={handleOpenChange}>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
           {shownProjects.map((project, i) => (
             <ProjectCard
@@ -40,18 +44,19 @@ export default function Projects({ data }: ProjectsProps) {
             />
           ))}
           {extraProjects.length > 0 && (
-            <Collapsible.Content className="col-span-full">
-              <div className="grid gap-6 md:grid-cols-2">
-                {extraProjects.map((project, j) => (
-                  <ProjectCard
-                    key={project.title}
-                    project={project}
-                    index={shownProjects.length + j}
-                    proofLimit={uiSettings.sectionLimits.proofLimit}
-                  />
-                ))}
-              </div>
-            </Collapsible.Content>
+            <div
+              ref={extraRef}
+              className="col-span-full grid gap-6 md:grid-cols-2"
+            >
+              {open && extraProjects.map((project, j) => (
+                <ProjectCard
+                  key={project.title}
+                  project={project}
+                  index={shownProjects.length + j}
+                  proofLimit={uiSettings.sectionLimits.proofLimit}
+                />
+              ))}
+            </div>
           )}
         </div>
         {extraProjects.length > 0 && (
