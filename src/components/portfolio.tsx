@@ -1,13 +1,13 @@
 import type { ComponentType } from "react";
-import Navbar from "@/components/navbar";
-import Hero from "@/components/hero";
-import About from "@/components/about";
-import Experience from "@/components/experience";
-import Projects from "@/components/projects";
-import CertificatesSection from "@/components/certificates-section";
-import TechnicalWritings from "@/components/technical-writings";
-import Contact from "@/components/contact";
-import Footer from "@/components/footer";
+import { Navbar } from "@/components/navbar";
+import { Hero } from "@/components/hero";
+import { About } from "@/components/about";
+import { Experience } from "@/components/experience";
+import { Projects } from "@/components/projects";
+import { CertificatesSection } from "@/components/certificates-section";
+import { TechnicalWritings } from "@/components/technical-writings";
+import { Contact } from "@/components/contact";
+import { Footer } from "@/components/footer";
 import type { PortfolioData, Section } from "@/data/types";
 
 const sectionComponents: Record<
@@ -26,7 +26,7 @@ type PortfolioProps = {
   resumeHref?: string;
 };
 
-export default function Portfolio({ data, resumeHref }: PortfolioProps) {
+export function Portfolio({ data, resumeHref }: PortfolioProps) {
   return (
     <>
       <Navbar data={data} />

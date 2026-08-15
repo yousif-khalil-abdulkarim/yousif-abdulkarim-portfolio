@@ -1,9 +1,9 @@
 "use client";
 
 import type { ReactElement } from "react";
-import StyledModal from "@/components/styled-modal";
-import SkillBadge from "@/components/skill-badge";
-import ProofBadge from "@/components/proof-badge";
+import { StyledModal } from "@/components/styled-modal";
+import { SkillBadge } from "@/components/skill-badge";
+import { ProofBadge } from "@/components/proof-badge";
 import type { Project } from "@/data/types";
 
 type ProjectModalProps = {
@@ -11,7 +11,7 @@ type ProjectModalProps = {
   trigger?: ReactElement;
 };
 
-export default function ProjectModal({
+export function ProjectModal({
   project,
   trigger,
 }: ProjectModalProps) {

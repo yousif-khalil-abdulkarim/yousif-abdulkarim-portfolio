@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "resume:generate": "tsx --import ./src/scripts/stub-assets.mjs src/scripts/generate-resumes.ts",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
@@ -27,7 +26,6 @@
     "eslint": "^9",
     "eslint-config-next": "16.3.0",
     "tailwindcss": "^4",
-    "tsx": "^4.23.8",
     "typescript": "^5"
   }
 }

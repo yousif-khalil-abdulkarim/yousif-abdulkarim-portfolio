@@ -1,16 +1,16 @@
 "use client";
 
 import { useState } from "react";
-import SectionHeading from "@/components/section-heading";
-import CertificateCard from "@/components/certificate-card";
-import MoreButton from "@/components/more-button";
+import { SectionHeading } from "@/components/section-heading";
+import { CertificateCard } from "@/components/certificate-card";
+import { MoreButton } from "@/components/more-button";
 import type { PortfolioData } from "@/data/types";
 
 type CertificatesSectionProps = {
   data: PortfolioData;
 };
 
-export default function CertificatesSection({
+export function CertificatesSection({
   data,
 }: CertificatesSectionProps) {
   const { certificates, uiSettings } = data;

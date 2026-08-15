@@ -1,13 +1,13 @@
 "use client";
 
-import SkillCategoryCard from "@/components/skill-category-card";
+import { SkillCategoryCard } from "@/components/skill-category-card";
 import type { PortfolioData } from "@/data/types";
 
 type SkillsSectionProps = {
   data: PortfolioData;
 };
 
-export default function SkillsSection({ data }: SkillsSectionProps) {
+export function SkillsSection({ data }: SkillsSectionProps) {
   const { skills, uiSettings } = data;
   const limit = uiSettings.sectionLimits.skills;
 

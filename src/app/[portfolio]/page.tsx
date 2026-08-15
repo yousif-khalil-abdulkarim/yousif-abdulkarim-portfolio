@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import Portfolio from "@/components/portfolio";
+import { Portfolio } from "@/components/portfolio";
 import { allPortfolios } from "@/data/portfolios";
 import { portfolioMetadata } from "@/lib/metadata";
 import { resumeFileName } from "@/lib/pdf-resume";
@@ -20,7 +20,7 @@ export async function generateMetadata({
   return portfolioMetadata(allPortfolios[portfolio]);
 }
 
-export default async function PortfolioPage({
+export async function PortfolioPage({
   params,
 }: PortfolioPageProps) {
   const { portfolio } = await params;

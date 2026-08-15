@@ -1,8 +1,8 @@
 "use client";
 
 import type { ReactElement } from "react";
-import StyledModal from "@/components/styled-modal";
-import SkillBadge from "@/components/skill-badge";
+import { StyledModal } from "@/components/styled-modal";
+import { SkillBadge } from "@/components/skill-badge";
 import type { Certificate } from "@/data/types";
 
 type CertificateModalProps = {
@@ -10,7 +10,7 @@ type CertificateModalProps = {
   trigger?: ReactElement;
 };
 
-export default function CertificateModal({
+export function CertificateModal({
   certificate,
   trigger,
 }: CertificateModalProps) {

@@ -127,4 +127,4 @@ const MoreButton = forwardRef<HTMLButtonElement, MoreButtonProps>(
   },
 );
 
-export default MoreButton;
+export { MoreButton };

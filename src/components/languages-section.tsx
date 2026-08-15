@@ -4,7 +4,7 @@ type LanguagesSectionProps = {
   data: PortfolioData;
 };
 
-export default function LanguagesSection({ data }: LanguagesSectionProps) {
+export function LanguagesSection({ data }: LanguagesSectionProps) {
   const { languages } = data;
   const visibleLanguages = languages.filter((language) => !language.hide);
   if (visibleLanguages.length === 0) return null;

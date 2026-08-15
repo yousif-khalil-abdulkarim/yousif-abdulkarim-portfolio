@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import Image from "next/image";
 import { FaGithub, FaLinkedin, FaXTwitter, FaYoutube, FaBlog } from "react-icons/fa6";
-import Marquee from "@/components/marquee";
+import { Marquee } from "@/components/marquee";
 import type { PortfolioData } from "@/data/types";
 
 type HeroProps = {
@@ -10,7 +10,7 @@ type HeroProps = {
   resumeHref?: string;
 };
 
-export default function Hero({ data, resumeHref }: HeroProps) {
+export function Hero({ data, resumeHref }: HeroProps) {
   const { profile, skills, uiSettings, experience } = data;
   const showPortfolioImage = uiSettings.showPortfolioImage;
   const image = profile.image;

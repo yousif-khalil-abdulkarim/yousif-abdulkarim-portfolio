@@ -1,5 +1,5 @@
-import SectionHeading from "@/components/section-heading";
-import ContactCard from "@/components/contact-card";
+import { SectionHeading } from "@/components/section-heading";
+import { ContactCard } from "@/components/contact-card";
 import { FaGithub, FaLinkedin, FaXTwitter, FaYoutube, FaBlog } from "react-icons/fa6";
 import type { PortfolioData } from "@/data/types";
 
@@ -7,7 +7,7 @@ type ContactProps = {
   data: PortfolioData;
 };
 
-export default function Contact({ data }: ContactProps) {
+export function Contact({ data }: ContactProps) {
   const { profile } = data;
   return (
     <section

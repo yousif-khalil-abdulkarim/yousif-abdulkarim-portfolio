@@ -1,8 +1,8 @@
 "use client";
 
-import SkillBadge from "@/components/skill-badge";
-import MoreButton from "@/components/more-button";
-import SkillCategoryModal from "@/components/skill-category-modal";
+import { SkillBadge } from "@/components/skill-badge";
+import { MoreButton } from "@/components/more-button";
+import { SkillCategoryModal } from "@/components/skill-category-modal";
 import type { Skill } from "@/data/all-skills";
 
 type SkillCategoryCardProps = {
@@ -11,7 +11,7 @@ type SkillCategoryCardProps = {
   limit: number;
 };
 
-export default function SkillCategoryCard({
+export function SkillCategoryCard({
   category,
   items,
   limit,

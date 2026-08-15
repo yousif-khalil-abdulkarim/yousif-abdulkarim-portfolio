@@ -1,14 +1,14 @@
 import { Fragment } from "react";
-import SectionHeading from "@/components/section-heading";
-import LanguagesSection from "@/components/languages-section";
-import SkillsSection from "@/components/skills-section";
+import { SectionHeading } from "@/components/section-heading";
+import { LanguagesSection } from "@/components/languages-section";
+import { SkillsSection } from "@/components/skills-section";
 import type { PortfolioData } from "@/data/types";
 
 type AboutProps = {
   data: PortfolioData;
 };
 
-export default function About({ data }: AboutProps) {
+export function About({ data }: AboutProps) {
   const { profile, quickFacts, uiSettings } = data;
   const visibleStats = quickFacts.filter((stat) => !stat.hide);
   const showQuickFacts = uiSettings.showQuickFacts && visibleStats.length > 0;

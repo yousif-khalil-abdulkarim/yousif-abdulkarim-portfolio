@@ -11,7 +11,7 @@ type ContactCardProps = {
   subtitle: ReactNode;
 };
 
-export default function ContactCard({
+export function ContactCard({
   href,
   icon,
   label,

@@ -1,10 +1,10 @@
 "use client";
 
-import SkillBadge from "@/components/skill-badge";
-import ProofBadges from "@/components/proof-badges";
-import PointsList from "@/components/points-list";
-import MoreButton from "@/components/more-button";
-import ExperienceModal from "@/components/experience-modal";
+import { SkillBadge } from "@/components/skill-badge";
+import { ProofBadges } from "@/components/proof-badges";
+import { PointsList } from "@/components/points-list";
+import { MoreButton } from "@/components/more-button";
+import { ExperienceModal } from "@/components/experience-modal";
 import type { Experience } from "@/data/types";
 
 type ExperienceCardProps = {
@@ -13,7 +13,7 @@ type ExperienceCardProps = {
   pointsLimit: number;
 };
 
-export default function ExperienceCard({
+export function ExperienceCard({
   job,
   proofLimit,
   pointsLimit,

@@ -9,7 +9,7 @@ export const contentType = "image/png";
  * gradient square with the profile initials in bold white. Served via the
  * `icon` file convention (adds `<link rel="icon">` automatically).
  */
-export default function Icon() {
+export function Icon() {
   const { profile } = mainPortfolio;
   const initials = `${profile.firstName[0]}${profile.lastName[0] ?? ""}`;
 

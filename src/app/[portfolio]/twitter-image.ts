@@ -16,7 +16,7 @@ export const contentType = ogContentType;
  * Twitter card image for each portfolio route, sharing the Hero-inspired
  * artwork from the Open Graph image.
  */
-export default async function Image({
+export async function Image({
   params,
 }: {
   params: Promise<{ portfolio: string }>;

@@ -1,6 +1,6 @@
 "use client";
 
-export default function ThemeToggle() {
+export function ThemeToggle() {
   function toggleTheme() {
     const isDark = document.documentElement.classList.toggle("dark");
     const theme = isDark ? "dark" : "light";

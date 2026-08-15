@@ -2,7 +2,7 @@ type MarqueeProps = {
   items: string[];
 };
 
-export default function Marquee({ items }: MarqueeProps) {
+export function Marquee({ items }: MarqueeProps) {
   if (items.length === 0) return null;
 
   return (

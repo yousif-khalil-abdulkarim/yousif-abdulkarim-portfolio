@@ -1,13 +1,13 @@
 "use client";
 
-import SkillModal from "@/components/skill-modal";
+import { SkillModal } from "@/components/skill-modal";
 import type { Skill } from "@/data/all-skills";
 
 type SkillBadgeProps = {
   skill: Skill;
 };
 
-export default function SkillBadge({ skill }: SkillBadgeProps) {
+export function SkillBadge({ skill }: SkillBadgeProps) {
   return (
     <SkillModal
       skill={skill}

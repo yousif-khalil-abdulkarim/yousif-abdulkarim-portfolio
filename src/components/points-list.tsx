@@ -6,7 +6,7 @@ type PointsListProps = {
 /**
  * Renders a bullet list of points, showing at most `limit` items.
  */
-export default function PointsList({ items, limit }: PointsListProps) {
+export function PointsList({ items, limit }: PointsListProps) {
   const visible = items.slice(0, limit);
   return (
     <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-7 text-zinc-600 marker:text-sky-400 dark:text-zinc-400">

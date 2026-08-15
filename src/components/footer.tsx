@@ -5,7 +5,7 @@ type FooterProps = {
   data: PortfolioData;
 };
 
-export default function Footer({ data }: FooterProps) {
+export function Footer({ data }: FooterProps) {
   const { profile } = data;
   const navLinks = visibleNavLinks(data);
   return (

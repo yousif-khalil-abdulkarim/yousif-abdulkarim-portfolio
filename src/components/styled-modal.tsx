@@ -114,7 +114,7 @@ function ModalContent({
   );
 }
 
-export default function StyledModal({
+export function StyledModal({
   title,
   subtitle,
   maxWidthClass = "max-w-7xl",

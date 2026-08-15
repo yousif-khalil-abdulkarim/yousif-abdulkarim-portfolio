@@ -1,9 +1,9 @@
 "use client";
 
-import SkillBadge from "@/components/skill-badge";
-import ProofBadges from "@/components/proof-badges";
-import MoreButton from "@/components/more-button";
-import ProjectModal from "@/components/project-modal";
+import { SkillBadge } from "@/components/skill-badge";
+import { ProofBadges } from "@/components/proof-badges";
+import { MoreButton } from "@/components/more-button";
+import { ProjectModal } from "@/components/project-modal";
 import type { Project } from "@/data/types";
 
 type ProjectCardProps = {
@@ -12,7 +12,7 @@ type ProjectCardProps = {
   proofLimit: number;
 };
 
-export default function ProjectCard({
+export function ProjectCard({
   project,
   index,
   proofLimit,

@@ -2,9 +2,9 @@
 
 import { Collapsible } from "@ark-ui/react/collapsible";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import SectionHeading from "@/components/section-heading";
-import ProjectCard from "@/components/project-card";
-import MoreButton from "@/components/more-button";
+import { SectionHeading } from "@/components/section-heading";
+import { ProjectCard } from "@/components/project-card";
+import { MoreButton } from "@/components/more-button";
 import { useCollapsibleState } from "@/hooks/use-collapsible-state";
 import type { PortfolioData } from "@/data/types";
 
@@ -12,7 +12,7 @@ type ProjectsProps = {
   data: PortfolioData;
 };
 
-export default function Projects({ data }: ProjectsProps) {
+export function Projects({ data }: ProjectsProps) {
   const { projects, uiSettings } = data;
   const [extraRef] = useAutoAnimate();
   const { open, handleOpenChange } = useCollapsibleState();

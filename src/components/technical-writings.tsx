@@ -2,8 +2,8 @@
 
 import { Collapsible } from "@ark-ui/react/collapsible";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import SectionHeading from "@/components/section-heading";
-import MoreButton from "@/components/more-button";
+import { SectionHeading } from "@/components/section-heading";
+import { MoreButton } from "@/components/more-button";
 import { useCollapsibleState } from "@/hooks/use-collapsible-state";
 import type { PortfolioData, TechnicalWriting } from "@/data/types";
 
@@ -11,7 +11,7 @@ type TechnicalWritingsProps = {
   data: PortfolioData;
 };
 
-export default function TechnicalWritings({ data }: TechnicalWritingsProps) {
+export function TechnicalWritings({ data }: TechnicalWritingsProps) {
   const { technicalWritings, uiSettings } = data;
   const [extraRef] = useAutoAnimate();
   const { open, handleOpenChange } = useCollapsibleState();

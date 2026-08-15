@@ -96,7 +96,9 @@ function Keywords({ items }: { items: string[] }) {
 }
 
 function SkillsSection({ skills }: { skills: Record<string, Skill[]> }) {
-  const categories = Object.entries(skills).filter(([, items]) => items.length > 0);
+  const categories = Object.entries(skills).filter(
+    ([, items]) => items.length > 0,
+  );
   if (categories.length === 0) return null;
   return (
     <>
@@ -125,9 +127,7 @@ function ExperienceSection({ jobs }: { jobs: Experience[] }) {
             <Text style={styles.itemMeta}>{job.period}</Text>
           </View>
           <Text style={styles.itemSubtitle}>{job.company}</Text>
-          {job.summary ? (
-            <Text style={styles.body}>{job.summary}</Text>
-          ) : null}
+          {job.summary ? <Text style={styles.body}>{job.summary}</Text> : null}
           {job.points.length > 0 ? <BulletList items={job.points} /> : null}
         </View>
       ))}
@@ -215,7 +215,9 @@ export function ResumeDocument({ data }: { data: PortfolioData }) {
           </Text>
           <Text style={styles.role}>{profile.role}</Text>
           {profile.tagline ? (
-            <Text style={styles.tagline}>{bioToPlainText(profile.tagline)}</Text>
+            <Text style={styles.tagline}>
+              {bioToPlainText(profile.tagline)}
+            </Text>
           ) : null}
           {contact ? <Text style={styles.contact}>{contact}</Text> : null}
           {socials ? <Text style={styles.socials}>{socials}</Text> : null}
@@ -229,17 +231,11 @@ export function ResumeDocument({ data }: { data: PortfolioData }) {
           switch (section) {
             case "experience":
               return (
-                <ExperienceSection
-                  key="experience"
-                  jobs={visibleExperience}
-                />
+                <ExperienceSection key="experience" jobs={visibleExperience} />
               );
             case "projects":
               return (
-                <ProjectsSection
-                  key="projects"
-                  projects={visibleProjects}
-                />
+                <ProjectsSection key="projects" projects={visibleProjects} />
               );
             case "certificates":
               return (
@@ -261,16 +257,9 @@ export function ResumeDocument({ data }: { data: PortfolioData }) {
  * Renders the resume PDF for the given portfolio data and returns it as a
  * Node.js Buffer (ready to stream or save as a .pdf file).
  */
-export async function renderResumePdf(data: PortfolioData): Promise<Buffer> {
-  return renderToBuffer(<ResumeDocument data={data} />);
-}
-
-/**
- * Builds the resume file name for a portfolio,
- * e.g. "Yousif_Abdulkarim_resume_main.pdf".
- */
-export function resumeFileName(data: PortfolioData, key: string): string {
-  const firstName = data.profile.firstName;
-  const lastName = data.profile.lastName;
-  return `${firstName}_${lastName}_resume_${key}.pdf`.toLowerCase();
+export async function renderResumePdf(
+  data: PortfolioData,
+): Promise<Uint8Array> {
+  const buffer = await renderToBuffer(<ResumeDocument data={data} />);
+  return new Uint8Array(buffer.buffer)
 }

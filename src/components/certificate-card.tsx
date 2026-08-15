@@ -1,14 +1,14 @@
 "use client";
 
-import MoreButton from "@/components/more-button";
-import CertificateModal from "@/components/certificate-modal";
+import { MoreButton } from "@/components/more-button";
+import { CertificateModal } from "@/components/certificate-modal";
 import type { Certificate } from "@/data/types";
 
 type CertificateCardProps = {
   certificate: Certificate;
 };
 
-export default function CertificateCard({ certificate }: CertificateCardProps) {
+export function CertificateCard({ certificate }: CertificateCardProps) {
   const { title, issuer, year, credentialUrl } = certificate;
   return (
     <li className="group flex flex-col rounded-xl border border-zinc-200 bg-white/60 p-4 transition-all hover:-translate-y-0.5 hover:border-sky-500 hover:shadow-lg hover:shadow-sky-500/10 dark:border-zinc-800 dark:bg-zinc-900/30">

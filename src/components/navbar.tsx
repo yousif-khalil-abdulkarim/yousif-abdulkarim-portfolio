@@ -3,7 +3,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Dialog, useDialogContext } from "@ark-ui/react/dialog";
 import { Portal } from "@ark-ui/react/portal";
-import ThemeToggle from "@/components/theme-toggle";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { visibleNavLinks } from "@/lib/nav-links";
 import type { PortfolioData } from "@/data/types";
 
@@ -61,7 +61,7 @@ function MobileMenuItems({
   );
 }
 
-export default function Navbar({ data }: NavbarProps) {
+export function Navbar({ data }: NavbarProps) {
   const { profile } = data;
   const initials = `${profile.firstName[0]}${profile.lastName[0] ?? ""}`;
   const [activeSection, setActiveSection] = useState("");

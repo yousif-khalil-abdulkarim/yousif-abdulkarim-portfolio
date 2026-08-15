@@ -2,9 +2,9 @@
 
 import { Collapsible } from "@ark-ui/react/collapsible";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
-import SectionHeading from "@/components/section-heading";
-import ExperienceCard from "@/components/experience-card";
-import MoreButton from "@/components/more-button";
+import { SectionHeading } from "@/components/section-heading";
+import { ExperienceCard } from "@/components/experience-card";
+import { MoreButton } from "@/components/more-button";
 import { useCollapsibleState } from "@/hooks/use-collapsible-state";
 import type { PortfolioData } from "@/data/types";
 
@@ -12,7 +12,7 @@ type ExperienceProps = {
   data: PortfolioData;
 };
 
-export default function Experience({ data }: ExperienceProps) {
+export function Experience({ data }: ExperienceProps) {
   const { experience, uiSettings } = data;
   const [extraRef] = useAutoAnimate();
   const { open, handleOpenChange } = useCollapsibleState();

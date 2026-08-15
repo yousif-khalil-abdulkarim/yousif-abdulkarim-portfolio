@@ -4,7 +4,7 @@ type SectionHeadingProps = {
   subtitle?: string;
 };
 
-export default function SectionHeading({
+export function SectionHeading({
   index,
   title,
   subtitle,

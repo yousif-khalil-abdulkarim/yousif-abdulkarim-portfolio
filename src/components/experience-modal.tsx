@@ -1,9 +1,9 @@
 "use client";
 
 import type { ReactElement } from "react";
-import StyledModal from "@/components/styled-modal";
-import SkillBadge from "@/components/skill-badge";
-import ProofBadge from "@/components/proof-badge";
+import { StyledModal } from "@/components/styled-modal";
+import { SkillBadge } from "@/components/skill-badge";
+import { ProofBadge } from "@/components/proof-badge";
 import type { Experience } from "@/data/types";
 
 type ExperienceModalProps = {
@@ -11,7 +11,7 @@ type ExperienceModalProps = {
   trigger?: ReactElement;
 };
 
-export default function ExperienceModal({
+export function ExperienceModal({
   job,
   trigger,
 }: ExperienceModalProps) {
