@@ -63,6 +63,8 @@ export type UiSettings = {
   showPortfolioImage: boolean;
   /** Whether the "Quick facts" card in the About section is rendered. */
   showQuickFacts: boolean;
+  /** Whether the Resume download button in the Hero is rendered. */
+  showResume: boolean;
   /** Default number of items shown per section before a "Show more" control appears. */
   sectionLimits: {
     /** Max Experience entries shown before "Show more". */

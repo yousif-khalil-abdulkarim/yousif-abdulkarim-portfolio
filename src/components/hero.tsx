@@ -120,7 +120,7 @@ export default function Hero({ data, resumeHref }: HeroProps) {
             >
               Get in touch
             </a>
-            {resumeHref && (
+            {resumeHref && uiSettings.showResume && (
               <a
                 href={resumeHref}
                 download

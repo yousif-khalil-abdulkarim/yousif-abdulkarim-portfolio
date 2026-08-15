@@ -7,6 +7,7 @@ export const mainPortfolio: PortfolioData = {
     showMarquee: true,
     showPortfolioImage: true,
     showQuickFacts: false,
+    showResume: true,
     sectionLimits: {
       experience: 6,
       projects: 6,
