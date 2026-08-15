@@ -12,16 +12,6 @@ export const allSkills = {
     description:
       "JavaScript runtime for building fast, scalable server-side applications — my primary backend platform.",
   },
-  Bun: {
-    name: "Bun",
-    description:
-      "Fast all-in-one JavaScript runtime with a built-in bundler, test runner, and package manager.",
-  },
-  Deno: {
-    name: "Deno",
-    description:
-      "Secure, modern JavaScript/TypeScript runtime with built-in tooling and web-standard APIs.",
-  },
   TypeScript: {
     name: "TypeScript",
     description:
@@ -46,6 +36,21 @@ export const allSkills = {
     name: "GraphQL",
     description:
       "Query language for APIs that enables precise, efficient data fetching from the client.",
+  },
+  "Back-End Web Development": {
+    name: "Back-End Web Development",
+    description:
+      "Designing and building the server-side logic, databases, and APIs that power web applications.",
+  },
+  PHP: {
+    name: "PHP",
+    description:
+      "Server-side scripting language for building dynamic websites and web applications.",
+  },
+  Laravel: {
+    name: "Laravel",
+    description:
+      "Elegant PHP framework for building modern, expressive web applications.",
   },
   "Event Sourcing": {
     name: "Event Sourcing",
@@ -97,6 +102,61 @@ export const allSkills = {
     name: "TanStack Start",
     description:
       "Full-stack React framework with type-safe routing and server functions.",
+  },
+  "Front-End Development": {
+    name: "Front-End Development",
+    description:
+      "Building responsive, accessible user interfaces and client-side experiences.",
+  },
+  "Full-Stack Development": {
+    name: "Full-Stack Development",
+    description:
+      "Working across the entire stack — from databases and APIs to user interfaces.",
+  },
+  "React Native": {
+    name: "React Native",
+    description:
+      "Framework for building native mobile apps using React and JavaScript.",
+  },
+  Svelte: {
+    name: "Svelte",
+    description:
+      "Compiler-driven UI framework that turns declarative components into highly efficient vanilla JavaScript.",
+  },
+  Bootstrap: {
+    name: "Bootstrap",
+    description:
+      "Popular CSS framework for quickly building responsive, mobile-first layouts.",
+  },
+  "Materialize CSS": {
+    name: "Materialize CSS",
+    description:
+      "CSS framework implementing Google's Material Design for modern, responsive UIs.",
+  },
+  HTML5: {
+    name: "HTML5",
+    description:
+      "Semantic markup and modern web APIs for structuring accessible web content.",
+  },
+  WordPress: {
+    name: "WordPress",
+    description:
+      "Open-source CMS and blogging platform for building content-driven websites.",
+  },
+  "SEO": {
+    name: "SEO",
+    description:
+      "Optimizing sites to improve visibility and ranking in search engine results.",
+  },
+  "Content Management Systems (CMS)": {
+    name: "Content Management Systems (CMS)",
+    description:
+      "Building and managing content-driven sites with tools like WordPress and Payload.",
+  },
+  npm: {
+    name: "npm",
+    description:
+      "Node.js package manager for installing, publishing, and managing JavaScript dependencies.",
   },
   // Databases
   PostgreSQL: {
@@ -161,6 +221,41 @@ export const allSkills = {
     name: "GitHub Actions",
     description: "CI/CD automation for build, test, and deploy pipelines.",
   },
+  DevOps: {
+    name: "DevOps",
+    description:
+      "Automating and streamlining the build, test, and deployment lifecycle.",
+  },
+  GitHub: {
+    name: "GitHub",
+    description:
+      "Collaborative development platform for hosting, reviewing, and shipping code.",
+  },
+  Git: {
+    name: "Git",
+    description:
+      "Version control for tracking changes, branching, and collaborating on code.",
+  },
+  "Unit Tests": {
+    name: "Unit Tests",
+    description:
+      "Testing individual functions and modules in isolation for correctness.",
+  },
+  "Integration Tests": {
+    name: "Integration Tests",
+    description:
+      "Verifying that multiple modules and services work together correctly.",
+  },
+  "Software Testing": {
+    name: "Software Testing",
+    description:
+      "Designing and executing test strategies to ensure software quality and reliability.",
+  },
+  E2E: {
+    name: "E2E",
+    description:
+      "End-to-end testing of complete user flows across the full application stack.",
+  },
   SSH: {
     name: "SSH",
     description: "Secure remote access and server management.",
@@ -205,6 +300,31 @@ export const allSkills = {
     name: "Event Bus",
     description:
       "Publish/subscribe backbone for decoupling components and driving async workflows.",
+  },
+  "Software Architecture": {
+    name: "Software Architecture",
+    description:
+      "Designing high-level system structure, trade-offs, and scalability from the ground up.",
+  },
+  "Event Bus System": {
+    name: "Event Bus System",
+    description:
+      "A publish/subscribe event backbone for decoupling components — core to the eridu-tech toolkit.",
+  },
+  "Redis Pub/Sub": {
+    name: "Redis Pub/Sub",
+    description:
+      "Real-time publish/subscribe messaging via Redis for decoupled service communication.",
+  },
+  "Cache System": {
+    name: "Cache System",
+    description:
+      "Designing layered caching strategies to speed up reads and reduce load.",
+  },
+  "Lock System": {
+    name: "Lock System",
+    description:
+      "Implementing distributed locking to safely coordinate access to shared resources.",
   },
   Caching: {
     name: "Caching",
@@ -323,5 +443,83 @@ export const allSkills = {
     name: "JavaScript",
     description:
       "Core language of the web — the foundation for all frontend work.",
+  },
+  // Languages
+  Lua: {
+    name: "Lua",
+    description:
+      "Lightweight, embeddable scripting language for game logic and extensible applications.",
+  },
+  "C#": {
+    name: "C#",
+    description:
+      "Object-oriented language for building applications on .NET and game development with Unity.",
+  },
+  ".NET Framework": {
+    name: ".NET Framework",
+    description:
+      "Microsoft's framework for building robust, enterprise-grade applications.",
+  },
+  Java: {
+    name: "Java",
+    description:
+      "Mature, object-oriented language for cross-platform and enterprise applications.",
+  },
+  "C++": {
+    name: "C++",
+    description:
+      "Systems language with manual memory control for performance-critical software.",
+  },
+  // Documentation
+  "Technical Documentation": {
+    name: "Technical Documentation",
+    description:
+      "Writing clear, accurate guides and references that help teams ship and maintain software.",
+  },
+  "Software Documentation": {
+    name: "Software Documentation",
+    description:
+      "Creating and maintaining docs that make codebases, APIs, and tools easy to understand.",
+  },
+  "Project Documentation": {
+    name: "Project Documentation",
+    description:
+      "Documenting project plans, architecture, and processes for effective collaboration.",
+  },
+  // Computer science & soft skills
+  "Computer Science": {
+    name: "Computer Science",
+    description:
+      "Strong foundation in algorithms, data structures, and core CS principles.",
+  },
+  "Data Structures": {
+    name: "Data Structures",
+    description:
+      "Designing and applying efficient data structures to solve real problems.",
+  },
+  "Analytical Skills": {
+    name: "Analytical Skills",
+    description:
+      "Breaking down complex problems and making data-informed decisions.",
+  },
+  "Problem Solving": {
+    name: "Problem Solving",
+    description:
+      "Approaching challenges methodically to find robust, effective solutions.",
+  },
+  Communication: {
+    name: "Communication",
+    description:
+      "Explaining technical concepts clearly to technical and non-technical audiences.",
+  },
+  Teamwork: {
+    name: "Teamwork",
+    description:
+      "Collaborating effectively with cross-functional teams to deliver shared goals.",
+  },
+  "Stress Management": {
+    name: "Stress Management",
+    description:
+      "Staying focused and productive under pressure in fast-paced environments.",
   },
 } satisfies Record<string, Skill>;
