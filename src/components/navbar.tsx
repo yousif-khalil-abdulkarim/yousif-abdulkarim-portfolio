@@ -186,7 +186,7 @@ export default function Navbar({ data }: NavbarProps) {
           className="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm sm:hidden"
         />
         <Dialog.Positioner className="fixed inset-x-0 top-16 z-50 flex justify-center sm:hidden">
-          <Dialog.Content className="w-full rounded-b-2xl border border-t-0 border-zinc-200 bg-white/95 shadow-2xl backdrop-blur-xl dark:border-zinc-800 dark:bg-zinc-950/95">
+          <Dialog.Content className="mobile-menu-panel w-full rounded-b-2xl border border-t-0 border-zinc-200 bg-white/95 shadow-2xl backdrop-blur-xl dark:border-zinc-800 dark:bg-zinc-950/95">
             <Dialog.Title className="sr-only">Navigation</Dialog.Title>
             <Dialog.CloseTrigger className="sr-only" aria-label="Close menu">
               Close

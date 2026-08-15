@@ -112,6 +112,27 @@ body {
   animation: modal-out 0.4s ease-in both;
 }
 
+/* ---------- Mobile nav menu (slides down from the top) ---------- */
+[data-scope="dialog"][data-part="content"].mobile-menu-panel {
+  transform-origin: top;
+}
+[data-scope="dialog"][data-part="content"].mobile-menu-panel[data-state="open"] {
+  animation: nav-menu-in 0.4s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+[data-scope="dialog"][data-part="content"].mobile-menu-panel[data-state="closed"] {
+  animation: nav-menu-out 0.3s ease-in both;
+}
+
+@keyframes nav-menu-in {
+  from { opacity: 0; transform: translateY(-100%); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes nav-menu-out {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-100%); }
+}
+
 /* ---------- Background grid ---------- */
 .bg-grid {
   background-image:
