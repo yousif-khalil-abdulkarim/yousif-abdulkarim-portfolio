@@ -9,7 +9,7 @@ export const contentType = iconContentType;
  * gradient square with the profile initials in bold white. Served via the
  * `icon` file convention (adds `<link rel="icon">` automatically).
  */
-export async function Icon({
+export default async function Icon({
   params,
 }: {
   params: Promise<{ portfolio: string }>;

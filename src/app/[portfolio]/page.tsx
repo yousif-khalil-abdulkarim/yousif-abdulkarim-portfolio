@@ -20,7 +20,7 @@ export async function generateMetadata({
   return portfolioMetadata(allPortfolios[portfolio]);
 }
 
-export async function PortfolioPage({
+export default async function PortfolioPage({
   params,
 }: PortfolioPageProps) {
   const { portfolio } = await params;
