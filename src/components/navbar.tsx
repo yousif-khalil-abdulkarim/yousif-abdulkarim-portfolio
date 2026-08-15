@@ -11,6 +11,20 @@ type NavbarProps = {
   data: PortfolioData;
 };
 
+/**
+ * Smoothly scrolls to the section referenced by a nav link and keeps the URL
+ * hash in sync without triggering a jump. Using scrollIntoView (rather than a
+ * plain hash link) guarantees the animation runs even on repeated clicks.
+ */
+function scrollToSection(e: { preventDefault: () => void }, href: string) {
+  e.preventDefault();
+  document.getElementById(href.slice(1))?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
+  history.pushState(null, "", href);
+}
+
 function MobileMenuItems({
   data,
   activeSection,
@@ -27,7 +41,10 @@ function MobileMenuItems({
           <li key={link.href}>
             <a
               href={link.href}
-              onClick={() => dialog.setOpen(false)}
+              onClick={(e) => {
+                dialog.setOpen(false);
+                scrollToSection(e, link.href);
+              }}
               aria-current={isActive ? "true" : undefined}
               className={`block rounded-lg px-4 py-2.5 text-sm font-medium transition-colors ${
                 isActive
@@ -97,6 +114,7 @@ export default function Navbar({ data }: NavbarProps) {
       <nav className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
         <a
           href="#home"
+          onClick={(e) => scrollToSection(e, "#home")}
           className="group flex items-center gap-2 font-display text-lg font-bold tracking-tight"
         >
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-linear-to-br from-blue-500 via-sky-500 to-amber-400 text-sm font-bold text-white shadow-md shadow-sky-500/30 transition-transform group-hover:rotate-6">
@@ -125,6 +143,7 @@ export default function Navbar({ data }: NavbarProps) {
                       linkRefs.current[link.href.slice(1)] = node;
                     }}
                     href={link.href}
+                    onClick={(e) => scrollToSection(e, link.href)}
                     aria-current={isActive ? "true" : undefined}
                     className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                       isActive
