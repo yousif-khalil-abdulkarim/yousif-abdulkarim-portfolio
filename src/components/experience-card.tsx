@@ -33,6 +33,11 @@ export default function ExperienceCard({
         </h3>
         <span className="font-mono text-xs text-zinc-400">{job.period}</span>
       </div>
+      {job.summary && (
+        <p className="mt-3 text-sm leading-7 text-zinc-600 dark:text-zinc-400">
+          {job.summary}
+        </p>
+      )}
       <PointsList items={job.points} limit={pointsLimit} />
       {job.stack.length > 0 && (
         <ul className="mt-3 flex flex-wrap gap-2">

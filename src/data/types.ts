@@ -77,7 +77,7 @@ export type UiSettings = {
     certificates: number;
     /** Max proof badges shown per entry before "Show more". */
     proofLimit: number;
-    /** Max bullet points shown per experience entry before "Show more". */
+    /** Max bullet points shown per experience entry. */
     pointsLimit: number;
   };
 };
