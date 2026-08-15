@@ -1,6 +1,12 @@
 import { SectionHeading } from "@/components/utilities/section-heading";
 import { ContactCard } from "@/components/contact/contact-card";
-import { FaGithub, FaLinkedin, FaXTwitter, FaYoutube, FaBlog } from "react-icons/fa6";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaXTwitter,
+  FaYoutube,
+  FaBlog,
+} from "react-icons/fa6";
 import type { PortfolioData } from "@/data/types";
 
 type ContactProps = {

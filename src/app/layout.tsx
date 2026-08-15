@@ -19,7 +19,7 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
 });
 
-export const metadata = portfolioMetadata(allPortfolios["main"])
+export const metadata = portfolioMetadata(allPortfolios["main"]);
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
   const theme = await getTheme();

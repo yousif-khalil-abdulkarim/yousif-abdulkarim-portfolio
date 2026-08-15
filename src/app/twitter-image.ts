@@ -1,9 +1,5 @@
 import { mainPortfolio } from "@/data/portfolios/main-portfolio";
-import {
-  renderPortfolioOgImage,
-  ogSize,
-  ogContentType,
-} from "@/og/og-image";
+import { renderPortfolioOgImage, ogSize, ogContentType } from "@/og/og-image";
 
 export const runtime = "nodejs";
 

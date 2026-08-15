@@ -25,7 +25,7 @@ export function AboutBio({ paragraphs }: AboutBioProps) {
               </span>
             ) : (
               <Fragment key={rIndex}>{run.text}</Fragment>
-            )
+            ),
           )}
         </p>
       ))}

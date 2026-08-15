@@ -365,7 +365,8 @@ export const mainPortfolio: PortfolioData = {
       year: "2022 — Present",
       featured: false,
       liveUrl: null,
-      repoUrl: "https://github.com/yousif-khalil-abdulkarim/outstanding-resumes-old",
+      repoUrl:
+        "https://github.com/yousif-khalil-abdulkarim/outstanding-resumes-old",
       proof: [],
     },
     {
@@ -386,8 +387,10 @@ export const mainPortfolio: PortfolioData = {
       ],
       year: "2023",
       featured: false,
-      liveUrl: "https://yousif-khalil-abdulkarim.github.io/the-primitive-language/public/main",
-      repoUrl: "https://github.com/yousif-khalil-abdulkarim/the-primitive-language",
+      liveUrl:
+        "https://yousif-khalil-abdulkarim.github.io/the-primitive-language/public/main",
+      repoUrl:
+        "https://github.com/yousif-khalil-abdulkarim/the-primitive-language",
       proof: [],
     },
   ],

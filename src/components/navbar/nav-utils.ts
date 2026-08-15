@@ -61,7 +61,7 @@ function sectionHasContent(data: PortfolioData, id: string): boolean {
  */
 export function scrollToSection(
   e: { preventDefault: () => void },
-  href: string
+  href: string,
 ) {
   e.preventDefault();
   document.getElementById(href.slice(1))?.scrollIntoView({

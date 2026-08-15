@@ -17,7 +17,7 @@ export default async function Icon({
   const { portfolio } = await params;
   const data = allPortfolios[portfolio];
   if (!data) return new Response("Not found", { status: 404 });
-  
+
   const { profile } = data;
   const initials = `${profile.firstName[0]}${profile.lastName[0]}`;
 

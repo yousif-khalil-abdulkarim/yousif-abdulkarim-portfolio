@@ -12,18 +12,12 @@ type ProjectCardProps = {
   proofLimit: number;
 };
 
-export function ProjectCard({
-  project,
-  index,
-  proofLimit,
-}: ProjectCardProps) {
+export function ProjectCard({ project, index, proofLimit }: ProjectCardProps) {
   return (
     <article className="group relative">
       <div className="relative flex h-full flex-col rounded-2xl border border-zinc-200 bg-white p-6 transition-all hover:-translate-y-0.5 hover:border-sky-500 hover:shadow-lg hover:shadow-sky-500/10 dark:border-zinc-800 dark:bg-zinc-950">
         <div className="flex items-center justify-between">
-          <span className="font-mono text-sm text-zinc-400">
-            0{index + 1}
-          </span>
+          <span className="font-mono text-sm text-zinc-400">0{index + 1}</span>
           <div className="flex items-center gap-2">
             {project.featured && (
               <span className="rounded-full bg-sky-500/10 px-2.5 py-1 text-xs font-semibold text-sky-600 dark:text-sky-400">
@@ -48,7 +42,9 @@ export function ProjectCard({
             </li>
           ))}
         </ul>
-        {project.proof.length > 0 && <ProofBadges items={project.proof} limit={proofLimit} />}
+        {project.proof.length > 0 && (
+          <ProofBadges items={project.proof} limit={proofLimit} />
+        )}
         <div className="mt-5 flex flex-wrap items-center gap-4">
           <ProjectModal project={project} trigger={<MoreButton />} />
           {project.liveUrl && (

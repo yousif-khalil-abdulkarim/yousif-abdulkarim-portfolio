@@ -1,6 +1,12 @@
 "use client";
 
-import { useCallback, useEffect, useRef, type ReactElement, type ReactNode } from "react";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  type ReactElement,
+  type ReactNode,
+} from "react";
 import { Dialog, useDialogContext } from "@ark-ui/react/dialog";
 import { Portal } from "@ark-ui/react/portal";
 
@@ -98,9 +104,7 @@ function ModalContent({
                 </svg>
               </Dialog.CloseTrigger>
             </div>
-            <div className="min-h-0 flex-1 overflow-y-auto">
-              {children}
-            </div>
+            <div className="min-h-0 flex-1 overflow-y-auto">{children}</div>
             <Dialog.CloseTrigger
               aria-label="Close"
               className="mt-6 flex w-full shrink-0 cursor-pointer items-center justify-center rounded-xl border border-zinc-300 px-4 py-3 text-sm font-semibold text-zinc-600 transition-colors hover:border-sky-500 hover:text-sky-500 dark:border-zinc-700 dark:text-zinc-400 sm:hidden"
@@ -132,9 +136,18 @@ export function StyledModal({
   );
 
   return (
-    <Dialog.Root defaultOpen={!trigger} lazyMount unmountOnExit onOpenChange={handleOpenChange}>
+    <Dialog.Root
+      defaultOpen={!trigger}
+      lazyMount
+      unmountOnExit
+      onOpenChange={handleOpenChange}
+    >
       {trigger && <Dialog.Trigger asChild>{trigger}</Dialog.Trigger>}
-      <ModalContent title={title} subtitle={subtitle} maxWidthClass={maxWidthClass}>
+      <ModalContent
+        title={title}
+        subtitle={subtitle}
+        maxWidthClass={maxWidthClass}
+      >
         {children}
       </ModalContent>
     </Dialog.Root>

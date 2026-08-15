@@ -19,17 +19,10 @@ export async function generateMetadata({
   return portfolioMetadata(allPortfolios[portfolio]);
 }
 
-export default async function PortfolioPage({
-  params,
-}: PortfolioPageProps) {
+export default async function PortfolioPage({ params }: PortfolioPageProps) {
   const { portfolio } = await params;
   const data = allPortfolios[portfolio as keyof typeof allPortfolios];
   if (!data) notFound();
 
-  return (
-    <Portfolio
-      data={data}
-      resumeHref={`/${portfolio}/resume.pdf`}
-    />
-  );
+  return <Portfolio data={data} resumeHref={`/${portfolio}/resume.pdf`} />;
 }

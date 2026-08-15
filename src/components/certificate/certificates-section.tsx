@@ -10,19 +10,16 @@ type CertificatesSectionProps = {
   data: PortfolioData;
 };
 
-export function CertificatesSection({
-  data,
-}: CertificatesSectionProps) {
+export function CertificatesSection({ data }: CertificatesSectionProps) {
   const { certificates, uiSettings } = data;
   const [expanded, setExpanded] = useState(false);
-  const visibleCertificates = certificates.filter(
-    (cert) => !cert.hide
-  );
+  const visibleCertificates = certificates.filter((cert) => !cert.hide);
   const hasMore =
     visibleCertificates.length > uiSettings.sectionLimits.certificates;
-  const visible = hasMore && !expanded
-    ? visibleCertificates.slice(0, uiSettings.sectionLimits.certificates)
-    : visibleCertificates;
+  const visible =
+    hasMore && !expanded
+      ? visibleCertificates.slice(0, uiSettings.sectionLimits.certificates)
+      : visibleCertificates;
 
   if (visibleCertificates.length === 0) return null;
 

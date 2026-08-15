@@ -261,7 +261,7 @@ export async function renderResumePdf(
   data: PortfolioData,
 ): Promise<Uint8Array> {
   const buffer = await renderToBuffer(<ResumeDocument data={data} />);
-  return new Uint8Array(buffer.buffer)
+  return new Uint8Array(buffer.buffer);
 }
 
 /**

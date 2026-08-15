@@ -245,4 +245,3 @@ export type PortfolioData = {
   /** Skills grouped by category (e.g. Backend, Frontend), referencing the shared `allSkills` map. */
   skills: Record<string, Skill[]>;
 };
-

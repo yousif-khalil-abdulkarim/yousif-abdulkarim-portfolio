@@ -48,14 +48,15 @@ export function Projects({ data }: ProjectsProps) {
               ref={extraRef}
               className="col-span-full grid gap-6 md:grid-cols-2"
             >
-              {open && extraProjects.map((project, j) => (
-                <ProjectCard
-                  key={project.title}
-                  project={project}
-                  index={shownProjects.length + j}
-                  proofLimit={uiSettings.sectionLimits.proofLimit}
-                />
-              ))}
+              {open &&
+                extraProjects.map((project, j) => (
+                  <ProjectCard
+                    key={project.title}
+                    project={project}
+                    index={shownProjects.length + j}
+                    proofLimit={uiSettings.sectionLimits.proofLimit}
+                  />
+                ))}
             </div>
           )}
         </div>

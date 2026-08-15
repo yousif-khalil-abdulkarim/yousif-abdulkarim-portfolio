@@ -44,14 +44,15 @@ export function Experience({ data }: ExperienceProps) {
             />
           ))}
           <div ref={extraRef} className="space-y-10">
-            {open && extraJobs.map((job) => (
-              <ExperienceCard
-                key={`${job.role}-${job.company}`}
-                job={job}
-                proofLimit={uiSettings.sectionLimits.proofLimit}
-                pointsLimit={uiSettings.sectionLimits.pointsLimit}
-              />
-            ))}
+            {open &&
+              extraJobs.map((job) => (
+                <ExperienceCard
+                  key={`${job.role}-${job.company}`}
+                  job={job}
+                  proofLimit={uiSettings.sectionLimits.proofLimit}
+                  pointsLimit={uiSettings.sectionLimits.pointsLimit}
+                />
+              ))}
           </div>
         </div>
         {extraJobs.length > 0 && (

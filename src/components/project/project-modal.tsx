@@ -11,12 +11,13 @@ type ProjectModalProps = {
   trigger?: ReactElement;
 };
 
-export function ProjectModal({
-  project,
-  trigger,
-}: ProjectModalProps) {
+export function ProjectModal({ project, trigger }: ProjectModalProps) {
   return (
-    <StyledModal title={project.title} subtitle={project.year} trigger={trigger}>
+    <StyledModal
+      title={project.title}
+      subtitle={project.year}
+      trigger={trigger}
+    >
       <p className="mt-4 text-sm leading-7 text-zinc-600 dark:text-zinc-400">
         {project.description}
       </p>

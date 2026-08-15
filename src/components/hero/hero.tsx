@@ -1,6 +1,12 @@
 import { Fragment } from "react";
 import Image from "next/image";
-import { FaGithub, FaLinkedin, FaXTwitter, FaYoutube, FaBlog } from "react-icons/fa6";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaXTwitter,
+  FaYoutube,
+  FaBlog,
+} from "react-icons/fa6";
 import { Marquee } from "@/components/hero/marquee";
 import { AvailabilityBadge } from "@/components/hero/availability-badge";
 import { HeroBadge } from "@/components/hero/hero-badge";
@@ -56,9 +62,7 @@ export function Hero({ data, resumeHref }: HeroProps) {
         }`}
       >
         {/* Left: text */}
-        <div
-          className={`text-center ${showPortrait ? "lg:text-left" : ""}`}
-        >
+        <div className={`text-center ${showPortrait ? "lg:text-left" : ""}`}>
           <AvailabilityBadge available={profile.availableForWork} />
 
           <HeroTitle
@@ -81,7 +85,7 @@ export function Hero({ data, resumeHref }: HeroProps) {
                 </span>
               ) : (
                 <Fragment key={index}>{tagLineItem.text}</Fragment>
-              )
+              ),
             )}
           </p>
 

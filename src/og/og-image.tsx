@@ -16,19 +16,19 @@ import { OgCard } from "@/og/og-card";
  */
 
 const geistRegular = readFile(
-  join(process.cwd(), "src/og/fonts/Geist-Regular.ttf")
+  join(process.cwd(), "src/og/fonts/Geist-Regular.ttf"),
 );
 const geistMedium = readFile(
-  join(process.cwd(), "src/og/fonts/Geist-Medium.ttf")
+  join(process.cwd(), "src/og/fonts/Geist-Medium.ttf"),
 );
 const geistSemiBold = readFile(
-  join(process.cwd(), "src/og/fonts/Geist-SemiBold.ttf")
+  join(process.cwd(), "src/og/fonts/Geist-SemiBold.ttf"),
 );
 const geistMonoMedium = readFile(
-  join(process.cwd(), "src/og/fonts/GeistMono-Medium.ttf")
+  join(process.cwd(), "src/og/fonts/GeistMono-Medium.ttf"),
 );
 const spaceGroteskBold = readFile(
-  join(process.cwd(), "src/og/fonts/SpaceGrotesk-Bold.ttf")
+  join(process.cwd(), "src/og/fonts/SpaceGrotesk-Bold.ttf"),
 );
 
 // Optimized square portrait for embedding — the source photo in `public/` can
@@ -36,7 +36,7 @@ const spaceGroteskBold = readFile(
 // scope with a statically-scoped path so the build only traces this file.
 const portraitData = readFile(
   join(process.cwd(), "public/portrait-og.jpg"),
-  "base64"
+  "base64",
 );
 const portraitSrc = `data:image/jpeg;base64,${await portraitData}`;
 

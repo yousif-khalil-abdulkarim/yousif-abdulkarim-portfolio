@@ -77,7 +77,7 @@ type RenderLogoMarkOptions = {
  */
 export function renderLogoMark(
   initials: string,
-  { size = iconSize.width }: RenderLogoMarkOptions = {}
+  { size = iconSize.width }: RenderLogoMarkOptions = {},
 ): ImageResponse {
   return new ImageResponse(<LogoMark initials={initials} />, {
     width: size,

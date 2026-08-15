@@ -48,7 +48,9 @@ export function ExperienceCard({
           ))}
         </ul>
       )}
-      {job.proof.length > 0 && <ProofBadges items={job.proof} limit={proofLimit} />}
+      {job.proof.length > 0 && (
+        <ProofBadges items={job.proof} limit={proofLimit} />
+      )}
       <div className="mt-5 flex flex-wrap items-center gap-4">
         <ExperienceModal job={job} trigger={<MoreButton />} />
         {job.liveUrl && (

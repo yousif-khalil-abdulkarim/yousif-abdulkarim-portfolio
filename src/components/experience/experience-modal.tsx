@@ -11,10 +11,7 @@ type ExperienceModalProps = {
   trigger?: ReactElement;
 };
 
-export function ExperienceModal({
-  job,
-  trigger,
-}: ExperienceModalProps) {
+export function ExperienceModal({ job, trigger }: ExperienceModalProps) {
   return (
     <StyledModal
       title={job.role}

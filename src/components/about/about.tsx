@@ -18,10 +18,7 @@ export function About({ data }: AboutProps) {
       id="about"
       className="mx-auto w-full max-w-5xl scroll-mt-20 px-6 py-24"
     >
-      <SectionHeading
-        index="01"
-        title="About me"
-      />
+      <SectionHeading index="01" title="About me" />
       <div className="mt-12 grid gap-10 md:grid-cols-5">
         <div
           className={`${showQuickFacts ? "md:col-span-3" : "md:col-span-5"}`}

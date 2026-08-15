@@ -6,7 +6,10 @@
 :root {
   --background: #fafafa;
   --foreground: #18181b;
-  --text-cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><g fill='none' stroke='%2318181b' stroke-width='1.5' stroke-linecap='round'><path d='M12 3v18'/><path d='M8.5 3.5h7'/><path d='M8.5 20.5h7'/></g></svg>") 12 12, text;
+  --text-cursor:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><g fill='none' stroke='%2318181b' stroke-width='1.5' stroke-linecap='round'><path d='M12 3v18'/><path d='M8.5 3.5h7'/><path d='M8.5 20.5h7'/></g></svg>")
+      12 12,
+    text;
 }
 
 @theme inline {
@@ -14,13 +17,17 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
-  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-display:
+    var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
 }
 
 .dark {
   --background: #09090b;
   --foreground: #ededed;
-  --text-cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><g fill='none' stroke='%23f4f4f5' stroke-width='1.5' stroke-linecap='round'><path d='M12 3v18'/><path d='M8.5 3.5h7'/><path d='M8.5 20.5h7'/></g></svg>") 12 12, text;
+  --text-cursor:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><g fill='none' stroke='%23f4f4f5' stroke-width='1.5' stroke-linecap='round'><path d='M12 3v18'/><path d='M8.5 3.5h7'/><path d='M8.5 20.5h7'/></g></svg>")
+      12 12,
+    text;
 }
 
 html {
@@ -35,69 +42,141 @@ body {
 
 /* ---------- Custom keyframes ---------- */
 @keyframes fade-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes blob {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(24px, -32px) scale(1.1); }
-  66% { transform: translate(-18px, 20px) scale(0.94); }
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(24px, -32px) scale(1.1);
+  }
+  66% {
+    transform: translate(-18px, 20px) scale(0.94);
+  }
 }
 
 @keyframes pulse-dot {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.55); }
-  70% { box-shadow: 0 0 0 7px rgba(16, 185, 129, 0); }
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.55);
+  }
+  70% {
+    box-shadow: 0 0 0 7px rgba(16, 185, 129, 0);
+  }
 }
 
 @keyframes pulse-sky {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.45); }
-  70% { box-shadow: 0 0 0 4px rgba(14, 165, 233, 0); }
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.45);
+  }
+  70% {
+    box-shadow: 0 0 0 4px rgba(14, 165, 233, 0);
+  }
 }
 
 @keyframes gradient-x {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes modal-in {
-  from { opacity: 0; transform: translateY(16px) scale(0.92); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  from {
+    opacity: 0;
+    transform: translateY(16px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 @keyframes backdrop-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes modal-out {
-  from { opacity: 1; transform: translateY(0) scale(1); }
-  to { opacity: 0; transform: translateY(16px) scale(0.92); }
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(16px) scale(0.92);
+  }
 }
 
 @keyframes backdrop-out {
-  from { opacity: 1; }
-  to { opacity: 0; }
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 /* ---------- Animation utility classes ---------- */
-.animate-fade-up { animation: fade-up 0.7s ease-out both; }
-.animate-marquee { animation: marquee 72s linear infinite; }
-.animate-blob { animation: blob 14s ease-in-out infinite; }
-.animate-pulse-dot { animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-.animate-pulse-sky { animation: pulse-sky 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-.animate-gradient-x { background-size: 200% 200%; animation: gradient-x 6s ease infinite; }
-.animate-float { animation: float 6s ease-in-out infinite; }
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+.animate-marquee {
+  animation: marquee 72s linear infinite;
+}
+.animate-blob {
+  animation: blob 14s ease-in-out infinite;
+}
+.animate-pulse-dot {
+  animation: pulse-dot 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+.animate-pulse-sky {
+  animation: pulse-sky 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 6s ease infinite;
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
 /* ---------- Dialog (modal) open/close animations ---------- */
 [data-scope="dialog"][data-part="backdrop"][data-state="open"] {
   animation: backdrop-in 0.3s ease-out both;
@@ -124,13 +203,21 @@ body {
 }
 
 @keyframes nav-menu-in {
-  from { transform: translateY(-100%); }
-  to { transform: translateY(0); }
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 @keyframes nav-menu-out {
-  from { transform: translateY(0); }
-  to { transform: translateY(-100%); }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
 }
 
 /* ---------- Background grid ---------- */
@@ -171,20 +258,34 @@ select {
 
 /* High-contrast mouse cursor (I-beam) over text, visible on light & dark */
 p,
-h1, h2, h3, h4, h5, h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 li,
-dt, dd,
+dt,
+dd,
 blockquote,
 figcaption,
-td, th,
-pre, code {
+td,
+th,
+pre,
+code {
   cursor: var(--text-cursor);
 }
 
-::-webkit-scrollbar { width: 10px; }
-::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
 ::-webkit-scrollbar-thumb {
   background: rgb(120 113 108 / 0.4);
   border-radius: 8px;
 }
-::-webkit-scrollbar-thumb:hover { background: rgb(120 113 108 / 0.7); }
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(120 113 108 / 0.7);
+}

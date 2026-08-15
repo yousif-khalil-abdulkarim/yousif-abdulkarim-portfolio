@@ -11,12 +11,7 @@ type ContactCardProps = {
   subtitle: ReactNode;
 };
 
-export function ContactCard({
-  href,
-  icon,
-  label,
-  subtitle,
-}: ContactCardProps) {
+export function ContactCard({ href, icon, label, subtitle }: ContactCardProps) {
   const cardClasses =
     "group flex items-center gap-4 rounded-2xl border border-zinc-200 bg-white p-5 transition-all hover:-translate-y-0.5 hover:border-sky-500 hover:shadow-lg hover:shadow-sky-500/10 dark:border-zinc-800 dark:bg-zinc-950";
 

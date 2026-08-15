@@ -193,7 +193,8 @@ export const allSkills = {
   },
   "Service Pattern": {
     name: "Service Pattern",
-    description: "Structuring business logic into focused, reusable service layers.",
+    description:
+      "Structuring business logic into focused, reusable service layers.",
   },
   "Clean Architecture": {
     name: "Clean Architecture",

@@ -12,12 +12,7 @@ type NavItemProps = {
 };
 
 /** A single desktop navigation link with active-state styling. */
-export function NavItem({
-  href,
-  label,
-  active,
-  onRegisterRef,
-}: NavItemProps) {
+export function NavItem({ href, label, active, onRegisterRef }: NavItemProps) {
   return (
     <li>
       <a
