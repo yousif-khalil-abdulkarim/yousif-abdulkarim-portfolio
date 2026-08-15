@@ -263,3 +263,13 @@ export async function renderResumePdf(
   const buffer = await renderToBuffer(<ResumeDocument data={data} />);
   return new Uint8Array(buffer.buffer)
 }
+
+/**
+ * Builds the resume file name for a portfolio,
+ * e.g. "Yousif_Abdulkarim_resume_main.pdf".
+ */
+export function resumeFileName(data: PortfolioData, key: string): string {
+  const firstName = data.profile.firstName;
+  const lastName = data.profile.lastName;
+  return `${firstName}_${lastName}_resume_${key}.pdf`.toLowerCase();
+}

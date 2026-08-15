@@ -1,9 +1,8 @@
-import { ImageResponse } from "next/og";
-import { LogoMark } from "@/components/logo-mark";
+import { renderLogoMark, iconSize, iconContentType } from "@/og/logo-mark";
 import { allPortfolios } from "@/data/portfolios";
 
-export const size = { width: 64, height: 64 };
-export const contentType = "image/png";
+export const size = iconSize;
+export const contentType = iconContentType;
 
 /**
  * Browser favicon matching the navbar logo — a rounded blue→sky→amber
@@ -22,5 +21,5 @@ export async function Icon({
   const { profile } = data;
   const initials = `${profile.firstName[0]}${profile.lastName[0]}`;
 
-  return new ImageResponse(<LogoMark initials={initials} />, { ...size });
+  return renderLogoMark(initials);
 }

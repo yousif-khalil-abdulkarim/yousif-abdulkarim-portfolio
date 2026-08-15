@@ -7,10 +7,8 @@ import {
   ogContentType,
 } from "@/og/og-image";
 
-export const runtime = "nodejs";
-
 export const alt = ogAlt(mainPortfolio);
-export const size = { ...ogSize };
+export const size = ogSize;
 export const contentType = ogContentType;
 
 /**

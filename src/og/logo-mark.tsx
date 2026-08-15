@@ -1,3 +1,11 @@
+import { ImageResponse } from "next/og";
+
+/** Favicon dimensions (square) shared by the `icon` file conventions. */
+export const iconSize = { width: 64, height: 64 };
+
+/** Favicon MIME type shared by the `icon` file conventions. */
+export const iconContentType = "image/png";
+
 type LogoMarkProps = {
   /** Initials rendered in the center of the gradient square, e.g. "YA". */
   initials: string;
@@ -55,4 +63,24 @@ export function LogoMark({
       {initials}
     </div>
   );
+}
+
+type RenderLogoMarkOptions = {
+  /** Square edge length in pixels. Defaults to `iconSize.width` (64). */
+  size?: number;
+};
+
+/**
+ * Renders a `LogoMark` as a favicon `ImageResponse` (PNG). Used by the `icon`
+ * file conventions in `src/app/icon.ts` and `src/app/[portfolio]/icon.ts`
+ * instead of inlining the `ImageResponse` wrapper at each call site.
+ */
+export function renderLogoMark(
+  initials: string,
+  { size = iconSize.width }: RenderLogoMarkOptions = {}
+): ImageResponse {
+  return new ImageResponse(<LogoMark initials={initials} />, {
+    width: size,
+    height: size,
+  });
 }

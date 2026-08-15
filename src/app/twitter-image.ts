@@ -8,7 +8,7 @@ import {
 export const runtime = "nodejs";
 
 export const alt = `${mainPortfolio.profile.firstName} ${mainPortfolio.profile.lastName} — ${mainPortfolio.profile.role}`;
-export const size = { ...ogSize };
+export const size = ogSize;
 export const contentType = ogContentType;
 
 /**
