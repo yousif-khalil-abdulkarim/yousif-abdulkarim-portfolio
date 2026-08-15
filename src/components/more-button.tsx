@@ -6,22 +6,26 @@ type MoreButtonProps = Omit<
 > & {
   /** Number of hidden items. When provided, the label toggles between "Show more (N more)" and "Show less". */
   hiddenCount?: number;
-  /** Whether the extra content is currently expanded (only used when `hiddenCount` is set). */
+  /** Explicit expanded state. Falls back to the `data-state` injected by `Collapsible.Trigger asChild`. */
   expanded?: boolean;
+  /** Set automatically by Ark UI's `Collapsible.Trigger asChild` — do not pass manually. */
+  "data-state"?: string;
 };
 
 /**
  * A pill button with a chevron. Acts as a static "View more" trigger, or as a
- * "Show more / Show less" toggle when `hiddenCount` is provided.
+ * "Show more / Show less" toggle when `hiddenCount` is provided. When composed
+ * with `Collapsible.Trigger asChild`, Ark UI injects `data-state` to drive the label.
  */
 const MoreButton = forwardRef<HTMLButtonElement, MoreButtonProps>(
   function MoreButton(
-    { expanded = false, hiddenCount, className = "", ...props },
+    { hiddenCount, expanded, className = "", ...props },
     ref,
   ) {
+    const isOpen = expanded ?? props["data-state"] === "open";
     const label =
       hiddenCount !== undefined
-        ? expanded
+        ? isOpen
           ? "Show less"
           : `Show more (${hiddenCount} more)`
         : "View more";
@@ -36,7 +40,9 @@ const MoreButton = forwardRef<HTMLButtonElement, MoreButtonProps>(
         {label}
         <svg
           aria-hidden
-          className="h-3.5 w-3.5 shrink-0"
+          className={`h-3.5 w-3.5 shrink-0 transition-transform ${
+            isOpen ? "rotate-90" : ""
+          }`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

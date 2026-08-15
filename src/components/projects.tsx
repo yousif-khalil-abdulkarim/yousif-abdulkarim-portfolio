@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Collapsible } from "@ark-ui/react/collapsible";
 import SectionHeading from "@/components/section-heading";
 import ProjectCard from "@/components/project-card";
 import MoreButton from "@/components/more-button";
@@ -12,12 +12,10 @@ type ProjectsProps = {
 
 export default function Projects({ data }: ProjectsProps) {
   const { projects, uiSettings } = data;
-  const [expanded, setExpanded] = useState(false);
   const visibleProjects = projects.filter((project) => !project.hide);
-  const hasMore = visibleProjects.length > uiSettings.sectionLimits.projects;
-  const visible = hasMore && !expanded
-    ? visibleProjects.slice(0, uiSettings.sectionLimits.projects)
-    : visibleProjects;
+  const limit = uiSettings.sectionLimits.projects;
+  const shownProjects = visibleProjects.slice(0, limit);
+  const extraProjects = visibleProjects.slice(limit);
 
   if (visibleProjects.length === 0) return null;
 
@@ -31,25 +29,39 @@ export default function Projects({ data }: ProjectsProps) {
         title="Projects"
         subtitle="A selection of products and open-source work I've built. Click View more to dive deeper."
       />
-      <div className="mt-12 grid gap-6 md:grid-cols-2">
-        {visible.map((project, i) => (
-          <ProjectCard
-            key={project.title}
-            project={project}
-            index={i}
-            proofLimit={uiSettings.sectionLimits.proofLimit}
-          />
-        ))}
-      </div>
-      {hasMore && (
-        <div className="mt-10 flex justify-center">
-          <MoreButton
-            expanded={expanded}
-            hiddenCount={visibleProjects.length - uiSettings.sectionLimits.projects}
-            onClick={() => setExpanded((value) => !value)}
-          />
+      <Collapsible.Root>
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
+          {shownProjects.map((project, i) => (
+            <ProjectCard
+              key={project.title}
+              project={project}
+              index={i}
+              proofLimit={uiSettings.sectionLimits.proofLimit}
+            />
+          ))}
+          {extraProjects.length > 0 && (
+            <Collapsible.Content className="col-span-full">
+              <div className="grid gap-6 md:grid-cols-2">
+                {extraProjects.map((project, j) => (
+                  <ProjectCard
+                    key={project.title}
+                    project={project}
+                    index={shownProjects.length + j}
+                    proofLimit={uiSettings.sectionLimits.proofLimit}
+                  />
+                ))}
+              </div>
+            </Collapsible.Content>
+          )}
         </div>
-      )}
+        {extraProjects.length > 0 && (
+          <div className="mt-10 flex justify-center">
+            <Collapsible.Trigger asChild>
+              <MoreButton hiddenCount={extraProjects.length} />
+            </Collapsible.Trigger>
+          </div>
+        )}
+      </Collapsible.Root>
     </section>
   );
 }
