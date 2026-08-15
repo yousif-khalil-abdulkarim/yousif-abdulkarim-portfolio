@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import { Dialog, useDialogContext } from "@ark-ui/react/dialog";
+import { Portal } from "@ark-ui/react/portal";
 import ThemeToggle from "@/components/theme-toggle";
 import { visibleNavLinks } from "@/lib/nav-links";
 import type { PortfolioData } from "@/data/types";
@@ -8,6 +10,39 @@ import type { PortfolioData } from "@/data/types";
 type NavbarProps = {
   data: PortfolioData;
 };
+
+function MobileMenuItems({
+  data,
+  activeSection,
+}: {
+  data: PortfolioData;
+  activeSection: string;
+}) {
+  const dialog = useDialogContext();
+  return (
+    <ul className="flex flex-col gap-1 p-4">
+      {visibleNavLinks(data).map((link) => {
+        const isActive = activeSection === link.href.slice(1);
+        return (
+          <li key={link.href}>
+            <a
+              href={link.href}
+              onClick={() => dialog.setOpen(false)}
+              aria-current={isActive ? "true" : undefined}
+              className={`block rounded-lg px-4 py-2.5 text-sm font-medium transition-colors ${
+                isActive
+                  ? "bg-sky-500/10 text-sky-600 dark:bg-sky-400/10 dark:text-sky-400"
+                  : "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-950 dark:text-zinc-400 dark:hover:bg-zinc-800/60 dark:hover:text-zinc-50"
+              }`}
+            >
+              {link.label}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
 
 export default function Navbar({ data }: NavbarProps) {
   const { profile } = data;
@@ -19,6 +54,7 @@ export default function Navbar({ data }: NavbarProps) {
   } | null>(null);
   const listRef = useRef<HTMLUListElement>(null);
   const linkRefs = useRef<Record<string, HTMLAnchorElement | null>>({});
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const links = visibleNavLinks(data);
@@ -51,7 +87,13 @@ export default function Navbar({ data }: NavbarProps) {
   }, [activeSection]);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-zinc-200 bg-white/80 backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/80">
+    <Dialog.Root
+      open={mobileOpen}
+      onOpenChange={(details) => setMobileOpen(details.open)}
+      lazyMount
+      unmountOnExit
+    >
+      <header className="sticky top-0 z-60 border-b border-zinc-200 bg-white/80 backdrop-blur dark:border-zinc-800 dark:bg-zinc-950/80">
       <nav className="mx-auto flex h-16 max-w-5xl items-center justify-between px-6">
         <a
           href="#home"
@@ -97,9 +139,63 @@ export default function Navbar({ data }: NavbarProps) {
             })}
           </ul>
           <div className="mx-1 hidden h-6 w-px bg-zinc-200 dark:bg-zinc-800 sm:block" />
+          <Dialog.Trigger asChild>
+            <button
+              type="button"
+              aria-label={mobileOpen ? "Close menu" : "Open menu"}
+              className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-zinc-300 text-zinc-700 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800 sm:hidden"
+            >
+            {mobileOpen ? (
+              <svg
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              <svg
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            )}
+          </button>
+          </Dialog.Trigger>
           <ThemeToggle />
         </div>
       </nav>
+
+      <Portal>
+        <Dialog.Backdrop
+          onClick={() => setMobileOpen(false)}
+          className="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm sm:hidden"
+        />
+        <Dialog.Positioner className="fixed inset-x-0 top-16 z-50 flex justify-center sm:hidden">
+          <Dialog.Content className="w-full rounded-b-2xl border border-t-0 border-zinc-200 bg-white/95 shadow-2xl backdrop-blur-xl dark:border-zinc-800 dark:bg-zinc-950/95">
+            <Dialog.Title className="sr-only">Navigation</Dialog.Title>
+            <Dialog.CloseTrigger className="sr-only" aria-label="Close menu">
+              Close
+            </Dialog.CloseTrigger>
+            <MobileMenuItems data={data} activeSection={activeSection} />
+          </Dialog.Content>
+        </Dialog.Positioner>
+      </Portal>
     </header>
+    </Dialog.Root>
   );
 }
