@@ -15,16 +15,16 @@ type ProjectCardProps = {
 export function ProjectCard({ project, index, proofLimit }: ProjectCardProps) {
   return (
     <article className="group relative">
-      <div className="relative flex h-full flex-col rounded-2xl border border-zinc-200 bg-white p-6 transition-all hover:-translate-y-0.5 hover:border-sky-500 hover:shadow-lg hover:shadow-sky-500/10 dark:border-zinc-800 dark:bg-zinc-950">
+      <div className="relative flex h-full flex-col rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-0.5 hover:border-accent hover:shadow-lg hover:shadow-accent/10">
         <div className="flex items-center justify-between">
-          <span className="font-mono text-sm text-zinc-400">0{index + 1}</span>
+          <span className="font-mono text-sm text-faint-foreground">0{index + 1}</span>
           <div className="flex items-center gap-2">
             {project.featured && (
-              <span className="rounded-full bg-sky-500/10 px-2.5 py-1 text-xs font-semibold text-sky-600 dark:text-sky-400">
+              <span className="rounded-full bg-accent/10 px-2.5 py-1 text-xs font-semibold text-accent-strong">
                 ★ Featured
               </span>
             )}
-            <span className="font-mono text-xs text-zinc-400">
+            <span className="font-mono text-xs text-faint-foreground">
               {project.year}
             </span>
           </div>
@@ -32,7 +32,7 @@ export function ProjectCard({ project, index, proofLimit }: ProjectCardProps) {
         <h3 className="mt-4 font-display text-xl font-semibold tracking-tight">
           {project.title}
         </h3>
-        <p className="mt-2 flex-1 text-sm leading-7 text-zinc-600 dark:text-zinc-400">
+        <p className="mt-2 flex-1 text-sm leading-7 text-body-foreground">
           {project.description}
         </p>
         <ul className="mt-4 flex flex-wrap gap-2">
@@ -52,7 +52,7 @@ export function ProjectCard({ project, index, proofLimit }: ProjectCardProps) {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-zinc-900 transition-colors hover:text-sky-600 dark:text-zinc-100 dark:hover:text-sky-400"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-strong-foreground transition-colors hover:text-accent-strong"
             >
               Live demo{" "}
               <span
@@ -68,7 +68,7 @@ export function ProjectCard({ project, index, proofLimit }: ProjectCardProps) {
               href={project.repoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sm font-medium text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+              className="text-sm font-medium text-muted-foreground transition-colors hover:text-strong-foreground"
             >
               Source ↗
             </a>

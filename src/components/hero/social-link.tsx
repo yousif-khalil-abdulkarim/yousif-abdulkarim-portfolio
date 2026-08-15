@@ -16,7 +16,7 @@ export function SocialLink({ href, label, children }: SocialLinkProps) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="transition-all hover:-translate-y-0.5 hover:text-zinc-950 dark:hover:text-zinc-50"
+      className="transition-all hover:-translate-y-0.5 hover:text-foreground"
     >
       {children}
     </a>

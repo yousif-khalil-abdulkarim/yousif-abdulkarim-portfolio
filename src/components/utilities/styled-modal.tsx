@@ -62,16 +62,16 @@ function ModalContent({
     <Portal>
       <Dialog.Backdrop
         onClick={() => dialog.setOpen(false)}
-        className="fixed inset-0 z-50 bg-black/30 backdrop-blur-md"
+        className="fixed inset-0 z-50 bg-overlay/30 backdrop-blur-md"
       />
       <Dialog.Positioner className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center p-4">
         <Dialog.Content
           ref={contentRef}
-          className={`pointer-events-auto relative flex max-h-[calc(100dvh-2rem)] w-full flex-col ${maxWidthClass} overflow-hidden rounded-2xl border border-zinc-200/70 bg-white shadow-2xl dark:border-zinc-800/70 dark:bg-zinc-950`}
+          className={`pointer-events-auto relative flex max-h-[calc(100dvh-2rem)] w-full flex-col ${maxWidthClass} overflow-hidden rounded-2xl border border-border/70 bg-card shadow-2xl`}
         >
           <div
             aria-hidden
-            className="h-1.5 bg-linear-to-r from-blue-500 via-sky-500 to-amber-400"
+            className="h-1.5 bg-linear-to-r from-secondary via-accent to-tertiary"
           />
           <div className="flex min-h-0 flex-1 flex-col p-6">
             <div className="flex shrink-0 items-start justify-between gap-4">
@@ -80,14 +80,14 @@ function ModalContent({
                   {title}
                 </Dialog.Title>
                 {subtitle && (
-                  <Dialog.Description className="mt-1 font-mono text-xs text-zinc-400">
+                  <Dialog.Description className="mt-1 font-mono text-xs text-faint-foreground">
                     {subtitle}
                   </Dialog.Description>
                 )}
               </div>
               <Dialog.CloseTrigger
                 aria-label="Close"
-                className="hidden cursor-pointer rounded-full border border-zinc-300 p-1.5 text-zinc-500 transition-colors hover:border-sky-500 hover:text-sky-500 dark:border-zinc-700 dark:text-zinc-400 sm:flex"
+                className="hidden cursor-pointer rounded-full border border-border-strong p-1.5 text-muted-foreground transition-colors hover:border-accent hover:text-accent sm:flex"
               >
                 <svg
                   className="h-5 w-5"
@@ -107,7 +107,7 @@ function ModalContent({
             <div className="min-h-0 flex-1 overflow-y-auto">{children}</div>
             <Dialog.CloseTrigger
               aria-label="Close"
-              className="mt-6 flex w-full shrink-0 cursor-pointer items-center justify-center rounded-xl border border-zinc-300 px-4 py-3 text-sm font-semibold text-zinc-600 transition-colors hover:border-sky-500 hover:text-sky-500 dark:border-zinc-700 dark:text-zinc-400 sm:hidden"
+              className="mt-6 flex w-full shrink-0 cursor-pointer items-center justify-center rounded-xl border border-border-strong px-4 py-3 text-sm font-semibold text-body-foreground transition-colors hover:border-accent hover:text-accent sm:hidden"
             >
               Close
             </Dialog.CloseTrigger>

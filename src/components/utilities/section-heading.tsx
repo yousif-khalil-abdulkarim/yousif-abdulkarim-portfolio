@@ -12,16 +12,16 @@ export function SectionHeading({
   return (
     <div>
       <div className="flex items-center gap-4">
-        <span className="font-mono text-sm font-medium text-sky-500 dark:text-sky-400">
+        <span className="font-mono text-sm font-medium text-accent">
           {index}
         </span>
         <h2 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">
           {title}
         </h2>
-        <span className="h-px flex-1 bg-linear-to-r from-zinc-300 to-transparent dark:from-zinc-700" />
+        <span className="h-px flex-1 bg-linear-to-r from-border-strong to-transparent" />
       </div>
       {subtitle && (
-        <p className="mt-4 max-w-2xl text-zinc-600 dark:text-zinc-400">
+        <p className="mt-4 max-w-2xl text-body-foreground">
           {subtitle}
         </p>
       )}

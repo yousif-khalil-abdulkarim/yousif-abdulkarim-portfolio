@@ -9,7 +9,7 @@ type AboutBioProps = {
 /** The About bio text, with emphasis runs rendered bold/accent. */
 export function AboutBio({ paragraphs }: AboutBioProps) {
   return (
-    <div className="space-y-4 text-zinc-600 dark:text-zinc-400">
+    <div className="space-y-4 text-body-foreground">
       {paragraphs.map((paragraph, pIndex) => (
         <p
           key={pIndex}
@@ -19,7 +19,7 @@ export function AboutBio({ paragraphs }: AboutBioProps) {
             run.emphasis ? (
               <span
                 key={rIndex}
-                className="font-medium text-zinc-900 dark:text-zinc-100"
+                className="font-medium text-strong-foreground"
               >
                 {run.text}
               </span>

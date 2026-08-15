@@ -20,7 +20,7 @@ export function OutlineButton({
     <a
       href={href}
       download={download}
-      className="inline-flex select-none items-center gap-2 rounded-full border border-zinc-300 bg-white/60 px-7 py-3.5 text-sm font-semibold text-zinc-800 backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-white dark:border-zinc-700 dark:bg-zinc-900/60 dark:text-zinc-200 dark:hover:bg-zinc-900"
+      className="inline-flex select-none items-center gap-2 rounded-full border border-border-strong bg-card/60 px-7 py-3.5 text-sm font-semibold text-foreground backdrop-blur transition-all hover:-translate-y-0.5 hover:bg-card"
     >
       {children}
     </a>

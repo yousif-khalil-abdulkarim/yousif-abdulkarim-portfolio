@@ -16,7 +16,7 @@ export function SkillsSection({ skills, limit }: SkillsSectionProps) {
 
   return (
     <div className="pt-2">
-      <h3 className="font-mono text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+      <h3 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
         Skills
       </h3>
       <div className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">

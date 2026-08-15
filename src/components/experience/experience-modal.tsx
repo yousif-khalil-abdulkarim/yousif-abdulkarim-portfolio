@@ -19,7 +19,7 @@ export function ExperienceModal({ job, trigger }: ExperienceModalProps) {
       trigger={trigger}
     >
       {job.summary && (
-        <p className="mt-4 text-sm leading-7 text-zinc-600 dark:text-zinc-400">
+        <p className="mt-4 text-sm leading-7 text-body-foreground">
           {job.summary}
         </p>
       )}
@@ -29,16 +29,16 @@ export function ExperienceModal({ job, trigger }: ExperienceModalProps) {
           href={job.liveUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-zinc-900 transition-colors hover:text-sky-600 dark:text-zinc-100 dark:hover:text-sky-400"
+          className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-strong-foreground transition-colors hover:text-accent-strong"
         >
           Live site <span aria-hidden>↗</span>
         </a>
       )}
 
-      <h4 className="mt-6 font-mono text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+      <h4 className="mt-6 font-mono text-xs uppercase tracking-widest text-muted-foreground">
         What I did
       </h4>
-      <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-zinc-600 marker:text-sky-400 dark:text-zinc-400">
+      <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-body-foreground marker:text-accent">
         {job.points.map((point) => (
           <li key={point}>{point}</li>
         ))}
@@ -46,7 +46,7 @@ export function ExperienceModal({ job, trigger }: ExperienceModalProps) {
 
       {job.proof.length > 0 && (
         <div className="mt-6">
-          <h4 className="font-mono text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+          <h4 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
             Proof
           </h4>
           <ul className="mt-3 flex flex-wrap gap-2">
@@ -61,7 +61,7 @@ export function ExperienceModal({ job, trigger }: ExperienceModalProps) {
 
       {job.stack.length > 0 && (
         <div className="mt-6">
-          <h4 className="font-mono text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+          <h4 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
             Tech stack
           </h4>
           <ul className="mt-3 flex flex-wrap gap-2">

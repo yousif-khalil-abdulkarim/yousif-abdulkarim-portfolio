@@ -76,7 +76,7 @@ export function Contact({ data }: ContactProps) {
           subtitle={
             <a
               href={`tel:${profile.phone.replace(/\s/g, "")}`}
-              className="block text-xs text-zinc-500 transition-colors hover:text-sky-500 dark:text-zinc-400"
+              className="block text-xs text-muted-foreground transition-colors hover:text-accent"
             >
               {profile.phone}
             </a>

@@ -94,7 +94,7 @@ const MoreButton = forwardRef<HTMLButtonElement, MoreButtonProps>(
       <button
         ref={ref}
         type="button"
-        className={`inline-flex cursor-pointer select-none items-center gap-1.5 rounded-full border border-zinc-300 px-4 py-1.5 text-sm font-semibold text-zinc-800 hover:border-sky-500 hover:text-sky-600 dark:border-zinc-700 dark:text-zinc-200 dark:hover:border-sky-500 dark:hover:text-sky-400 ${className}`}
+        className={`inline-flex cursor-pointer select-none items-center gap-1.5 rounded-full border border-border-strong px-4 py-1.5 text-sm font-semibold text-foreground hover:border-accent hover:text-accent-strong ${className}`}
         {...props}
       >
         <span className="relative inline-flex items-center justify-center whitespace-nowrap">

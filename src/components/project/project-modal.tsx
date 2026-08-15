@@ -18,16 +18,16 @@ export function ProjectModal({ project, trigger }: ProjectModalProps) {
       subtitle={project.year}
       trigger={trigger}
     >
-      <p className="mt-4 text-sm leading-7 text-zinc-600 dark:text-zinc-400">
+      <p className="mt-4 text-sm leading-7 text-body-foreground">
         {project.description}
       </p>
 
       {project.highlights.length > 0 && (
         <>
-          <h4 className="mt-6 font-mono text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+          <h4 className="mt-6 font-mono text-xs uppercase tracking-widest text-muted-foreground">
             Highlights
           </h4>
-          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-zinc-600 marker:text-sky-400 dark:text-zinc-400">
+          <ul className="mt-3 list-disc space-y-2 pl-5 text-sm leading-7 text-body-foreground marker:text-accent">
             {project.highlights.map((item) => (
               <li key={item}>{item}</li>
             ))}
@@ -37,7 +37,7 @@ export function ProjectModal({ project, trigger }: ProjectModalProps) {
 
       {project.proof.length > 0 && (
         <div className="mt-6">
-          <h4 className="font-mono text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+          <h4 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
             Proof
           </h4>
           <ul className="mt-3 flex flex-wrap gap-2">
@@ -51,7 +51,7 @@ export function ProjectModal({ project, trigger }: ProjectModalProps) {
       )}
 
       <div className="mt-6">
-        <h4 className="font-mono text-xs uppercase tracking-widest text-zinc-500 dark:text-zinc-400">
+        <h4 className="font-mono text-xs uppercase tracking-widest text-muted-foreground">
           Tech stack
         </h4>
         <ul className="mt-3 flex flex-wrap gap-2">
@@ -64,13 +64,13 @@ export function ProjectModal({ project, trigger }: ProjectModalProps) {
       </div>
 
       {(project.liveUrl || project.repoUrl) && (
-        <div className="mt-6 flex flex-wrap gap-4 border-t border-zinc-200 pt-5 dark:border-zinc-800">
+        <div className="mt-6 flex flex-wrap gap-4 border-t border-border pt-5">
           {project.liveUrl && (
             <a
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-zinc-900 hover:text-sky-600 dark:text-zinc-100 dark:hover:text-sky-400"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-strong-foreground hover:text-accent-strong"
             >
               Live demo ↗
             </a>
@@ -80,7 +80,7 @@ export function ProjectModal({ project, trigger }: ProjectModalProps) {
               href={project.repoUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-500 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-strong-foreground"
             >
               Source code ↗
             </a>

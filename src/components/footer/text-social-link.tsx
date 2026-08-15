@@ -11,7 +11,7 @@ export function TextSocialLink({ href, label }: TextSocialLinkProps) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="transition-colors hover:text-zinc-950 dark:hover:text-zinc-50"
+      className="transition-colors hover:text-foreground"
     >
       {label}
     </a>

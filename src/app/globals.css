@@ -4,8 +4,46 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
+  /* ---------- Semantic color tokens (light) ---------- */
   --background: #fafafa;
   --foreground: #18181b;
+
+  /* Surfaces */
+  --card: #ffffff;
+  --muted: #f4f4f5;
+  --muted-hover: #e4e4e7;
+
+  /* Text */
+  --strong-foreground: #18181b;
+  --title-foreground: #3f3f46;
+  --body-foreground: #52525b;
+  --muted-foreground: #71717a;
+  --faint-foreground: #a1a1aa;
+
+  /* Borders */
+  --border: #e4e4e7;
+  --border-strong: #d4d4d8;
+
+  /* Brand / interactive */
+  --primary: #09090b;
+  --primary-foreground: #ffffff;
+  --accent: #0ea5e9;
+  --accent-foreground: #ffffff;
+  --accent-strong: #0284c7;
+  --accent-deep: #0369a1;
+  --secondary: #3b82f6;
+  --tertiary: #fbbf24;
+
+  /* Status */
+  --success: #10b981;
+  --success-foreground: #047857;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  /* Overlay & focus ring */
+  --overlay: #000000;
+  --ring: #0ea5e9;
+
   --text-cursor:
     url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><g fill='none' stroke='%2318181b' stroke-width='1.5' stroke-linecap='round'><path d='M12 3v18'/><path d='M8.5 3.5h7'/><path d='M8.5 20.5h7'/></g></svg>")
       12 12,
@@ -13,8 +51,34 @@
 }
 
 @theme inline {
+  /* Map semantic tokens to Tailwind v4 color utilities
+     (bg-card, text-muted-foreground, border-border, …). */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-muted-hover: var(--muted-hover);
+  --color-strong-foreground: var(--strong-foreground);
+  --color-title-foreground: var(--title-foreground);
+  --color-body-foreground: var(--body-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-faint-foreground: var(--faint-foreground);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-deep: var(--accent-deep);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-overlay: var(--overlay);
+  --color-ring: var(--ring);
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --font-display:
@@ -22,8 +86,40 @@
 }
 
 .dark {
+  /* ---------- Semantic color tokens (dark) ---------- */
   --background: #09090b;
   --foreground: #ededed;
+
+  --card: #09090b;
+  --muted: #27272a;
+  --muted-hover: #3f3f46;
+
+  --strong-foreground: #f4f4f5;
+  --title-foreground: #d4d4d8;
+  --body-foreground: #a1a1aa;
+  --muted-foreground: #a1a1aa;
+  --faint-foreground: #a1a1aa;
+
+  --border: #27272a;
+  --border-strong: #3f3f46;
+
+  --primary: #fafafa;
+  --primary-foreground: #09090b;
+  --accent: #38bdf8;
+  --accent-foreground: #ffffff;
+  --accent-strong: #38bdf8;
+  --accent-deep: #7dd3fc;
+  --secondary: #3b82f6;
+  --tertiary: #fbbf24;
+
+  --success: #10b981;
+  --success-foreground: #34d399;
+  --destructive: #f87171;
+  --destructive-foreground: #09090b;
+
+  --overlay: #000000;
+  --ring: #38bdf8;
+
   --text-cursor:
     url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><g fill='none' stroke='%23f4f4f5' stroke-width='1.5' stroke-linecap='round'><path d='M12 3v18'/><path d='M8.5 3.5h7'/><path d='M8.5 20.5h7'/></g></svg>")
       12 12,
@@ -77,20 +173,20 @@ body {
 @keyframes pulse-dot {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.55);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--success) 55%, transparent);
   }
   70% {
-    box-shadow: 0 0 0 7px rgba(16, 185, 129, 0);
+    box-shadow: 0 0 0 7px transparent;
   }
 }
 
 @keyframes pulse-sky {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.45);
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 45%, transparent);
   }
   70% {
-    box-shadow: 0 0 0 4px rgba(14, 165, 233, 0);
+    box-shadow: 0 0 0 4px transparent;
   }
 }
 
@@ -220,23 +316,30 @@ body {
   }
 }
 
-/* ---------- Background grid ---------- */
+/* ---------- Background grid (uses the foreground token at low opacity) ---------- */
 .bg-grid {
   background-image:
-    linear-gradient(to right, rgb(0 0 0 / 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(0 0 0 / 0.05) 1px, transparent 1px);
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--foreground) 5%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--foreground) 5%, transparent) 1px,
+      transparent 1px
+    );
   background-size: 56px 56px;
-}
-
-.dark .bg-grid {
-  background-image:
-    linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
 }
 
 /* ---------- Gradient text ---------- */
 .text-gradient {
-  background-image: linear-gradient(90deg, #3b82f6, #0ea5e9, #f59e0b);
+  background-image: linear-gradient(
+    90deg,
+    var(--secondary),
+    var(--accent),
+    var(--tertiary)
+  );
   background-size: 200% 200%;
   -webkit-background-clip: text;
   background-clip: text;
@@ -245,15 +348,15 @@ body {
 
 /* ---------- Selection & scrollbar ---------- */
 ::selection {
-  background: #0ea5e9;
-  color: #fff;
+  background: var(--accent);
+  color: var(--accent-foreground);
 }
 
 /* Visible caret on form fields in both themes */
 input,
 textarea,
 select {
-  caret-color: #0ea5e9;
+  caret-color: var(--accent);
 }
 
 /* High-contrast mouse cursor (I-beam) over text, visible on light & dark */

@@ -12,7 +12,7 @@ export function NavIndicator({ left, width }: NavIndicatorProps) {
   return (
     <span
       aria-hidden
-      className="absolute -bottom-px h-0.5 rounded-full bg-sky-500 transition-all duration-300 ease-out"
+      className="absolute -bottom-px h-0.5 rounded-full bg-accent transition-all duration-300 ease-out"
       style={{ left, width }}
     />
   );

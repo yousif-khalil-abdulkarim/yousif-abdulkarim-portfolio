@@ -18,12 +18,12 @@ type LogoMarkProps = {
   /** Initials color. Defaults to white. */
   color?: string;
   /**
-   * Background, mirrors the navbar: bg-linear-to-br from-blue-500 via-sky-500 to-amber-400.
+   * Background, mirrors the navbar: `bg-linear-to-br from-secondary via-accent to-tertiary`.
    * Defaults to `linear-gradient(135deg, #3b82f6 0%, #0ea5e9 50%, #f59e0b 100%)`.
    */
   background?: string;
   /**
-   * Drop shadow, mirrors the navbar: shadow-md shadow-sky-500/30.
+   * Drop shadow, mirrors the navbar: `shadow-md shadow-accent/30`.
    * Defaults to `0 4px 8px 0 rgba(14, 165, 233, 0.3)`.
    */
   boxShadow?: string;

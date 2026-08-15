@@ -9,7 +9,7 @@ type PointsListProps = {
 export function PointsList({ items, limit }: PointsListProps) {
   const visible = items.slice(0, limit);
   return (
-    <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-7 text-zinc-600 marker:text-sky-400 dark:text-zinc-400">
+    <ul className="mt-3 list-disc space-y-1.5 pl-5 text-sm leading-7 text-body-foreground marker:text-accent">
       {visible.map((point) => (
         <li key={point}>{point}</li>
       ))}

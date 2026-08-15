@@ -22,19 +22,19 @@ export function ExperienceCard({
     <div className="group relative">
       <span
         aria-hidden
-        className="absolute left-[-2.45rem] top-1.5 h-4 w-4 rounded-full border-2 border-sky-500 bg-white dark:bg-zinc-950"
+        className="absolute left-[-2.45rem] top-1.5 h-4 w-4 rounded-full border-2 border-accent bg-card"
       />
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
         <h3 className="font-display text-lg font-semibold">
           {job.role}{" "}
-          <span className="text-zinc-500 dark:text-zinc-400">
+          <span className="text-muted-foreground">
             · {job.company}
           </span>
         </h3>
-        <span className="font-mono text-xs text-zinc-400">{job.period}</span>
+        <span className="font-mono text-xs text-faint-foreground">{job.period}</span>
       </div>
       {job.summary && (
-        <p className="mt-3 text-sm leading-7 text-zinc-600 dark:text-zinc-400">
+        <p className="mt-3 text-sm leading-7 text-body-foreground">
           {job.summary}
         </p>
       )}
@@ -58,7 +58,7 @@ export function ExperienceCard({
             href={job.liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm font-semibold text-zinc-900 transition-colors hover:text-sky-600 dark:text-zinc-100 dark:hover:text-sky-400"
+            className="inline-flex items-center gap-1.5 text-sm font-semibold text-strong-foreground transition-colors hover:text-accent-strong"
           >
             Live site{" "}
             <span

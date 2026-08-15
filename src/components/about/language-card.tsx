@@ -7,12 +7,12 @@ type LanguageCardProps = {
 /** A card showing a spoken language and its proficiency level. */
 export function LanguageCard({ name, level }: LanguageCardProps) {
   return (
-    <div className="rounded-2xl border border-zinc-200 bg-white/60 p-5 transition-all hover:-translate-y-0.5 hover:border-sky-500 hover:shadow-lg hover:shadow-sky-500/10 dark:border-zinc-800 dark:bg-zinc-900/30">
+    <div className="rounded-2xl border border-border bg-card/60 p-5 transition-all hover:-translate-y-0.5 hover:border-accent hover:shadow-lg hover:shadow-accent/10 dark:bg-card/30">
       <div className="flex items-center justify-between gap-2">
-        <h4 className="text-sm font-medium text-zinc-700 dark:text-zinc-300">
+        <h4 className="text-sm font-medium text-title-foreground">
           {name}
         </h4>
-        <span className="shrink-0 font-mono text-xs text-zinc-500 dark:text-zinc-400">
+        <span className="shrink-0 font-mono text-xs text-muted-foreground">
           {level}
         </span>
       </div>

@@ -9,9 +9,9 @@ type FooterProps = {
 
 export function Footer({ data }: FooterProps) {
   return (
-    <footer className="border-t border-zinc-200 dark:border-zinc-800">
+    <footer className="border-t border-border">
       <FooterCredit data={data} />
-      <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 border-t border-zinc-200 px-6 py-6 sm:flex-row dark:border-zinc-800">
+      <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-4 border-t border-border px-6 py-6 sm:flex-row">
         <FooterSocialLinks data={data} />
         <BackToTop />
       </div>

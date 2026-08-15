@@ -55,7 +55,7 @@ export function MobileNavbar({ data, activeSection }: MobileNavbarProps) {
         <button
           type="button"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
-          className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-zinc-300 text-zinc-700 transition-colors hover:bg-zinc-100 dark:border-zinc-700 dark:text-zinc-200 dark:hover:bg-zinc-800 sm:hidden"
+          className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-border-strong text-foreground transition-colors hover:bg-muted sm:hidden"
         >
           {mobileOpen ? (
             <svg
@@ -92,10 +92,10 @@ export function MobileNavbar({ data, activeSection }: MobileNavbarProps) {
       <Portal>
         <Dialog.Backdrop
           onClick={() => setMobileOpen(false)}
-          className="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm sm:hidden"
+          className="fixed inset-0 z-50 bg-overlay/30 backdrop-blur-sm sm:hidden"
         />
         <Dialog.Positioner className="fixed inset-x-0 top-16 z-50 flex justify-center sm:hidden">
-          <Dialog.Content className="mobile-menu-panel w-full rounded-b-2xl border border-t-0 border-zinc-200 bg-white/95 shadow-2xl backdrop-blur-xl dark:border-zinc-800 dark:bg-zinc-950/95">
+          <Dialog.Content className="mobile-menu-panel w-full rounded-b-2xl border border-t-0 border-border bg-card/95 shadow-2xl backdrop-blur-xl">
             <Dialog.Title className="sr-only">Navigation</Dialog.Title>
             <Dialog.CloseTrigger className="sr-only" aria-label="Close menu">
               Close

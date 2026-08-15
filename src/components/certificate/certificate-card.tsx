@@ -11,11 +11,11 @@ type CertificateCardProps = {
 export function CertificateCard({ certificate }: CertificateCardProps) {
   const { title, issuer, year, credentialUrl } = certificate;
   return (
-    <li className="group flex flex-col rounded-xl border border-zinc-200 bg-white/60 p-4 transition-all hover:-translate-y-0.5 hover:border-sky-500 hover:shadow-lg hover:shadow-sky-500/10 dark:border-zinc-800 dark:bg-zinc-900/30">
+    <li className="group flex flex-col rounded-xl border border-border bg-card/60 p-4 transition-all hover:-translate-y-0.5 hover:border-accent hover:shadow-lg hover:shadow-accent/10 dark:bg-card/30">
       <h3 className="font-display text-sm font-semibold tracking-tight">
         {title}
       </h3>
-      <p className="mt-0.5 text-xs text-zinc-500 dark:text-zinc-400">
+      <p className="mt-0.5 text-xs text-muted-foreground">
         {issuer} · <span className="font-mono">{year}</span>
       </p>
       <div className="mt-auto flex flex-wrap items-center gap-x-4 gap-y-2 pt-2">
@@ -24,7 +24,7 @@ export function CertificateCard({ certificate }: CertificateCardProps) {
             href={credentialUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-xs font-semibold text-zinc-900 transition-colors hover:text-sky-600 dark:text-zinc-100 dark:hover:text-sky-400"
+            className="inline-flex items-center gap-1 text-xs font-semibold text-strong-foreground transition-colors hover:text-accent-strong"
           >
             Verify credential ↗
           </a>

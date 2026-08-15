@@ -21,7 +21,7 @@ export function Brand({ data }: BrandProps) {
       onClick={(e) => scrollToSection(e, "#home")}
       className="group flex items-center gap-2 font-display text-lg font-bold tracking-tight"
     >
-      <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-linear-to-br from-blue-500 via-sky-500 to-amber-400 text-sm font-bold text-white shadow-md shadow-sky-500/30 transition-transform group-hover:rotate-6">
+      <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-linear-to-br from-secondary via-accent to-tertiary text-sm font-bold text-accent-foreground shadow-md shadow-accent/30 transition-transform group-hover:rotate-6">
         {initials}
       </span>
       {profile.firstName}

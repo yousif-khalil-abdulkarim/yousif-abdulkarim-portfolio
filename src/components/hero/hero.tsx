@@ -45,15 +45,15 @@ export function Hero({ data, resumeHref }: HeroProps) {
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-24 left-1/4 h-80 w-80 rounded-full bg-blue-500/30 blur-3xl animate-blob dark:bg-blue-500/20"
+        className="pointer-events-none absolute -top-24 left-1/4 h-80 w-80 rounded-full bg-secondary/30 blur-3xl animate-blob dark:bg-secondary/20"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute top-48 -right-24 h-80 w-80 rounded-full bg-sky-500/20 blur-3xl animate-blob [animation-delay:3s] dark:bg-sky-500/15"
+        className="pointer-events-none absolute top-48 -right-24 h-80 w-80 rounded-full bg-accent/20 blur-3xl animate-blob [animation-delay:3s] dark:bg-accent/15"
       />
       <div
         aria-hidden
-        className="pointer-events-none absolute bottom-0 -left-20 h-72 w-72 rounded-full bg-amber-400/20 blur-3xl animate-blob [animation-delay:6s] dark:bg-amber-400/10"
+        className="pointer-events-none absolute bottom-0 -left-20 h-72 w-72 rounded-full bg-tertiary/20 blur-3xl animate-blob [animation-delay:6s] dark:bg-tertiary/10"
       />
 
       <div
@@ -71,7 +71,7 @@ export function Hero({ data, resumeHref }: HeroProps) {
             lastName={profile.lastName}
           />
           <p
-            className={`animate-fade-up [animation-delay:200ms] mx-auto mt-6 max-w-xl text-lg leading-8 text-zinc-600 dark:text-zinc-400 ${
+            className={`animate-fade-up [animation-delay:200ms] mx-auto mt-6 max-w-xl text-lg leading-8 text-body-foreground ${
               showPortrait ? "lg:mx-0" : ""
             }`}
           >
@@ -79,7 +79,7 @@ export function Hero({ data, resumeHref }: HeroProps) {
               tagLineItem.emphasis ? (
                 <span
                   key={index}
-                  className="font-medium text-zinc-900 dark:text-zinc-100"
+                  className="font-medium text-strong-foreground"
                 >
                   {tagLineItem.text}
                 </span>
@@ -104,7 +104,7 @@ export function Hero({ data, resumeHref }: HeroProps) {
           </div>
 
           <div
-            className={`animate-fade-up [animation-delay:400ms] mt-10 flex items-center justify-center gap-3 text-zinc-500 dark:text-zinc-400 ${
+            className={`animate-fade-up [animation-delay:400ms] mt-10 flex items-center justify-center gap-3 text-muted-foreground ${
               showPortrait ? "lg:justify-start" : ""
             }`}
           >
@@ -141,9 +141,9 @@ export function Hero({ data, resumeHref }: HeroProps) {
           <div className="animate-fade-up [animation-delay:250ms] relative mx-auto w-64 sm:w-80">
             <div
               aria-hidden
-              className="absolute -inset-4 rounded-4xl bg-linear-to-br from-blue-500 via-sky-500 to-amber-400 opacity-70 blur-2xl animate-float"
+              className="absolute -inset-4 rounded-4xl bg-linear-to-br from-secondary via-accent to-tertiary opacity-70 blur-2xl animate-float"
             />
-            <div className="relative rounded-4xl bg-linear-to-br from-blue-500 via-sky-500 to-amber-400 p-1.5 shadow-2xl shadow-sky-500/20">
+            <div className="relative rounded-4xl bg-linear-to-br from-secondary via-accent to-tertiary p-1.5 shadow-2xl shadow-accent/20">
               <Image
                 src={image}
                 alt={`Portrait of ${profile.firstName} ${profile.lastName}`}

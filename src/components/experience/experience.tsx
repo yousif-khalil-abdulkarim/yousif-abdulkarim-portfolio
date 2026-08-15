@@ -34,7 +34,7 @@ export function Experience({ data }: ExperienceProps) {
         subtitle="Where I've worked and what I've built along the way."
       />
       <Collapsible.Root open={open} onOpenChange={handleOpenChange}>
-        <div className="relative mt-12 space-y-10 border-l border-zinc-200 pl-8 dark:border-zinc-800">
+        <div className="relative mt-12 space-y-10 border-l border-border pl-8">
           {shownJobs.map((job) => (
             <ExperienceCard
               key={`${job.role}-${job.company}`}

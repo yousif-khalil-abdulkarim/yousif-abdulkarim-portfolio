@@ -16,7 +16,7 @@ export function FooterSocialLinks({ data }: FooterSocialLinksProps) {
   ].filter((s): s is { href: string; label: string } => Boolean(s.href));
 
   return (
-    <div className="flex items-center gap-5 text-sm text-zinc-500 dark:text-zinc-400">
+    <div className="flex items-center gap-5 text-sm text-muted-foreground">
       {socials.map((s) => (
         <TextSocialLink key={s.label} href={s.href} label={s.label} />
       ))}

@@ -11,7 +11,7 @@ export function ViewWorkButton({ href }: ViewWorkButtonProps) {
   return (
     <a
       href={href}
-      className="group inline-flex select-none items-center gap-2 rounded-full bg-zinc-950 px-7 py-3.5 text-sm font-semibold text-white shadow-lg shadow-zinc-900/10 transition-all hover:-translate-y-0.5 hover:shadow-xl dark:bg-zinc-50 dark:text-zinc-950 dark:shadow-black/20"
+      className="group inline-flex select-none items-center gap-2 rounded-full bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-zinc-900/10 transition-all hover:-translate-y-0.5 hover:shadow-xl dark:shadow-black/20"
     >
       View my work{" "}
       <span className="transition-transform group-hover:translate-x-1">→</span>
