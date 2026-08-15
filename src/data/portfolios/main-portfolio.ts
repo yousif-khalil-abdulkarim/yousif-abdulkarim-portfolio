@@ -14,7 +14,7 @@ export const mainPortfolio: PortfolioData = {
       certificates: 6,
       technicalWritings: 6,
       proofLimit: 6,
-      pointsLimit: 8,
+      pointsLimit: 6,
     },
   },
   profile: {
