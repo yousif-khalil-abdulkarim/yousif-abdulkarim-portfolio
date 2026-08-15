@@ -1,7 +1,7 @@
 "use client";
 
 import SkillBadge from "@/components/skill-badge";
-import ShowMoreButton from "@/components/show-more-button";
+import MoreButton from "@/components/more-button";
 import SkillCategoryModal from "@/components/skill-category-modal";
 import type { Skill } from "@/data/all-skills";
 
@@ -35,7 +35,7 @@ export default function SkillCategoryCard({
           category={category}
           skills={items.slice(limit)}
           trigger={
-            <ShowMoreButton
+            <MoreButton
               expanded={false}
               hiddenCount={items.length - limit}
               className="mt-2"

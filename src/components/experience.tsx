@@ -3,7 +3,7 @@
 import { useState } from "react";
 import SectionHeading from "@/components/section-heading";
 import ExperienceCard from "@/components/experience-card";
-import ShowMoreButton from "@/components/show-more-button";
+import MoreButton from "@/components/more-button";
 import type { PortfolioData } from "@/data/types";
 
 type ExperienceProps = {
@@ -43,7 +43,7 @@ export default function Experience({ data }: ExperienceProps) {
       </div>
       {hasMore && (
         <div className="mt-10 flex justify-center">
-          <ShowMoreButton
+          <MoreButton
             expanded={expanded}
             hiddenCount={visibleJobs.length - uiSettings.sectionLimits.experience}
             onClick={() => setExpanded((value) => !value)}

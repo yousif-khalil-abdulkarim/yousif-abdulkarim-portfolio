@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import SectionHeading from "@/components/section-heading";
-import ShowMoreButton from "@/components/show-more-button";
+import MoreButton from "@/components/more-button";
 import type { PortfolioData } from "@/data/types";
 
 type TechnicalWritingsProps = {
@@ -61,7 +61,7 @@ export default function TechnicalWritings({ data }: TechnicalWritingsProps) {
       </ul>
       {hasMore && (
         <div className="mt-10 flex justify-center">
-          <ShowMoreButton
+          <MoreButton
             expanded={expanded}
             hiddenCount={visiblePosts.length - limit}
             onClick={() => setExpanded((value) => !value)}

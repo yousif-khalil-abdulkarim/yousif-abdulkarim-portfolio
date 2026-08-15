@@ -1,6 +1,6 @@
 "use client";
 
-import ViewMoreButton from "@/components/view-more-button";
+import MoreButton from "@/components/more-button";
 import CertificateModal from "@/components/certificate-modal";
 import type { Certificate } from "@/data/types";
 
@@ -29,7 +29,7 @@ export default function CertificateCard({ certificate }: CertificateCardProps) {
             Verify credential ↗
           </a>
         )}
-        <CertificateModal certificate={certificate} trigger={<ViewMoreButton />} />
+        <CertificateModal certificate={certificate} trigger={<MoreButton />} />
       </div>
     </li>
   );

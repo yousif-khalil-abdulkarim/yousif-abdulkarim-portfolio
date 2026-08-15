@@ -3,7 +3,7 @@
 import { useState } from "react";
 import SectionHeading from "@/components/section-heading";
 import CertificateCard from "@/components/certificate-card";
-import ShowMoreButton from "@/components/show-more-button";
+import MoreButton from "@/components/more-button";
 import type { PortfolioData } from "@/data/types";
 
 type CertificatesSectionProps = {
@@ -46,7 +46,7 @@ export default function CertificatesSection({
       </ul>
       {hasMore && (
         <div className="mt-10 flex justify-center">
-          <ShowMoreButton
+          <MoreButton
             expanded={expanded}
             hiddenCount={
               visibleCertificates.length - uiSettings.sectionLimits.certificates

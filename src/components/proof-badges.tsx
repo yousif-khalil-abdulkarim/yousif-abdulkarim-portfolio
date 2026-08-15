@@ -1,8 +1,6 @@
 "use client";
 
-import { useState } from "react";
 import ProofBadge from "@/components/proof-badge";
-import ShowMoreButton from "@/components/show-more-button";
 
 type ProofBadgesProps = {
   items: string[];
@@ -14,12 +12,9 @@ type ProofBadgesProps = {
  * inline "Show more / Show less" control when the list exceeds the limit.
  */
 export default function ProofBadges({ items, limit }: ProofBadgesProps) {
-  const [expanded, setExpanded] = useState(false);
-  const hasMore = items.length > limit;
-  const visible = hasMore && !expanded ? items.slice(0, limit) : items;
-
+  const visible = items.slice(0, limit) 
   return (
-    <>
+
       <ul className="mt-3 flex flex-wrap gap-2">
         {visible.map((item) => (
           <li key={item}>
@@ -27,14 +22,6 @@ export default function ProofBadges({ items, limit }: ProofBadgesProps) {
           </li>
         ))}
       </ul>
-      {hasMore && (
-        <ShowMoreButton
-          expanded={expanded}
-          hiddenCount={items.length - limit}
-          onClick={() => setExpanded((value) => !value)}
-          className="mt-2"
-        />
-      )}
-    </>
+
   );
 }

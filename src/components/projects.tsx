@@ -3,7 +3,7 @@
 import { useState } from "react";
 import SectionHeading from "@/components/section-heading";
 import ProjectCard from "@/components/project-card";
-import ShowMoreButton from "@/components/show-more-button";
+import MoreButton from "@/components/more-button";
 import type { PortfolioData } from "@/data/types";
 
 type ProjectsProps = {
@@ -43,7 +43,7 @@ export default function Projects({ data }: ProjectsProps) {
       </div>
       {hasMore && (
         <div className="mt-10 flex justify-center">
-          <ShowMoreButton
+          <MoreButton
             expanded={expanded}
             hiddenCount={visibleProjects.length - uiSettings.sectionLimits.projects}
             onClick={() => setExpanded((value) => !value)}

@@ -3,7 +3,7 @@
 import SkillBadge from "@/components/skill-badge";
 import ProofBadges from "@/components/proof-badges";
 import PointsList from "@/components/points-list";
-import ViewMoreButton from "@/components/view-more-button";
+import MoreButton from "@/components/more-button";
 import ExperienceModal from "@/components/experience-modal";
 import type { Experience } from "@/data/types";
 
@@ -50,7 +50,7 @@ export default function ExperienceCard({
       )}
       {job.proof.length > 0 && <ProofBadges items={job.proof} limit={proofLimit} />}
       <div className="mt-5 flex flex-wrap items-center gap-4">
-        <ExperienceModal job={job} trigger={<ViewMoreButton />} />
+        <ExperienceModal job={job} trigger={<MoreButton />} />
         {job.liveUrl && (
           <a
             href={job.liveUrl}
