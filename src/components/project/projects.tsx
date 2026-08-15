@@ -16,7 +16,7 @@ export function Projects({ data }: ProjectsProps) {
   const { projects, uiSettings } = data;
   const [extraRef] = useAutoAnimate();
   const { open, handleOpenChange } = useCollapsibleState();
-  const visibleProjects = projects.filter((project) => !project.hide);
+  const visibleProjects = projects.filter((project) => project.include);
   const limit = uiSettings.sectionLimits.projects;
   const shownProjects = visibleProjects.slice(0, limit);
   const extraProjects = visibleProjects.slice(limit);

@@ -28,7 +28,7 @@ export function Hero({ data, resumeHref }: HeroProps) {
   const image = profile.image;
   // "View my work" scrolls to the Experience timeline when it has entries,
   // otherwise it falls back to the Projects section.
-  const hasExperience = experience.some((job) => !job.hide);
+  const hasExperience = experience.some((job) => job.include);
   const workHref = hasExperience ? "#experience" : "#projects";
   // Portrait renders only when both the UI toggle is on AND an image is provided.
   const showPortrait = showPortfolioImage && Boolean(image);
@@ -95,12 +95,12 @@ export function Hero({ data, resumeHref }: HeroProps) {
             }`}
           >
             <ViewWorkButton href={workHref} />
-            <OutlineButton href="#contact">Get in touch</OutlineButton>
             {resumeHref && uiSettings.showResume && (
               <OutlineButton href={resumeHref} download>
                 Resume
               </OutlineButton>
             )}
+            <OutlineButton href="#contact">Get in touch</OutlineButton>
           </div>
 
           <div

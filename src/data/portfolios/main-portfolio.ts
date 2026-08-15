@@ -67,8 +67,8 @@ export const mainPortfolio: PortfolioData = {
     youtube: null,
   },
   languages: [
-    { hide: false, name: "English", level: "Fluent", includeInResume: true },
-    { hide: false, name: "Swedish", level: "Native", includeInResume: true },
+    { include: true, name: "English", level: "Fluent", includeInResume: true },
+    { include: true, name: "Swedish", level: "Native", includeInResume: true },
   ],
   skills: {
     Backend: [
@@ -149,14 +149,14 @@ export const mainPortfolio: PortfolioData = {
     ],
   },
   quickFacts: [
-    { hide: false, value: "4+", label: "Years of experience" },
-    { hide: false, value: "8+", label: "Years of programming" },
-    { hide: false, value: "30K+", label: "Lines of code shipped" },
-    { hide: false, value: "600+", label: "Monthly community users" },
+    { include: true, value: "4+", label: "Years of experience" },
+    { include: true, value: "8+", label: "Years of programming" },
+    { include: true, value: "30K+", label: "Lines of code shipped" },
+    { include: true, value: "600+", label: "Monthly community users" },
   ],
   experience: [
     {
-      hide: false,
+      include: true,
       includeInResume: true,
       role: "Founder & Lead Maintainer",
       company: "eridu-tech (Open Source)",
@@ -196,7 +196,7 @@ export const mainPortfolio: PortfolioData = {
       ],
     },
     {
-      hide: false,
+      include: true,
       includeInResume: true,
       role: "Lead Developer | Technical Product Owner",
       company: "FillerDepot",
@@ -234,7 +234,7 @@ export const mainPortfolio: PortfolioData = {
       repoUrl: null,
     },
     {
-      hide: false,
+      include: true,
       includeInResume: true,
       role: "Fullstack Developer",
       company: "Stride — Shopify Select Partner",
@@ -264,7 +264,7 @@ export const mainPortfolio: PortfolioData = {
       repoUrl: null,
     },
     {
-      hide: false,
+      include: true,
       includeInResume: true,
       role: "Fullstack Software Engineer",
       company: "Greentake",
@@ -299,7 +299,7 @@ export const mainPortfolio: PortfolioData = {
       repoUrl: null,
     },
     {
-      hide: false,
+      include: true,
       includeInResume: true,
       role: "Bachelor Thesis",
       company: "Bionamic AB",
@@ -331,7 +331,7 @@ export const mainPortfolio: PortfolioData = {
       repoUrl: null,
     },
     {
-      hide: false,
+      include: true,
       includeInResume: true,
       role: "Degree Project",
       company: "Bionamic AB",
@@ -366,7 +366,7 @@ export const mainPortfolio: PortfolioData = {
   ],
   projects: [
     {
-      hide: false,
+      include: true,
       includeInResume: true,
       title: "Outstanding Resumes",
       description:
@@ -397,7 +397,7 @@ export const mainPortfolio: PortfolioData = {
       proof: [],
     },
     {
-      hide: false,
+      include: true,
       includeInResume: true,
       title: "The Primitive Language",
       description:
@@ -424,7 +424,7 @@ export const mainPortfolio: PortfolioData = {
   ],
   technicalWritings: [
     {
-      hide: false,
+      include: true,
       includeInResume: true,
       title: "Why I Built Eridu Tech1",
       description:

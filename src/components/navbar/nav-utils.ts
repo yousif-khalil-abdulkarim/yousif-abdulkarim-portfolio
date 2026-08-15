@@ -41,13 +41,13 @@ function sectionHasContent(data: PortfolioData, id: string): boolean {
     case "contact":
       return true;
     case "experience":
-      return data.experience.some((job) => !job.hide);
+      return data.experience.some((job) => job.include);
     case "projects":
-      return data.projects.some((project) => !project.hide);
+      return data.projects.some((project) => project.include);
     case "certificates":
-      return data.certificates.some((cert) => !cert.hide);
+      return data.certificates.some((cert) => cert.include);
     case "writings":
-      return data.technicalWritings.some((post) => !post.hide);
+      return data.technicalWritings.some((post) => post.include);
     default:
       return true;
   }

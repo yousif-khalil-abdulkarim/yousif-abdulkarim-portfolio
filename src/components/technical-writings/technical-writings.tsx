@@ -16,7 +16,7 @@ export function TechnicalWritings({ data }: TechnicalWritingsProps) {
   const { technicalWritings, uiSettings } = data;
   const [extraRef] = useAutoAnimate();
   const { open, handleOpenChange } = useCollapsibleState();
-  const visiblePosts = technicalWritings.filter((post) => !post.hide);
+  const visiblePosts = technicalWritings.filter((post) => post.include);
   const limit = uiSettings.sectionLimits.technicalWritings;
   const shownPosts = visiblePosts.slice(0, limit);
   const extraPosts = visiblePosts.slice(limit);

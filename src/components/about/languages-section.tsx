@@ -7,7 +7,7 @@ type LanguagesSectionProps = {
 };
 
 export function LanguagesSection({ languages }: LanguagesSectionProps) {
-  const visibleLanguages = languages.filter((language) => !language.hide);
+  const visibleLanguages = languages.filter((language) => language.include);
   if (visibleLanguages.length === 0) return null;
 
   return (

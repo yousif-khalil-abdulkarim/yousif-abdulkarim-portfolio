@@ -11,7 +11,7 @@ type AboutProps = {
 
 export function About({ data }: AboutProps) {
   const { profile, quickFacts, uiSettings } = data;
-  const visibleStats = quickFacts.filter((stat) => !stat.hide);
+  const visibleStats = quickFacts.filter((stat) => stat.include);
   const showQuickFacts = uiSettings.showQuickFacts && visibleStats.length > 0;
   return (
     <section

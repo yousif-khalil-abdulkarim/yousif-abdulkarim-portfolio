@@ -11,6 +11,8 @@ import type {
   Experience,
   Project,
   Certificate,
+  TechnicalWriting,
+  Language,
 } from "@/data/types";
 import type { Skill } from "@/data/all-skills";
 import { bioToPlainText } from "@/lib/bio";
@@ -70,6 +72,27 @@ const styles = StyleSheet.create({
   skillItems: { flex: 1, fontSize: 9.5, color: "#3f3f46" },
 });
 
+/**
+ * Shared resume filter applied consistently to every section: an item is only
+ * included when it is shown on the site (`include`) AND it is explicitly
+ * marked for the resume (`includeInResume`). Used for Experience, Project,
+ * Certificate, TechnicalWriting, and Language items.
+ */
+function isIncluded(item: {
+  include: boolean;
+  includeInResume: boolean;
+}): boolean {
+  return item.include && item.includeInResume;
+}
+
+/**
+ * Skills live on the shared `Skill` type, which has `includeInResume` but no
+ * site-visibility flag, so they are filtered on `includeInResume` alone.
+ */
+function skillIsIncluded(skill: Skill): boolean {
+  return skill.includeInResume;
+}
+
 function BulletList({ items }: { items: string[] }) {
   return (
     <>
@@ -115,6 +138,43 @@ function SkillsSection({ skills }: { skills: Record<string, Skill[]> }) {
   );
 }
 
+function LanguagesSection({ languages }: { languages: Language[] }) {
+  if (languages.length === 0) return null;
+  return (
+    <>
+      <Text style={styles.sectionTitle}>LANGUAGES</Text>
+      {languages.map((lang) => (
+        <View key={lang.name} style={styles.skillRow}>
+          <Text style={styles.skillCategory}>{lang.name}</Text>
+          <Text style={styles.skillItems}>{lang.level}</Text>
+        </View>
+      ))}
+    </>
+  );
+}
+
+function TechnicalWritingsSection({
+  writings,
+}: {
+  writings: TechnicalWriting[];
+}) {
+  if (writings.length === 0) return null;
+  return (
+    <>
+      <Text style={styles.sectionTitle}>TECHNICAL WRITINGS</Text>
+      {writings.map((writing) => (
+        <View key={writing.title} style={styles.item}>
+          <View style={styles.itemHeader}>
+            <Text style={styles.itemTitle}>{writing.title}</Text>
+          </View>
+          <Text style={styles.body}>{writing.description}</Text>
+          {writing.url ? <Text style={styles.socials}>{writing.url}</Text> : null}
+        </View>
+      ))}
+    </>
+  );
+}
+
 function ExperienceSection({ jobs }: { jobs: Experience[] }) {
   if (jobs.length === 0) return null;
   return (
@@ -129,6 +189,9 @@ function ExperienceSection({ jobs }: { jobs: Experience[] }) {
           <Text style={styles.itemSubtitle}>{job.company}</Text>
           {job.summary ? <Text style={styles.body}>{job.summary}</Text> : null}
           {job.points.length > 0 ? <BulletList items={job.points} /> : null}
+          {job.stack.length > 0 ? (
+            <Keywords items={job.stack.map((skill) => skill.name)} />
+          ) : null}
         </View>
       ))}
     </>
@@ -178,16 +241,29 @@ function CertificatesSection({ certs }: { certs: Certificate[] }) {
 }
 
 /**
- * A4 PDF resume template. Mirrors the HTML `Portfolio` layout: header,
- * then Skills (like the About section), then Experience / Projects /
- * Certificates in the site's `sectionOrder`. Excludes `hide: true` items.
+ * A4 PDF resume template. The header (profile) is fixed at the top, followed
+ * by the Languages and Skills preamble (mirroring the site's About area), then
+ * the Experience / Projects / Certificates / Writings sections rendered in
+ * exactly the order declared by `sectionOrder` — so reordering `sectionOrder`
+ * reorders the PDF without any change to this generator.
+ *
+ * Every section uses the shared `isIncluded` filter: an item only appears when
+ * it is not hidden AND it is explicitly marked `includeInResume`.
  */
 export function ResumeDocument({ data }: { data: PortfolioData }) {
-  const { profile, experience, projects, certificates, skills } = data;
+  const { profile } = data;
 
-  const visibleExperience = experience.filter((job) => !job.hide);
-  const visibleProjects = projects.filter((project) => !project.hide);
-  const visibleCertificates = certificates.filter((cert) => !cert.hide);
+  // Apply the shared resume filter consistently across every supported section.
+  const visibleExperience = data.experience.filter(isIncluded);
+  const visibleProjects = data.projects.filter(isIncluded);
+  const visibleCertificates = data.certificates.filter(isIncluded);
+  const visibleWritings = data.technicalWritings.filter(isIncluded);
+  const visibleLanguages = data.languages.filter(isIncluded);
+  const visibleSkills: Record<string, Skill[]> = Object.fromEntries(
+    Object.entries(data.skills)
+      .map(([category, items]) => [category, items.filter(skillIsIncluded)])
+      .filter(([, items]) => items.length > 0),
+  );
 
   const contact = [profile.email, profile.phone, profile.location]
     .filter(Boolean)
@@ -200,6 +276,31 @@ export function ResumeDocument({ data }: { data: PortfolioData }) {
   ]
     .filter(Boolean)
     .join("  ·  ");
+
+  // Render Experience / Projects / Certificates / Writings in the exact order
+  // declared by `sectionOrder`.
+  const orderedSections = data.sectionOrder.map((section) => {
+    switch (section) {
+      case "experience":
+        return <ExperienceSection key="experience" jobs={visibleExperience} />;
+      case "projects":
+        return <ProjectsSection key="projects" projects={visibleProjects} />;
+      case "certificates":
+        return (
+          <CertificatesSection
+            key="certificates"
+            certs={visibleCertificates}
+          />
+        );
+      case "writings":
+        return (
+          <TechnicalWritingsSection
+            key="writings"
+            writings={visibleWritings}
+          />
+        );
+    }
+  });
 
   return (
     <Document
@@ -223,31 +324,12 @@ export function ResumeDocument({ data }: { data: PortfolioData }) {
           {socials ? <Text style={styles.socials}>{socials}</Text> : null}
         </View>
 
-        {/* Skills — same placement as the About section on the site */}
-        <SkillsSection skills={skills} />
+        {/* Fixed preamble — mirrors the site's About area (Languages, then Skills) */}
+        <LanguagesSection languages={visibleLanguages} />
+        <SkillsSection skills={visibleSkills} />
 
-        {/* Experience / Projects / Certificates in the site's sectionOrder */}
-        {data.sectionOrder.map((section) => {
-          switch (section) {
-            case "experience":
-              return (
-                <ExperienceSection key="experience" jobs={visibleExperience} />
-              );
-            case "projects":
-              return (
-                <ProjectsSection key="projects" projects={visibleProjects} />
-              );
-            case "certificates":
-              return (
-                <CertificatesSection
-                  key="certificates"
-                  certs={visibleCertificates}
-                />
-              );
-            case "writings":
-              return null;
-          }
-        })}
+        {/* Sections in the exact order declared by sectionOrder */}
+        {orderedSections}
       </Page>
     </Document>
   );

@@ -89,8 +89,8 @@ export type UiSettings = {
  * Projects section, with a "View more" modal for details.
  */
 export type Project = {
-  /** When true, the project is filtered out and never rendered. */
-  hide: boolean;
+  /** When false, the project is filtered out and never rendered. */
+  include: boolean;
   /** Whether to include this project in the generated resume. */
   includeInResume: boolean;
   /** Project name, e.g. "eridu-tech". */
@@ -118,8 +118,8 @@ export type Project = {
  * "View more" modal for the full summary.
  */
 export type Experience = {
-  /** When true, the entry is filtered out and never rendered. */
-  hide: boolean;
+  /** When false, the entry is filtered out and never rendered. */
+  include: boolean;
   /** Whether to include this experience entry in the generated resume. */
   includeInResume: boolean;
   /** Job title, e.g. "Founding Backend Platform Engineer". */
@@ -147,8 +147,8 @@ export type Experience = {
  * "View more" modal and optional verification link.
  */
 export type Certificate = {
-  /** When true, the certificate is filtered out and never rendered. */
-  hide: boolean;
+  /** When false, the certificate is filtered out and never rendered. */
+  include: boolean;
   /** Whether to include this certificate in the generated resume. */
   includeInResume: boolean;
   /** Certificate name, e.g. "AWS Certified Developer – Associate". */
@@ -171,8 +171,8 @@ export type Certificate = {
  * A single stat shown in the About "Quick facts" card (e.g. "4+ Years of experience").
  */
 export type AboutStat = {
-  /** When true, the stat is filtered out and never rendered. */
-  hide: boolean;
+  /** When false, the stat is filtered out and never rendered. */
+  include: boolean;
   /** The displayed number/amount, e.g. "4+". */
   value: string;
   /** Short label describing what the value represents, e.g. "Years of experience". */
@@ -184,8 +184,8 @@ export type AboutStat = {
  * with a short description of what it covers and a link to the full article.
  */
 export type TechnicalWriting = {
-  /** When true, the post is filtered out and never rendered. */
-  hide: boolean;
+  /** When false, the post is filtered out and never rendered. */
+  include: boolean;
   /** Whether to include this writing in the generated resume. */
   includeInResume: boolean;
   /** Writing title, e.g. "Why I Built Eridu Tech". */
@@ -214,8 +214,8 @@ export type LanguageLevel =
  * before the Skills section in the About area.
  */
 export type Language = {
-  /** When true, the language is filtered out and never rendered. */
-  hide: boolean;
+  /** When false, the language is filtered out and never rendered. */
+  include: boolean;
   /** Whether to include this language in the generated resume. */
   includeInResume: boolean;
   /** Language name, e.g. "Arabic". */

@@ -13,7 +13,7 @@ type CertificatesSectionProps = {
 export function CertificatesSection({ data }: CertificatesSectionProps) {
   const { certificates, uiSettings } = data;
   const [expanded, setExpanded] = useState(false);
-  const visibleCertificates = certificates.filter((cert) => !cert.hide);
+  const visibleCertificates = certificates.filter((cert) => cert.include);
   const hasMore =
     visibleCertificates.length > uiSettings.sectionLimits.certificates;
   const visible =

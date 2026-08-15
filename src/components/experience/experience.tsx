@@ -16,7 +16,7 @@ export function Experience({ data }: ExperienceProps) {
   const { experience, uiSettings } = data;
   const [extraRef] = useAutoAnimate();
   const { open, handleOpenChange } = useCollapsibleState();
-  const visibleJobs = experience.filter((job) => !job.hide);
+  const visibleJobs = experience.filter((job) => job.include);
   const limit = uiSettings.sectionLimits.experience;
   const shownJobs = visibleJobs.slice(0, limit);
   const extraJobs = visibleJobs.slice(limit);
