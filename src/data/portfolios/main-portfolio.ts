@@ -67,8 +67,8 @@ export const mainPortfolio: PortfolioData = {
     youtube: null,
   },
   languages: [
-    { hide: false, name: "English", level: "Fluent" },
-    { hide: false, name: "Swedish", level: "Native" },
+    { hide: false, name: "English", level: "Fluent", includeInResume: true },
+    { hide: false, name: "Swedish", level: "Native", includeInResume: true },
   ],
   skills: {
     Backend: [
@@ -157,6 +157,7 @@ export const mainPortfolio: PortfolioData = {
   experience: [
     {
       hide: false,
+      includeInResume: true,
       role: "Founder & Lead Maintainer",
       company: "eridu-tech (Open Source)",
       period: "Aug 2024 — Present",
@@ -185,7 +186,7 @@ export const mainPortfolio: PortfolioData = {
         allSkills["Modular Monoliths"],
       ],
       liveUrl: "https://eridu-tech.io",
-      repoUrl: null,
+      repoUrl: "https://github.com/eridu-tech/eridu-tech-core/",
       proof: [
         "20 maintained backend components",
         "4,640+ integration & behavior tests",
@@ -196,11 +197,12 @@ export const mainPortfolio: PortfolioData = {
     },
     {
       hide: false,
+      includeInResume: true,
       role: "Lead Developer | Technical Product Owner",
       company: "FillerDepot",
       period: "Oct 2025 — Present",
       summary:
-        "A manual email-based event-registration workflow was causing lost information and booking conflicts. I took ownership of product and technical delivery and led the AMS Portal from requirements to deployment, turning the process into a centralized booking and registration system.",
+        "A manual email-based event-registration workflow was causing lost information and booking conflicts. I took ownership of product and technical delivery and led the AMS Portal from requirements to deployment, turning the process into a centralized booking and registration system now used by 50 exhibitors.",
       points: [
         "Turned unclear business needs into requirements, priorities, and shipped features, keeping delivery moving without dedicated QA or project-management support.",
         "Replaced the manual email workflow with the AMS Portal, giving the summit a centralized system for registration and eliminating the data loss and booking conflicts caused by the old process.",
@@ -226,12 +228,14 @@ export const mainPortfolio: PortfolioData = {
         "Replaced a manual email workflow",
         "Eliminated data loss & booking conflicts",
         "Real-time inventory & automated invoicing",
+        "Used by 50 exhibitors",
       ],
       liveUrl: null,
       repoUrl: null,
     },
     {
       hide: false,
+      includeInResume: true,
       role: "Fullstack Developer",
       company: "Stride — Shopify Select Partner",
       period: "Aug 2025 — Oct 2025",
@@ -261,6 +265,7 @@ export const mainPortfolio: PortfolioData = {
     },
     {
       hide: false,
+      includeInResume: true,
       role: "Fullstack Software Engineer",
       company: "Greentake",
       period: "Mar 2024 — Aug 2025",
@@ -295,6 +300,7 @@ export const mainPortfolio: PortfolioData = {
     },
     {
       hide: false,
+      includeInResume: true,
       role: "Bachelor Thesis",
       company: "Bionamic AB",
       period: "Jan 2024 — Dec 2024",
@@ -326,6 +332,7 @@ export const mainPortfolio: PortfolioData = {
     },
     {
       hide: false,
+      includeInResume: true,
       role: "Degree Project",
       company: "Bionamic AB",
       period: "Sep 2023 — Jan 2024",
@@ -360,6 +367,7 @@ export const mainPortfolio: PortfolioData = {
   projects: [
     {
       hide: false,
+      includeInResume: true,
       title: "Outstanding Resumes",
       description:
         "Resume building involved enough workflow and UI complexity to benefit from structure without the operational cost of many services. I built a modular monolith that keeps the application simple to deploy while making business logic easier to change.",
@@ -390,6 +398,7 @@ export const mainPortfolio: PortfolioData = {
     },
     {
       hide: false,
+      includeInResume: true,
       title: "The Primitive Language",
       description:
         "To understand language implementation beyond theory, I built a programming language from scratch, taking the project from grammar design through parsing, evaluation, and execution.",
@@ -416,6 +425,7 @@ export const mainPortfolio: PortfolioData = {
   technicalWritings: [
     {
       hide: false,
+      includeInResume: true,
       title: "Why I Built Eridu Tech1",
       description:
         "Announcing eridu-tech - A composable backend foundation for TypeScript",

@@ -91,6 +91,8 @@ export type UiSettings = {
 export type Project = {
   /** When true, the project is filtered out and never rendered. */
   hide: boolean;
+  /** Whether to include this project in the generated resume. */
+  includeInResume: boolean;
   /** Project name, e.g. "eridu-tech". */
   title: string;
   /** One-to-two sentence summary shown on the card and in the modal. */
@@ -118,6 +120,8 @@ export type Project = {
 export type Experience = {
   /** When true, the entry is filtered out and never rendered. */
   hide: boolean;
+  /** Whether to include this experience entry in the generated resume. */
+  includeInResume: boolean;
   /** Job title, e.g. "Founding Backend Platform Engineer". */
   role: string;
   /** Employer / company name. */
@@ -145,6 +149,8 @@ export type Experience = {
 export type Certificate = {
   /** When true, the certificate is filtered out and never rendered. */
   hide: boolean;
+  /** Whether to include this certificate in the generated resume. */
+  includeInResume: boolean;
   /** Certificate name, e.g. "AWS Certified Developer – Associate". */
   title: string;
   /** Issuing organization, e.g. "Amazon Web Services". */
@@ -180,6 +186,8 @@ export type AboutStat = {
 export type TechnicalWriting = {
   /** When true, the post is filtered out and never rendered. */
   hide: boolean;
+  /** Whether to include this writing in the generated resume. */
+  includeInResume: boolean;
   /** Writing title, e.g. "Why I Built Eridu Tech". */
   title: string;
   /** Short summary of what the writing is about. */
@@ -208,6 +216,8 @@ export type LanguageLevel =
 export type Language = {
   /** When true, the language is filtered out and never rendered. */
   hide: boolean;
+  /** Whether to include this language in the generated resume. */
+  includeInResume: boolean;
   /** Language name, e.g. "Arabic". */
   name: string;
   /** Proficiency level, e.g. "Native", "Fluent", "Intermediate". */
