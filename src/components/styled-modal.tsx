@@ -81,7 +81,7 @@ function ModalContent({
               </div>
               <Dialog.CloseTrigger
                 aria-label="Close"
-                className="hidden rounded-full border border-zinc-300 p-1.5 text-zinc-500 transition-colors hover:border-sky-500 hover:text-sky-500 dark:border-zinc-700 dark:text-zinc-400 sm:flex"
+                className="hidden cursor-pointer rounded-full border border-zinc-300 p-1.5 text-zinc-500 transition-colors hover:border-sky-500 hover:text-sky-500 dark:border-zinc-700 dark:text-zinc-400 sm:flex"
               >
                 <svg
                   className="h-5 w-5"
@@ -103,7 +103,7 @@ function ModalContent({
             </div>
             <Dialog.CloseTrigger
               aria-label="Close"
-              className="mt-6 flex w-full shrink-0 items-center justify-center rounded-xl border border-zinc-300 px-4 py-3 text-sm font-semibold text-zinc-600 transition-colors hover:border-sky-500 hover:text-sky-500 dark:border-zinc-700 dark:text-zinc-400 sm:hidden"
+              className="mt-6 flex w-full shrink-0 cursor-pointer items-center justify-center rounded-xl border border-zinc-300 px-4 py-3 text-sm font-semibold text-zinc-600 transition-colors hover:border-sky-500 hover:text-sky-500 dark:border-zinc-700 dark:text-zinc-400 sm:hidden"
             >
               Close
             </Dialog.CloseTrigger>
