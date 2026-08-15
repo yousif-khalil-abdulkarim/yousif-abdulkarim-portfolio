@@ -3,7 +3,6 @@ import { notFound } from "next/navigation";
 import { Portfolio } from "@/components/portfolio";
 import { allPortfolios } from "@/data/portfolios";
 import { portfolioMetadata } from "@/lib/metadata";
-import { resumeFileName } from "@/lib/pdf-resume";
 
 type PortfolioPageProps = {
   params: Promise<{ portfolio: string }>;
@@ -30,7 +29,7 @@ export default async function PortfolioPage({
   return (
     <Portfolio
       data={data}
-      resumeHref={`/resumes/${resumeFileName(data, portfolio)}`}
+      resumeHref={`/${portfolio}/resume.pdf`}
     />
   );
 }
