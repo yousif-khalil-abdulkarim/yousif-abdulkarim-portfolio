@@ -56,12 +56,12 @@ function ModalContent({
     <Portal>
       <Dialog.Backdrop
         onClick={() => dialog.setOpen(false)}
-        className="animate-backdrop-in fixed inset-0 z-50 bg-black/30 backdrop-blur-md"
+        className="fixed inset-0 z-50 bg-black/30 backdrop-blur-md"
       />
       <Dialog.Positioner className="pointer-events-none fixed inset-0 z-50 flex items-center justify-center p-4">
         <Dialog.Content
           ref={contentRef}
-          className={`animate-modal-in pointer-events-auto relative flex max-h-[calc(100dvh-2rem)] w-full flex-col ${maxWidthClass} overflow-hidden rounded-2xl border border-zinc-200/70 bg-white shadow-2xl dark:border-zinc-800/70 dark:bg-zinc-950`}
+          className={`pointer-events-auto relative flex max-h-[calc(100dvh-2rem)] w-full flex-col ${maxWidthClass} overflow-hidden rounded-2xl border border-zinc-200/70 bg-white shadow-2xl dark:border-zinc-800/70 dark:bg-zinc-950`}
         >
           <div
             aria-hidden

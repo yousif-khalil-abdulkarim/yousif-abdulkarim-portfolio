@@ -71,13 +71,23 @@ body {
 }
 
 @keyframes modal-in {
-  from { opacity: 0; transform: translateY(12px) scale(0.96); }
+  from { opacity: 0; transform: translateY(16px) scale(0.92); }
   to { opacity: 1; transform: translateY(0) scale(1); }
 }
 
 @keyframes backdrop-in {
   from { opacity: 0; }
   to { opacity: 1; }
+}
+
+@keyframes modal-out {
+  from { opacity: 1; transform: translateY(0) scale(1); }
+  to { opacity: 0; transform: translateY(16px) scale(0.92); }
+}
+
+@keyframes backdrop-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 
 /* ---------- Animation utility classes ---------- */
@@ -88,8 +98,19 @@ body {
 .animate-pulse-sky { animation: pulse-sky 2s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
 .animate-gradient-x { background-size: 200% 200%; animation: gradient-x 6s ease infinite; }
 .animate-float { animation: float 6s ease-in-out infinite; }
-.animate-modal-in { animation: modal-in 0.28s cubic-bezier(0.16, 1, 0.3, 1) both; }
-.animate-backdrop-in { animation: backdrop-in 0.2s ease-out both; }
+/* ---------- Dialog (modal) open/close animations ---------- */
+[data-scope="dialog"][data-part="backdrop"][data-state="open"] {
+  animation: backdrop-in 0.3s ease-out both;
+}
+[data-scope="dialog"][data-part="backdrop"][data-state="closed"] {
+  animation: backdrop-out 0.3s ease-in both;
+}
+[data-scope="dialog"][data-part="content"][data-state="open"] {
+  animation: modal-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+[data-scope="dialog"][data-part="content"][data-state="closed"] {
+  animation: modal-out 0.4s ease-in both;
+}
 
 /* ---------- Background grid ---------- */
 .bg-grid {
