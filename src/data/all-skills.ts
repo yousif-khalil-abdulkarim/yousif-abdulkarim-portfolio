@@ -172,7 +172,7 @@ export const allSkills = {
       "Open-source CMS and blogging platform for building content-driven websites.",
     includeInResume: true,
   },
-  "SEO": {
+  SEO: {
     name: "SEO",
     description:
       "Optimizing sites to improve visibility and ranking in search engine results.",

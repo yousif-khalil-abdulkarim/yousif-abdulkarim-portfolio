@@ -17,10 +17,7 @@ export function AboutBio({ paragraphs }: AboutBioProps) {
         >
           {paragraph.map((run, rIndex) =>
             run.emphasis ? (
-              <span
-                key={rIndex}
-                className="font-medium text-strong-foreground"
-              >
+              <span key={rIndex} className="font-medium text-strong-foreground">
                 {run.text}
               </span>
             ) : (

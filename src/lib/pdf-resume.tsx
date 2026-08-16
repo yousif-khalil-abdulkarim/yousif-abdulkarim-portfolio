@@ -283,9 +283,7 @@ type TechnicalWritingsSectionProps = {
   writings: TechnicalWriting[];
 };
 
-function TechnicalWritingsSection({
-  writings,
-}: TechnicalWritingsSectionProps) {
+function TechnicalWritingsSection({ writings }: TechnicalWritingsSectionProps) {
   if (writings.length === 0) return null;
   const [first, ...rest] = writings;
   return (
@@ -308,11 +306,7 @@ type ExperienceItemProps = {
   proofLimit: number;
 };
 
-function ExperienceItem({
-  job,
-  pointsLimit,
-  proofLimit,
-}: ExperienceItemProps) {
+function ExperienceItem({ job, pointsLimit, proofLimit }: ExperienceItemProps) {
   return (
     <View style={styles.item}>
       <View wrap={false}>
@@ -377,10 +371,7 @@ type ProjectItemProps = {
   proofLimit: number;
 };
 
-function ProjectItem({
-  project,
-  proofLimit,
-}: ProjectItemProps) {
+function ProjectItem({ project, proofLimit }: ProjectItemProps) {
   return (
     <View style={styles.item}>
       <View style={styles.itemHeader}>
@@ -404,10 +395,7 @@ type ProjectsSectionProps = {
   proofLimit: number;
 };
 
-function ProjectsSection({
-  projects,
-  proofLimit,
-}: ProjectsSectionProps) {
+function ProjectsSection({ projects, proofLimit }: ProjectsSectionProps) {
   if (projects.length === 0) return null;
   const [first, ...rest] = projects;
   return (
@@ -471,11 +459,7 @@ type ResumeHeaderProps = {
   socials: string;
 };
 
-function ResumeHeader({
-  profile,
-  contact,
-  socials,
-}: ResumeHeaderProps) {
+function ResumeHeader({ profile, contact, socials }: ResumeHeaderProps) {
   return (
     <View style={styles.header}>
       <Text style={styles.name}>
@@ -596,7 +580,6 @@ export function ResumeDocument({ data }: ResumeDocumentProps) {
 
         {/* Sections in the exact order declared by sectionOrder */}
         {orderedSections}
-
       </Page>
     </Document>
   );

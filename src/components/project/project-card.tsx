@@ -17,7 +17,9 @@ export function ProjectCard({ project, index, proofLimit }: ProjectCardProps) {
     <article className="group relative">
       <div className="relative flex h-full flex-col rounded-2xl border border-border bg-card p-6 transition-all hover:-translate-y-0.5 hover:border-accent hover:shadow-lg hover:shadow-accent/10">
         <div className="flex items-center justify-between">
-          <span className="font-mono text-sm text-faint-foreground">0{index + 1}</span>
+          <span className="font-mono text-sm text-faint-foreground">
+            0{index + 1}
+          </span>
           <div className="flex items-center gap-2">
             {project.featured && (
               <span className="rounded-full bg-accent/10 px-2.5 py-1 text-xs font-semibold text-accent-strong">

@@ -21,9 +21,7 @@ export function SectionHeading({
         <span className="h-px flex-1 bg-linear-to-r from-border-strong to-transparent" />
       </div>
       {subtitle && (
-        <p className="mt-4 max-w-2xl text-body-foreground">
-          {subtitle}
-        </p>
+        <p className="mt-4 max-w-2xl text-body-foreground">{subtitle}</p>
       )}
     </div>
   );

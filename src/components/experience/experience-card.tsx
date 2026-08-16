@@ -27,11 +27,11 @@ export function ExperienceCard({
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
         <h3 className="font-display text-lg font-semibold">
           {job.role}{" "}
-          <span className="text-muted-foreground">
-            · {job.company}
-          </span>
+          <span className="text-muted-foreground">· {job.company}</span>
         </h3>
-        <span className="font-mono text-xs text-faint-foreground">{job.period}</span>
+        <span className="font-mono text-xs text-faint-foreground">
+          {job.period}
+        </span>
       </div>
       {job.summary && (
         <p className="mt-3 text-sm leading-7 text-body-foreground">

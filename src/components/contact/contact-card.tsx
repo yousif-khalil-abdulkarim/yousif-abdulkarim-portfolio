@@ -22,9 +22,7 @@ export function ContactCard({ href, icon, label, subtitle }: ContactCardProps) {
       </span>
       <span>
         <span className="block text-sm font-semibold">{label}</span>
-        <span className="block text-xs text-muted-foreground">
-          {subtitle}
-        </span>
+        <span className="block text-xs text-muted-foreground">{subtitle}</span>
       </span>
     </>
   );

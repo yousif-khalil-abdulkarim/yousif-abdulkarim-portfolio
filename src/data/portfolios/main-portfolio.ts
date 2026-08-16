@@ -17,7 +17,7 @@ export const mainPortfolio: PortfolioData = {
       proofLimit: 6,
       pointsLimit: 6,
     },
-  }, 
+  },
   resumeSettings: {
     showPortfolioImage: true,
     sectionLimits: {
