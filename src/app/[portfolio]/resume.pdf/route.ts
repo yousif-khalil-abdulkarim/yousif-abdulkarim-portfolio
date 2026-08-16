@@ -26,14 +26,18 @@ export async function GET(
   const data = allPortfolios[portfolio];
   if (!data) notFound();
 
-  // `renderResumePdf` is backed by a Node Buffer (an ArrayBuffer), so narrow
-  // the generic view to satisfy the DOM `BlobPart` type.
-  const pdf = (await renderResumePdf(data)) as Uint8Array<ArrayBuffer>;
+  // `renderResumePdf` returns a Uint8Array view over exactly the PDF bytes.
+  const pdf = await renderResumePdf(data);
 
+  // Served inline so the Resume button opens the PDF in the browser's built-in
+  // viewer at the site URL (https). Serving it as `attachment` instead makes the
+  // user open the file from disk, which trips Chrome's `file://` origin guard
+  // ("Unsafe attempt to load URL file:///..."). The filename below still sets
+  // the default name used by the viewer's Save/Download button.
   return new Response(new Blob([pdf], { type: "application/pdf" }), {
     headers: {
       "Content-Type": "application/pdf",
-      "Content-Disposition": `attachment; filename="${resumeFileName(data, portfolio)}"`,
+      "Content-Disposition": `inline; filename="${resumeFileName(data, portfolio)}"`,
     },
   });
 }

@@ -591,9 +591,15 @@ export function ResumeDocument({ data }: ResumeDocumentProps) {
  */
 export async function renderResumePdf(
   data: PortfolioData,
-): Promise<Uint8Array> {
+): Promise<Uint8Array<ArrayBuffer>> {
   const buffer = await renderToBuffer(<ResumeDocument data={data} />);
-  return new Uint8Array(buffer.buffer);
+  // `renderToBuffer` resolves with `Buffer.concat(chunks)`. For small outputs
+  // Node allocates those Buffers from a shared pool, so the Buffer can be a
+  // view into a larger ArrayBuffer (with a non-zero `byteOffset`). Copying the
+  // Buffer's exact bytes into a fresh ArrayBuffer avoids sending any pooled or
+  // trailing bytes to clients, and yields a plain `Uint8Array<ArrayBuffer>`
+  // that is directly usable as a Response body / BlobPart.
+  return new Uint8Array(buffer);
 }
 
 /**

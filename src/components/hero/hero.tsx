@@ -18,7 +18,7 @@ import type { PortfolioData } from "@/data/types";
 
 type HeroProps = {
   data: PortfolioData;
-  /** Optional link to a downloadable resume PDF. Renders a "Resume" button when set. */
+  /** Optional link to the resume PDF. Renders a "Resume" button when set. */
   resumeHref?: string;
 };
 
@@ -96,7 +96,7 @@ export function Hero({ data, resumeHref }: HeroProps) {
           >
             <ViewWorkButton href={workHref} />
             {resumeHref && uiSettings.showResume && (
-              <OutlineButton href={resumeHref} download>
+              <OutlineButton href={resumeHref} newTab>
                 Resume
               </OutlineButton>
             )}
