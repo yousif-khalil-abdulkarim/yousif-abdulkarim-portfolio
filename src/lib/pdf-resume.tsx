@@ -8,6 +8,7 @@ import {
 } from "@react-pdf/renderer";
 import type {
   PortfolioData,
+  Profile,
   Experience,
   Project,
   Certificate,
@@ -22,47 +23,78 @@ const styles = StyleSheet.create({
     padding: 40,
     fontFamily: "Helvetica",
     fontSize: 10,
-    color: "#18181b",
+    color: "#111111",
   },
   header: {
-    borderBottomWidth: 2,
-    borderBottomColor: "#0ea5e9",
+    borderBottomWidth: 1,
+    borderBottomColor: "#c9c9c9",
     paddingBottom: 12,
-    marginBottom: 16,
+    marginBottom: 6,
   },
-  name: { fontSize: 24, fontWeight: 700, letterSpacing: 0.5 },
-  role: { fontSize: 12, color: "#0284c7", marginTop: 2 },
-  tagline: { fontSize: 9.5, color: "#3f3f46", marginTop: 4 },
-  contact: { fontSize: 9, color: "#52525b", marginTop: 6 },
-  socials: { fontSize: 8, color: "#71717a", marginTop: 2 },
+  name: {
+    fontSize: 26,
+    fontWeight: 700,
+    fontFamily: "Times-Roman",
+    letterSpacing: 0.5,
+  },
+  role: {
+    fontSize: 11,
+    fontWeight: 500,
+    letterSpacing: 2,
+    textTransform: "uppercase",
+    color: "#0284c7",
+    marginTop: 4,
+  },
+  tagline: {
+    fontSize: 9.5,
+    color: "#444444",
+    marginTop: 4,
+  },
+  contact: {
+    fontSize: 9,
+    color: "#333333",
+    marginTop: 6,
+  },
+  socials: {
+    fontSize: 8,
+    color: "#666666",
+    marginTop: 2,
+  },
   sectionTitle: {
     fontSize: 12,
     fontWeight: 700,
-    letterSpacing: 1,
-    color: "#0369a1",
-    borderBottomWidth: 1.5,
-    borderBottomColor: "#0284c7",
-    paddingBottom: 5,
-    marginTop: 16,
-    marginBottom: 10,
+    letterSpacing: 1.5,
+    borderBottomWidth: 1,
+    borderBottomColor: "#c9c9c9",
+    paddingBottom: 4,
+    marginTop: 14,
+    marginBottom: 8,
   },
-  item: { marginBottom: 16 },
+  item: { marginBottom: 14 },
   itemHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "baseline",
   },
-  itemTitle: { fontSize: 10.5, fontWeight: 700 },
-  itemSubtitle: { fontSize: 9.5, color: "#0284c7", marginTop: 1 },
-  itemMeta: { fontSize: 9, color: "#52525b" },
-  body: { fontSize: 9.5, lineHeight: 1.5, color: "#3f3f46", marginTop: 4, marginBottom: 8 },
+  itemTitle: { fontSize: 11, fontWeight: 700 },
+  itemSubtitle: { fontSize: 10, color: "#333333", marginTop: 1 },
+  roleTitle: { fontSize: 10, color: "#0284c7", marginTop: 1 },
+  itemMeta: { fontSize: 9, color: "#444444" },
+  body: {
+    fontSize: 9.5,
+    lineHeight: 1.5,
+    color: "#333333",
+    marginTop: 3,
+    marginBottom: 6,
+  },
   bullet: { flexDirection: "row", marginTop: 2 },
-  bulletDot: { width: 10, fontSize: 9, color: "#0ea5e9" },
-  bulletText: { flex: 1, fontSize: 9.5, lineHeight: 1.5, color: "#3f3f46" },
+  bulletDot: { width: 10, fontSize: 9 },
+  bulletText: { flex: 1, fontSize: 9.5, lineHeight: 1.5, color: "#333333" },
   keywordRow: { flexDirection: "row", flexWrap: "wrap", marginTop: 4 },
   keyword: {
-    fontSize: 8,
-    backgroundColor: "#f4f4f5",
+    fontSize: 8.5,
+    backgroundColor: "#f0f0f0",
+    color: "#333333",
     paddingHorizontal: 5,
     paddingVertical: 2,
     borderRadius: 3,
@@ -71,12 +103,12 @@ const styles = StyleSheet.create({
   },
   skillRow: { flexDirection: "row", marginBottom: 3 },
   skillCategory: { width: 130, fontSize: 9.5, fontWeight: 700 },
-  skillItems: { flex: 1, fontSize: 9.5, color: "#3f3f46" },
+  skillItems: { flex: 1, fontSize: 9.5, color: "#333333" },
   proofRow: { flexDirection: "row", flexWrap: "wrap", marginTop: 6 },
   proofBadge: {
-    fontSize: 9.5,
+    fontSize: 9,
     fontWeight: 700,
-    color: "#0369a1",
+    color: "#0284c7",
     backgroundColor: "#e0f2fe",
     paddingHorizontal: 6,
     paddingVertical: 2.5,
@@ -92,10 +124,12 @@ const styles = StyleSheet.create({
  * marked for the resume (`includeInResume`). Used for Experience, Project,
  * Certificate, TechnicalWriting, and Language items.
  */
-function isIncluded(item: {
+type IncludableItem = {
   include: boolean;
   includeInResume: boolean;
-}): boolean {
+};
+
+function isIncluded(item: IncludableItem): boolean {
   return item.include && item.includeInResume;
 }
 
@@ -136,11 +170,15 @@ function resolveSectionLimits(data: PortfolioData): ResumeLimits {
   };
 }
 
-function BulletList({ items }: { items: string[] }) {
+type BulletListProps = {
+  items: string[];
+};
+
+function BulletList({ items }: BulletListProps) {
   return (
     <>
       {items.map((item) => (
-        <View key={item} style={styles.bullet}>
+        <View key={item} style={styles.bullet} wrap={false}>
           <Text style={styles.bulletDot}>•</Text>
           <Text style={styles.bulletText}>{item}</Text>
         </View>
@@ -149,9 +187,13 @@ function BulletList({ items }: { items: string[] }) {
   );
 }
 
-function Keywords({ items }: { items: string[] }) {
+type KeywordsProps = {
+  items: string[];
+};
+
+function Keywords({ items }: KeywordsProps) {
   return (
-    <View style={styles.keywordRow}>
+    <View style={styles.keywordRow} wrap={false}>
       {items.map((item) => (
         <Text key={item} style={styles.keyword}>
           {item}
@@ -161,10 +203,14 @@ function Keywords({ items }: { items: string[] }) {
   );
 }
 
-function ProofLine({ items }: { items: string[] }) {
+type ProofLineProps = {
+  items: string[];
+};
+
+function ProofLine({ items }: ProofLineProps) {
   if (items.length === 0) return null;
   return (
-    <View style={styles.proofRow}>
+    <View style={styles.proofRow} wrap={false}>
       {items.map((item) => (
         <Text key={item} style={styles.proofBadge}>
           {item}
@@ -174,13 +220,17 @@ function ProofLine({ items }: { items: string[] }) {
   );
 }
 
-function SkillsSection({ skills }: { skills: Record<string, Skill[]> }) {
+type SkillsSectionProps = {
+  skills: Record<string, Skill[]>;
+};
+
+function SkillsSection({ skills }: SkillsSectionProps) {
   const categories = Object.entries(skills).filter(
     ([, items]) => items.length > 0,
   );
   if (categories.length === 0) return null;
   return (
-    <>
+    <View wrap={false}>
       <Text style={styles.sectionTitle}>SKILLS</Text>
       {categories.map(([category, items]) => (
         <View key={category} style={styles.skillRow}>
@@ -190,14 +240,18 @@ function SkillsSection({ skills }: { skills: Record<string, Skill[]> }) {
           </Text>
         </View>
       ))}
-    </>
+    </View>
   );
 }
 
-function LanguagesSection({ languages }: { languages: Language[] }) {
+type LanguagesSectionProps = {
+  languages: Language[];
+};
+
+function LanguagesSection({ languages }: LanguagesSectionProps) {
   if (languages.length === 0) return null;
   return (
-    <>
+    <View wrap={false}>
       <Text style={styles.sectionTitle}>LANGUAGES</Text>
       {languages.map((lang) => (
         <View key={lang.name} style={styles.skillRow}>
@@ -205,112 +259,235 @@ function LanguagesSection({ languages }: { languages: Language[] }) {
           <Text style={styles.skillItems}>{lang.level}</Text>
         </View>
       ))}
-    </>
+    </View>
   );
 }
 
+type TechnicalWritingItemProps = {
+  writing: TechnicalWriting;
+};
+
+function TechnicalWritingItem({ writing }: TechnicalWritingItemProps) {
+  return (
+    <View style={styles.item} wrap={false}>
+      <View style={styles.itemHeader}>
+        <Text style={styles.itemTitle}>{writing.title}</Text>
+      </View>
+      <Text style={styles.body}>{writing.description}</Text>
+      {writing.url && <Text style={styles.socials}>{writing.url}</Text>}
+    </View>
+  );
+}
+
+type TechnicalWritingsSectionProps = {
+  writings: TechnicalWriting[];
+};
+
 function TechnicalWritingsSection({
   writings,
-}: {
-  writings: TechnicalWriting[];
-}) {
+}: TechnicalWritingsSectionProps) {
   if (writings.length === 0) return null;
+  const [first, ...rest] = writings;
   return (
     <>
-      <Text style={styles.sectionTitle}>TECHNICAL WRITINGS</Text>
-      {writings.map((writing) => (
-        <View key={writing.title} style={styles.item}>
-          <View style={styles.itemHeader}>
-            <Text style={styles.itemTitle}>{writing.title}</Text>
-          </View>
-          <Text style={styles.body}>{writing.description}</Text>
-          {writing.url ? <Text style={styles.socials}>{writing.url}</Text> : null}
-        </View>
+      {/* Section title + first item stay together as one unbreakable block. */}
+      <View wrap={false}>
+        <Text style={styles.sectionTitle}>TECHNICAL WRITINGS</Text>
+        {first && <TechnicalWritingItem writing={first} />}
+      </View>
+      {rest.map((writing) => (
+        <TechnicalWritingItem key={writing.title} writing={writing} />
       ))}
     </>
   );
 }
+
+type ExperienceItemProps = {
+  job: Experience;
+  pointsLimit: number;
+  proofLimit: number;
+};
+
+function ExperienceItem({
+  job,
+  pointsLimit,
+  proofLimit,
+}: ExperienceItemProps) {
+  return (
+    <View style={styles.item}>
+      <View wrap={false}>
+        <View style={styles.itemHeader}>
+          <Text style={styles.itemTitle}>{job.company}</Text>
+          <Text style={styles.itemMeta}>{job.period}</Text>
+        </View>
+        <Text style={styles.roleTitle}>{job.role}</Text>
+        {job.summary && <Text style={styles.body}>{job.summary}</Text>}
+      </View>
+      {job.points.length > 0 && (
+        <BulletList items={job.points.slice(0, pointsLimit)} />
+      )}
+      <ProofLine items={job.proof.slice(0, proofLimit)} />
+      {job.stack.length > 0 && (
+        <Keywords items={job.stack.map((skill) => skill.name)} />
+      )}
+    </View>
+  );
+}
+
+type ExperienceSectionProps = {
+  jobs: Experience[];
+  pointsLimit: number;
+  proofLimit: number;
+};
 
 function ExperienceSection({
   jobs,
   pointsLimit,
   proofLimit,
-}: {
-  jobs: Experience[];
-  pointsLimit: number;
-  proofLimit: number;
-}) {
+}: ExperienceSectionProps) {
   if (jobs.length === 0) return null;
+  const [first, ...rest] = jobs;
   return (
     <>
-      <Text style={styles.sectionTitle}>EXPERIENCE</Text>
-      {jobs.map((job) => (
-        <View key={`${job.role}-${job.company}`} style={styles.item}>
-          <View style={styles.itemHeader}>
-            <Text style={styles.itemTitle}>{job.role}</Text>
-            <Text style={styles.itemMeta}>{job.period}</Text>
-          </View>
-          <Text style={styles.itemSubtitle}>{job.company}</Text>
-          {job.summary ? <Text style={styles.body}>{job.summary}</Text> : null}
-          {job.points.length > 0 ? (
-            <BulletList items={job.points.slice(0, pointsLimit)} />
-          ) : null}
-          <ProofLine items={job.proof.slice(0, proofLimit)} />
-          {job.stack.length > 0 ? (
-            <Keywords items={job.stack.map((skill) => skill.name)} />
-          ) : null}
-        </View>
+      {/* Section title + first item stay together as one unbreakable block. */}
+      <View wrap={false}>
+        <Text style={styles.sectionTitle}>EXPERIENCE</Text>
+        {first && (
+          <ExperienceItem
+            job={first}
+            pointsLimit={pointsLimit}
+            proofLimit={proofLimit}
+          />
+        )}
+      </View>
+      {rest.map((job) => (
+        <ExperienceItem
+          key={`${job.role}-${job.company}`}
+          job={job}
+          pointsLimit={pointsLimit}
+          proofLimit={proofLimit}
+        />
       ))}
     </>
   );
 }
+
+type ProjectItemProps = {
+  project: Project;
+  proofLimit: number;
+};
+
+function ProjectItem({
+  project,
+  proofLimit,
+}: ProjectItemProps) {
+  return (
+    <View style={styles.item}>
+      <View style={styles.itemHeader}>
+        <Text style={styles.itemTitle}>{project.title}</Text>
+        <Text style={styles.itemMeta}>{project.year}</Text>
+      </View>
+      <Text style={styles.body}>{project.description}</Text>
+      {project.highlights.length > 0 && (
+        <BulletList items={project.highlights} />
+      )}
+      <ProofLine items={project.proof.slice(0, proofLimit)} />
+      {project.tech.length > 0 && (
+        <Keywords items={project.tech.map((skill) => skill.name)} />
+      )}
+    </View>
+  );
+}
+
+type ProjectsSectionProps = {
+  projects: Project[];
+  proofLimit: number;
+};
 
 function ProjectsSection({
   projects,
   proofLimit,
-}: {
-  projects: Project[];
-  proofLimit: number;
-}) {
+}: ProjectsSectionProps) {
   if (projects.length === 0) return null;
+  const [first, ...rest] = projects;
   return (
     <>
-      <Text style={styles.sectionTitle}>PROJECTS</Text>
-      {projects.map((project) => (
-        <View key={project.title} style={styles.item}>
-          <View style={styles.itemHeader}>
-            <Text style={styles.itemTitle}>{project.title}</Text>
-            <Text style={styles.itemMeta}>{project.year}</Text>
-          </View>
-          <Text style={styles.body}>{project.description}</Text>
-          {project.highlights.length > 0 ? (
-            <BulletList items={project.highlights} />
-          ) : null}
-          <ProofLine items={project.proof.slice(0, proofLimit)} />
-          {project.tech.length > 0 ? (
-            <Keywords items={project.tech.map((skill) => skill.name)} />
-          ) : null}
-        </View>
+      {/* Section title + first item stay together as one unbreakable block. */}
+      <View wrap={false}>
+        <Text style={styles.sectionTitle}>PROJECTS</Text>
+        {first && <ProjectItem project={first} proofLimit={proofLimit} />}
+      </View>
+      {rest.map((project) => (
+        <ProjectItem
+          key={project.title}
+          project={project}
+          proofLimit={proofLimit}
+        />
       ))}
     </>
   );
 }
 
-function CertificatesSection({ certs }: { certs: Certificate[] }) {
+type CertificateItemProps = {
+  cert: Certificate;
+};
+
+function CertificateItem({ cert }: CertificateItemProps) {
+  return (
+    <View style={styles.item}>
+      <View style={styles.itemHeader}>
+        <Text style={styles.itemTitle}>{cert.title}</Text>
+        <Text style={styles.itemMeta}>{cert.year}</Text>
+      </View>
+      <Text style={styles.itemSubtitle}>{cert.issuer}</Text>
+    </View>
+  );
+}
+
+type CertificatesSectionProps = {
+  certs: Certificate[];
+};
+
+function CertificatesSection({ certs }: CertificatesSectionProps) {
   if (certs.length === 0) return null;
+  const [first, ...rest] = certs;
   return (
     <>
-      <Text style={styles.sectionTitle}>CERTIFICATES</Text>
-      {certs.map((cert) => (
-        <View key={`${cert.title}-${cert.issuer}`} style={styles.item}>
-          <View style={styles.itemHeader}>
-            <Text style={styles.itemTitle}>{cert.title}</Text>
-            <Text style={styles.itemMeta}>{cert.year}</Text>
-          </View>
-          <Text style={styles.itemSubtitle}>{cert.issuer}</Text>
-        </View>
+      {/* Section title + first item stay together as one unbreakable block. */}
+      <View wrap={false}>
+        <Text style={styles.sectionTitle}>CERTIFICATES</Text>
+        {first && <CertificateItem cert={first} />}
+      </View>
+      {rest.map((cert) => (
+        <CertificateItem key={`${cert.title}-${cert.issuer}`} cert={cert} />
       ))}
     </>
+  );
+}
+
+type ResumeHeaderProps = {
+  profile: Profile;
+  contact: string;
+  socials: string;
+};
+
+function ResumeHeader({
+  profile,
+  contact,
+  socials,
+}: ResumeHeaderProps) {
+  return (
+    <View style={styles.header}>
+      <Text style={styles.name}>
+        {profile.firstName} {profile.lastName}
+      </Text>
+      <Text style={styles.role}>{profile.role}</Text>
+      {profile.tagline && (
+        <Text style={styles.tagline}>{bioToPlainText(profile.tagline)}</Text>
+      )}
+      {contact && <Text style={styles.contact}>{contact}</Text>}
+      {socials && <Text style={styles.socials}>{socials}</Text>}
+    </View>
   );
 }
 
@@ -324,7 +501,11 @@ function CertificatesSection({ certs }: { certs: Certificate[] }) {
  * Every section uses the shared `isIncluded` filter: an item only appears when
  * it is not hidden AND it is explicitly marked `includeInResume`.
  */
-export function ResumeDocument({ data }: { data: PortfolioData }) {
+type ResumeDocumentProps = {
+  data: PortfolioData;
+};
+
+export function ResumeDocument({ data }: ResumeDocumentProps) {
   const { profile } = data;
 
   // Resolve the resume's section limits, falling back to the site's limits
@@ -390,17 +571,11 @@ export function ResumeDocument({ data }: { data: PortfolioData }) {
         );
       case "certificates":
         return (
-          <CertificatesSection
-            key="certificates"
-            certs={visibleCertificates}
-          />
+          <CertificatesSection key="certificates" certs={visibleCertificates} />
         );
       case "writings":
         return (
-          <TechnicalWritingsSection
-            key="writings"
-            writings={visibleWritings}
-          />
+          <TechnicalWritingsSection key="writings" writings={visibleWritings} />
         );
     }
   });
@@ -413,26 +588,15 @@ export function ResumeDocument({ data }: { data: PortfolioData }) {
     >
       <Page size="A4" style={styles.page}>
         {/* Header — mirrors the Hero section on the site */}
-        <View style={styles.header}>
-          <Text style={styles.name}>
-            {profile.firstName} {profile.lastName}
-          </Text>
-          <Text style={styles.role}>{profile.role}</Text>
-          {profile.tagline ? (
-            <Text style={styles.tagline}>
-              {bioToPlainText(profile.tagline)}
-            </Text>
-          ) : null}
-          {contact ? <Text style={styles.contact}>{contact}</Text> : null}
-          {socials ? <Text style={styles.socials}>{socials}</Text> : null}
-        </View>
+        <ResumeHeader profile={profile} contact={contact} socials={socials} />
+        <LanguagesSection languages={visibleLanguages} />
 
         {/* Fixed preamble — mirrors the site's About area (Languages, then Skills) */}
-        <LanguagesSection languages={visibleLanguages} />
         <SkillsSection skills={visibleSkills} />
 
         {/* Sections in the exact order declared by sectionOrder */}
         {orderedSections}
+
       </Page>
     </Document>
   );
