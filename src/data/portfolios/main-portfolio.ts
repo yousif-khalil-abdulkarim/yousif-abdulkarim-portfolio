@@ -355,7 +355,7 @@ export const mainPortfolio: PortfolioData = {
         "Helped a Java-focused team adopt JavaScript and TypeScript, giving the project a type-safe implementation aligned with the client library's needs.",
         "Designed a Node.js and Express SDK from scratch, establishing a standardized, reusable API client for consuming the REST API.",
         "Mentored the team on event-sourcing concepts to strengthen the architecture and implementation approach.",
-        "Shipped the client library to production as an reusable npm package and established REST API and SDK patterns that could be reused by the team.",
+        "Shipped the client library to production as a reusable npm package and established REST API and SDK patterns that could be reused by the team.",
       ],
       stack: [
         allSkills["REST APIs"],
@@ -438,7 +438,7 @@ export const mainPortfolio: PortfolioData = {
     {
       include: true,
       includeInResume: true,
-      title: "Why I Built Eridu Tech1",
+      title: "Why I Built Eridu Tech",
       description:
         "Announcing eridu-tech - A composable backend foundation for TypeScript",
       url: "https://www.eridu-tech.io/blog/2026-08-06-announcing-eridu-tech",
