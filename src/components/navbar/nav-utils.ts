@@ -6,6 +6,7 @@ export type NavLink = {
 };
 
 const sectionLinks: Record<Section, NavLink> = {
+  education: { label: "Education", href: "#education" },
   experience: { label: "Experience", href: "#experience" },
   projects: { label: "Projects", href: "#projects" },
   certificates: { label: "Certificates", href: "#certificates" },
@@ -40,6 +41,8 @@ function sectionHasContent(data: PortfolioData, id: string): boolean {
     case "about":
     case "contact":
       return true;
+    case "education":
+      return data.education.some((entry) => entry.include);
     case "experience":
       return data.experience.some((job) => job.include);
     case "projects":

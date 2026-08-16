@@ -59,6 +59,8 @@ export type Profile = {
  * `sectionLimits` shape on `ResumeSettings`.
  */
 export type SectionLimits = {
+  /** Max Education entries shown before "Show more". */
+  education: number;
   /** Max Experience entries shown before "Show more". */
   experience: number;
   /** Max Projects shown before "Show more". */
@@ -95,6 +97,8 @@ export type UiSettings = {
  * Content limits applied when generating the PDF resume.
  */
 export type ResumeSectionLimits = {
+  /** Max Education entries included in the resume. */
+  education: number | null;
   /** Max Experience entries included in the resume. */
   experience: number | null;
   /** Max Projects included in the resume. */
@@ -177,6 +181,26 @@ export type Experience = {
   repoUrl: string | null;
   /** Optional proof / evidence of the work (e.g. metrics), rendered as accent badges. */
   proof: string[];
+};
+
+/**
+ * An education entry shown in the Education section, e.g. a university degree.
+ */
+export type Education = {
+  /** When false, the entry is filtered out and never rendered. */
+  include: boolean;
+  /** Whether to include this education entry in the generated resume. */
+  includeInResume: boolean;
+  /** Degree obtained, e.g. "Bachelor of Science". */
+  degree: string;
+  /** Field of study / major, e.g. "Computer Science". */
+  major: string;
+  /** Educational institution, e.g. "Malmö University". */
+  school: string;
+  /** Period of study, e.g. "2021 — 2024". */
+  period: string;
+  /** Longer description of the education shown on the card. */
+  description: string;
 };
 
 /**
@@ -264,7 +288,12 @@ export type Language = {
 /**
  * The sections whose order can be customized via `PortfolioData.sectionOrder`.
  */
-export type Section = "experience" | "projects" | "certificates" | "writings";
+export type Section =
+  | "education"
+  | "experience"
+  | "projects"
+  | "certificates"
+  | "writings";
 
 /**
  * Single source of truth for all portfolio data — one type, one object.
@@ -273,6 +302,8 @@ export type Section = "experience" | "projects" | "certificates" | "writings";
 export type PortfolioData = {
   /** Personal / professional info used across Navbar, Hero, About, Contact, and Footer. */
   profile: Profile;
+  /** Education history shown in the Education section. */
+  education: Education[];
   /** Feature toggles and section limits. */
   uiSettings: UiSettings;
   /** Settings that control how the generated resume is rendered. */

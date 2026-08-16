@@ -9,6 +9,7 @@ import {
 import type {
   PortfolioData,
   Profile,
+  Education,
   Experience,
   Project,
   Certificate,
@@ -147,6 +148,7 @@ function skillIsIncluded(skill: Skill): boolean {
  * `uiSettings.sectionLimits` whenever a resume-specific limit is `null`.
  */
 type ResumeLimits = {
+  education: number;
   experience: number;
   projects: number;
   skills: number;
@@ -160,6 +162,7 @@ function resolveSectionLimits(data: PortfolioData): ResumeLimits {
   const resume = data.resumeSettings.sectionLimits;
   const site = data.uiSettings.sectionLimits;
   return {
+    education: resume.education ?? site.education,
     experience: resume.experience ?? site.experience,
     projects: resume.projects ?? site.projects,
     skills: resume.skills ?? site.skills,
@@ -295,6 +298,48 @@ function TechnicalWritingsSection({ writings }: TechnicalWritingsSectionProps) {
       </View>
       {rest.map((writing) => (
         <TechnicalWritingItem key={writing.title} writing={writing} />
+      ))}
+    </>
+  );
+}
+
+type EducationItemProps = {
+  entry: Education;
+};
+
+function EducationItem({ entry }: EducationItemProps) {
+  return (
+    <View style={styles.item}>
+      <View style={styles.itemHeader}>
+        <Text style={styles.itemTitle}>{entry.school}</Text>
+        <Text style={styles.itemMeta}>{entry.period}</Text>
+      </View>
+      <Text style={styles.roleTitle}>
+        {entry.degree} · {entry.major}
+      </Text>
+      {entry.description && (
+        <Text style={styles.body}>{entry.description}</Text>
+      )}
+    </View>
+  );
+}
+
+type EducationSectionProps = {
+  entries: Education[];
+};
+
+function EducationSection({ entries }: EducationSectionProps) {
+  if (entries.length === 0) return null;
+  const [first, ...rest] = entries;
+  return (
+    <>
+      {/* Section title + first item stay together as one unbreakable block. */}
+      <View wrap={false}>
+        <Text style={styles.sectionTitle}>EDUCATION</Text>
+        {first && <EducationItem entry={first} />}
+      </View>
+      {rest.map((entry) => (
+        <EducationItem key={`${entry.degree}-${entry.school}`} entry={entry} />
       ))}
     </>
   );
@@ -498,6 +543,9 @@ export function ResumeDocument({ data }: ResumeDocumentProps) {
 
   // Apply the shared resume filter consistently across every supported section,
   // then cap each section to its resolved limit.
+  const visibleEducation = data.education
+    .filter(isIncluded)
+    .slice(0, limits.education);
   const visibleExperience = data.experience
     .filter(isIncluded)
     .slice(0, limits.experience);
@@ -536,6 +584,10 @@ export function ResumeDocument({ data }: ResumeDocumentProps) {
   // declared by `sectionOrder`.
   const orderedSections = data.sectionOrder.map((section) => {
     switch (section) {
+      case "education":
+        return (
+          <EducationSection key="education" entries={visibleEducation} />
+        );
       case "experience":
         return (
           <ExperienceSection

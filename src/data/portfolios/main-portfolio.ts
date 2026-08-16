@@ -9,6 +9,7 @@ export const mainPortfolio: PortfolioData = {
     showQuickFacts: false,
     showResume: true,
     sectionLimits: {
+      education: 6,
       experience: 6,
       projects: 6,
       skills: 6,
@@ -21,6 +22,7 @@ export const mainPortfolio: PortfolioData = {
   resumeSettings: {
     showPortfolioImage: true,
     sectionLimits: {
+      education: null,
       experience: 4,
       projects: null,
       skills: null,
@@ -78,6 +80,18 @@ export const mainPortfolio: PortfolioData = {
     blog: "https://www.eridu-tech.io/blog",
     youtube: null,
   },
+  education: [
+    {
+      include: true,
+      includeInResume: true,
+      degree: "Bachelor of Science",
+      major: "Computer Science",
+      school: "Malmö University",
+      period: "2021 — 2024",
+      description:
+        "Focused on software engineering fundamentals and applied them through hands-on projects. Completed a bachelor thesis at Bionamic AB benchmarking WebAssembly performance and led a five-person degree-project team in shipping a production REST API client and SDK.",
+    },
+  ],
   languages: [
     { include: true, name: "English", level: "Fluent", includeInResume: true },
     { include: true, name: "Swedish", level: "Native", includeInResume: true },
@@ -445,5 +459,11 @@ export const mainPortfolio: PortfolioData = {
     },
   ],
   certificates: [],
-  sectionOrder: ["experience", "writings", "projects", "certificates"],
+  sectionOrder: [
+    "experience",
+    "writings",
+    "projects",
+    "certificates",
+    "education",
+  ],
 };

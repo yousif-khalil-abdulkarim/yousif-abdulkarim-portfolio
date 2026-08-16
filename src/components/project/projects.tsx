@@ -29,7 +29,7 @@ export function Projects({ data }: ProjectsProps) {
       className="mx-auto w-full max-w-5xl scroll-mt-20 px-6 py-24"
     >
       <SectionHeading
-        index="03"
+        index="04"
         title="Projects"
         subtitle="A selection of products and open-source work I've built. Click View more to dive deeper."
       />

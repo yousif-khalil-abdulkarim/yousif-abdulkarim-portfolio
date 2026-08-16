@@ -29,7 +29,7 @@ export function TechnicalWritings({ data }: TechnicalWritingsProps) {
       className="mx-auto w-full max-w-5xl scroll-mt-20 px-6 py-24"
     >
       <SectionHeading
-        index="05"
+        index="06"
         title="Technical Writings"
         subtitle="Write-ups on the problems I solve and the tools I build."
       />

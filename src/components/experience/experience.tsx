@@ -29,7 +29,7 @@ export function Experience({ data }: ExperienceProps) {
       className="mx-auto w-full max-w-5xl scroll-mt-20 px-6 py-24"
     >
       <SectionHeading
-        index="02"
+        index="03"
         title="Experience"
         subtitle="Where I've worked and what I've built along the way."
       />
