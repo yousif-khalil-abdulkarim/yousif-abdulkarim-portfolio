@@ -17,6 +17,18 @@ export const mainPortfolio: PortfolioData = {
       proofLimit: 6,
       pointsLimit: 6,
     },
+  }, 
+  resumeSettings: {
+    showPortfolioImage: true,
+    sectionLimits: {
+      experience: 4,
+      projects: null,
+      skills: null,
+      certificates: null,
+      technicalWritings: null,
+      proofLimit: null,
+      pointsLimit: null,
+    },
   },
   profile: {
     firstName: "Yousif",
@@ -300,7 +312,7 @@ export const mainPortfolio: PortfolioData = {
     },
     {
       include: true,
-      includeInResume: true,
+      includeInResume: false,
       role: "Bachelor Thesis",
       company: "Bionamic AB",
       period: "Jan 2024 — Dec 2024",
@@ -332,7 +344,7 @@ export const mainPortfolio: PortfolioData = {
     },
     {
       include: true,
-      includeInResume: true,
+      includeInResume: false,
       role: "Degree Project",
       company: "Bionamic AB",
       period: "Sep 2023 — Jan 2024",
@@ -367,7 +379,7 @@ export const mainPortfolio: PortfolioData = {
   projects: [
     {
       include: true,
-      includeInResume: true,
+      includeInResume: false,
       title: "Outstanding Resumes",
       description:
         "Resume building involved enough workflow and UI complexity to benefit from structure without the operational cost of many services. I built a modular monolith that keeps the application simple to deploy while making business logic easier to change.",
@@ -398,7 +410,7 @@ export const mainPortfolio: PortfolioData = {
     },
     {
       include: true,
-      includeInResume: true,
+      includeInResume: false,
       title: "The Primitive Language",
       description:
         "To understand language implementation beyond theory, I built a programming language from scratch, taking the project from grammar design through parsing, evaluation, and execution.",

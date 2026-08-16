@@ -36,15 +36,17 @@ const styles = StyleSheet.create({
   contact: { fontSize: 9, color: "#52525b", marginTop: 6 },
   socials: { fontSize: 8, color: "#71717a", marginTop: 2 },
   sectionTitle: {
-    fontSize: 11,
+    fontSize: 12,
     fontWeight: 700,
-    borderBottomWidth: 1,
-    borderBottomColor: "#e4e4e7",
-    paddingBottom: 4,
-    marginTop: 14,
-    marginBottom: 8,
+    letterSpacing: 1,
+    color: "#0369a1",
+    borderBottomWidth: 1.5,
+    borderBottomColor: "#0284c7",
+    paddingBottom: 5,
+    marginTop: 16,
+    marginBottom: 10,
   },
-  item: { marginBottom: 9 },
+  item: { marginBottom: 16 },
   itemHeader: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -53,7 +55,7 @@ const styles = StyleSheet.create({
   itemTitle: { fontSize: 10.5, fontWeight: 700 },
   itemSubtitle: { fontSize: 9.5, color: "#0284c7", marginTop: 1 },
   itemMeta: { fontSize: 9, color: "#52525b" },
-  body: { fontSize: 9.5, lineHeight: 1.5, color: "#3f3f46", marginTop: 4 },
+  body: { fontSize: 9.5, lineHeight: 1.5, color: "#3f3f46", marginTop: 4, marginBottom: 8 },
   bullet: { flexDirection: "row", marginTop: 2 },
   bulletDot: { width: 10, fontSize: 9, color: "#0ea5e9" },
   bulletText: { flex: 1, fontSize: 9.5, lineHeight: 1.5, color: "#3f3f46" },
@@ -70,6 +72,18 @@ const styles = StyleSheet.create({
   skillRow: { flexDirection: "row", marginBottom: 3 },
   skillCategory: { width: 130, fontSize: 9.5, fontWeight: 700 },
   skillItems: { flex: 1, fontSize: 9.5, color: "#3f3f46" },
+  proofRow: { flexDirection: "row", flexWrap: "wrap", marginTop: 6 },
+  proofBadge: {
+    fontSize: 9.5,
+    fontWeight: 700,
+    color: "#0369a1",
+    backgroundColor: "#e0f2fe",
+    paddingHorizontal: 6,
+    paddingVertical: 2.5,
+    borderRadius: 3,
+    marginRight: 4,
+    marginBottom: 3,
+  },
 });
 
 /**
@@ -93,6 +107,35 @@ function skillIsIncluded(skill: Skill): boolean {
   return skill.includeInResume;
 }
 
+/**
+ * Limits used when generating the resume. Each value comes from the resume's
+ * own `resumeSettings.sectionLimits`, falling back to the site's
+ * `uiSettings.sectionLimits` whenever a resume-specific limit is `null`.
+ */
+type ResumeLimits = {
+  experience: number;
+  projects: number;
+  skills: number;
+  certificates: number;
+  technicalWritings: number;
+  proofLimit: number;
+  pointsLimit: number;
+};
+
+function resolveSectionLimits(data: PortfolioData): ResumeLimits {
+  const resume = data.resumeSettings.sectionLimits;
+  const site = data.uiSettings.sectionLimits;
+  return {
+    experience: resume.experience ?? site.experience,
+    projects: resume.projects ?? site.projects,
+    skills: resume.skills ?? site.skills,
+    certificates: resume.certificates ?? site.certificates,
+    technicalWritings: resume.technicalWritings ?? site.technicalWritings,
+    proofLimit: resume.proofLimit ?? site.proofLimit,
+    pointsLimit: resume.pointsLimit ?? site.pointsLimit,
+  };
+}
+
 function BulletList({ items }: { items: string[] }) {
   return (
     <>
@@ -111,6 +154,19 @@ function Keywords({ items }: { items: string[] }) {
     <View style={styles.keywordRow}>
       {items.map((item) => (
         <Text key={item} style={styles.keyword}>
+          {item}
+        </Text>
+      ))}
+    </View>
+  );
+}
+
+function ProofLine({ items }: { items: string[] }) {
+  if (items.length === 0) return null;
+  return (
+    <View style={styles.proofRow}>
+      {items.map((item) => (
+        <Text key={item} style={styles.proofBadge}>
           {item}
         </Text>
       ))}
@@ -175,7 +231,15 @@ function TechnicalWritingsSection({
   );
 }
 
-function ExperienceSection({ jobs }: { jobs: Experience[] }) {
+function ExperienceSection({
+  jobs,
+  pointsLimit,
+  proofLimit,
+}: {
+  jobs: Experience[];
+  pointsLimit: number;
+  proofLimit: number;
+}) {
   if (jobs.length === 0) return null;
   return (
     <>
@@ -188,7 +252,10 @@ function ExperienceSection({ jobs }: { jobs: Experience[] }) {
           </View>
           <Text style={styles.itemSubtitle}>{job.company}</Text>
           {job.summary ? <Text style={styles.body}>{job.summary}</Text> : null}
-          {job.points.length > 0 ? <BulletList items={job.points} /> : null}
+          {job.points.length > 0 ? (
+            <BulletList items={job.points.slice(0, pointsLimit)} />
+          ) : null}
+          <ProofLine items={job.proof.slice(0, proofLimit)} />
           {job.stack.length > 0 ? (
             <Keywords items={job.stack.map((skill) => skill.name)} />
           ) : null}
@@ -198,7 +265,13 @@ function ExperienceSection({ jobs }: { jobs: Experience[] }) {
   );
 }
 
-function ProjectsSection({ projects }: { projects: Project[] }) {
+function ProjectsSection({
+  projects,
+  proofLimit,
+}: {
+  projects: Project[];
+  proofLimit: number;
+}) {
   if (projects.length === 0) return null;
   return (
     <>
@@ -213,6 +286,7 @@ function ProjectsSection({ projects }: { projects: Project[] }) {
           {project.highlights.length > 0 ? (
             <BulletList items={project.highlights} />
           ) : null}
+          <ProofLine items={project.proof.slice(0, proofLimit)} />
           {project.tech.length > 0 ? (
             <Keywords items={project.tech.map((skill) => skill.name)} />
           ) : null}
@@ -253,15 +327,31 @@ function CertificatesSection({ certs }: { certs: Certificate[] }) {
 export function ResumeDocument({ data }: { data: PortfolioData }) {
   const { profile } = data;
 
-  // Apply the shared resume filter consistently across every supported section.
-  const visibleExperience = data.experience.filter(isIncluded);
-  const visibleProjects = data.projects.filter(isIncluded);
-  const visibleCertificates = data.certificates.filter(isIncluded);
-  const visibleWritings = data.technicalWritings.filter(isIncluded);
+  // Resolve the resume's section limits, falling back to the site's limits
+  // whenever a resume-specific limit is null.
+  const limits = resolveSectionLimits(data);
+
+  // Apply the shared resume filter consistently across every supported section,
+  // then cap each section to its resolved limit.
+  const visibleExperience = data.experience
+    .filter(isIncluded)
+    .slice(0, limits.experience);
+  const visibleProjects = data.projects
+    .filter(isIncluded)
+    .slice(0, limits.projects);
+  const visibleCertificates = data.certificates
+    .filter(isIncluded)
+    .slice(0, limits.certificates);
+  const visibleWritings = data.technicalWritings
+    .filter(isIncluded)
+    .slice(0, limits.technicalWritings);
   const visibleLanguages = data.languages.filter(isIncluded);
   const visibleSkills: Record<string, Skill[]> = Object.fromEntries(
     Object.entries(data.skills)
-      .map(([category, items]) => [category, items.filter(skillIsIncluded)])
+      .map(([category, items]) => [
+        category,
+        items.filter(skillIsIncluded).slice(0, limits.skills),
+      ])
       .filter(([, items]) => items.length > 0),
   );
 
@@ -282,9 +372,22 @@ export function ResumeDocument({ data }: { data: PortfolioData }) {
   const orderedSections = data.sectionOrder.map((section) => {
     switch (section) {
       case "experience":
-        return <ExperienceSection key="experience" jobs={visibleExperience} />;
+        return (
+          <ExperienceSection
+            key="experience"
+            jobs={visibleExperience}
+            pointsLimit={limits.pointsLimit}
+            proofLimit={limits.proofLimit}
+          />
+        );
       case "projects":
-        return <ProjectsSection key="projects" projects={visibleProjects} />;
+        return (
+          <ProjectsSection
+            key="projects"
+            projects={visibleProjects}
+            proofLimit={limits.proofLimit}
+          />
+        );
       case "certificates":
         return (
           <CertificatesSection

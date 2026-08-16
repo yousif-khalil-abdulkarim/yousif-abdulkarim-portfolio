@@ -54,6 +54,28 @@ export type Profile = {
 };
 
 /**
+ * Content limits controlling how many items are rendered before a "Show more"
+ * control appears. Used by the site (`UiSettings`). The resume defines its own
+ * `sectionLimits` shape on `ResumeSettings`.
+ */
+export type SectionLimits = {
+  /** Max Experience entries shown before "Show more". */
+  experience: number;
+  /** Max Projects shown before "Show more". */
+  projects: number;
+  /** Max Technical Writings shown before "Show more". */
+  technicalWritings: number;
+  /** Max skills shown per category before "Show more". */
+  skills: number;
+  /** Max Certificates shown before "Show more". */
+  certificates: number;
+  /** Max proof badges shown per entry before "Show more". */
+  proofLimit: number;
+  /** Max bullet points shown per experience entry. */
+  pointsLimit: number;
+};
+
+/**
  * UI toggles for quickly enabling/disabling page features and content limits.
  */
 export type UiSettings = {
@@ -66,22 +88,37 @@ export type UiSettings = {
   /** Whether the Resume download button in the Hero is rendered. */
   showResume: boolean;
   /** Default number of items shown per section before a "Show more" control appears. */
-  sectionLimits: {
-    /** Max Experience entries shown before "Show more". */
-    experience: number;
-    /** Max Projects shown before "Show more". */
-    projects: number;
-    /** Max Technical Writings shown before "Show more". */
-    technicalWritings: number;
-    /** Max skills shown per category before "Show more". */
-    skills: number;
-    /** Max Certificates shown before "Show more". */
-    certificates: number;
-    /** Max proof badges shown per entry before "Show more". */
-    proofLimit: number;
-    /** Max bullet points shown per experience entry. */
-    pointsLimit: number;
-  };
+  sectionLimits: SectionLimits;
+};
+
+/**
+ * Content limits applied when generating the PDF resume.
+ */
+export type ResumeSectionLimits = {
+  /** Max Experience entries included in the resume. */
+  experience: number | null;
+  /** Max Projects included in the resume. */
+  projects: number | null;
+  /** Max Technical Writings included in the resume. */
+  technicalWritings: number | null;
+  /** Max skills shown per category in the resume. */
+  skills: number | null;
+  /** Max Certificates included in the resume. */
+  certificates: number | null;
+  /** Max proof badges shown per entry in the resume. */
+  proofLimit: number | null;
+  /** Max bullet points shown per experience entry in the resume. */
+  pointsLimit: number | null;
+};
+
+/**
+ * Settings that control how the generated PDF resume is rendered.
+ */
+export type ResumeSettings = {
+  /** Whether the portrait image is shown in the resume. */
+  showPortfolioImage: boolean;
+  /** Content limits applied when generating the resume. */
+  sectionLimits: ResumeSectionLimits;
 };
 
 /**
@@ -238,6 +275,8 @@ export type PortfolioData = {
   profile: Profile;
   /** Feature toggles and section limits. */
   uiSettings: UiSettings;
+  /** Settings that control how the generated resume is rendered. */
+  resumeSettings: ResumeSettings;
   /** Projects shown in the Projects section. */
   projects: Project[];
   /** Work history shown in the Experience section. */
