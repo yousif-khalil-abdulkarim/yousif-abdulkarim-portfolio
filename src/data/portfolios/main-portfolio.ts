@@ -300,8 +300,8 @@ export const mainPortfolio: PortfolioData = {
         allSkills["CSS"],
       ],
       proof: [
-        "Replaced third-party messaging tools with a native React chat app in a custom CRM.",
-        "Improved support experience by keeping history and messaging in one workspace.",
+        "Replaced third-party messaging with a custom React chat app in a custom CRM.",
+        "Kept chat history and messaging in one workspace.",
       ],
       liveUrl: null,
       repoUrl: null,
