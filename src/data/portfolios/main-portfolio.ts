@@ -60,7 +60,15 @@ export const mainPortfolio: PortfolioData = {
       ],
       [
         {
-          text: "Founder and lead maintainer of eridu-tech, where I address repeated backend infrastructure work with 20 reusable components and adapter-based integrations across runtimes and data stores. The project has reached 600+ monthly developers, 30K+ lines of TypeScript, and 4,640+ integration and behavior tests.",
+          text: "Founder and lead maintainer of eridu-tech",
+          emphasis: false,
+        },
+        {
+          text: "where I addressed repeated backend infrastructure work with 20 reusable backend components and adapter-based integrations across runtimes and data stores.",
+          emphasis: false,
+        },
+        {
+          text: "The project has reached 600+ monthly developers, 30K+ lines of production TypeScript, and 4,640+ integration and conformance tests.",
           emphasis: false,
         },
       ],
@@ -190,7 +198,7 @@ export const mainPortfolio: PortfolioData = {
       summary:
         "After seeing teams constantly rebuild the same core capabilities across different frameworks and runtimes, I founded eridu-tech to provide a unified backend foundation. Owning product direction, architecture, DX, and delivery, I’ve grown it to serve 600+ monthly developers.",
       points: [
-        "Founded and maintain eridu-tech, an open-source composable backend foundation for TypeScript, now used by 600+ monthly developers.",
+        "Founded and maintain eridu-tech, an open-source composable backend foundation toolkit for TypeScript, now used by 600+ monthly developers.",
         "Shipped 30K+ lines of production TypeScript in a 50k-line codebase, backed by 4,640+ high majority integration and conformance tests.",
         "Replaced repeated infrastructure code with reusable caching, rate limiting, distributed locking, circuit breakers, and event-bus components behind stable adapter contracts.",
         "Designed an adapter-first architecture so the same components run on Node.js, Bun, Deno, serverless, and edge runtimes.",
@@ -217,7 +225,7 @@ export const mainPortfolio: PortfolioData = {
       proof: [
         "600+ monthly developers",
         "30K+ lines of TypeScript shipped",
-        "4,640+ integration & behavior tests",
+        "4,640+ integration & conformance tests",
         "20 maintained backend components",
         "45 maintained adapters",
         "93 releases",
