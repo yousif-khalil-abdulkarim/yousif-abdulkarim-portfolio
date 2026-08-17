@@ -64,7 +64,7 @@ export const mainPortfolio: PortfolioData = {
           emphasis: false,
         },
         {
-          text: " a backend foundation toolkit that reduces repeated infrastructure work through 20 reusable backend components and 45 adapters integrating with different runtimes and infrastructure systems.",
+          text: " a backend foundation toolkit that reduces repeated infrastructure work through 20 reusable backend components and 45 adapters that integrate with different runtimes and infrastructure systems.",
           emphasis: false,
         },
         {
@@ -97,7 +97,7 @@ export const mainPortfolio: PortfolioData = {
       school: "Malmö University",
       period: "2021 — 2024",
       description:
-        "Focused on software engineering fundamentals and applied them through hands-on projects. Completed a bachelor thesis at Bionamic AB benchmarking WebAssembly performance and led a five-person degree-project team in shipping a production REST API client and SDK.",
+        "Focused on software engineering fundamentals and applied them through hands-on projects. Completed a bachelor thesis at Bionamic AB that benchmarked WebAssembly performance and led a five-person degree-project team in shipping a production REST API client and SDK.",
     },
   ],
   languages: [
@@ -199,10 +199,10 @@ export const mainPortfolio: PortfolioData = {
         "After seeing teams constantly rebuild the same core capabilities across different frameworks and runtimes, I founded eridu-tech to provide a unified backend foundation. Owning product direction, architecture, DX, and delivery, I’ve grown it to serve 600+ monthly developers.",
       points: [
         "Founded and maintain eridu-tech, an open-source composable backend foundation toolkit for TypeScript, now used by 600+ monthly developers.",
-        "Shipped 30K+ lines of production TypeScript in a 50k-line codebase, backed by 4,640+ high majority integration and conformance tests.",
+        "Shipped 30K+ lines of production TypeScript in a 50k-line codebase, backed by 4,640+ integration and conformance tests.",
         "Replaced repeated infrastructure code with reusable caching, rate limiting, distributed locking, circuit breakers, and event-bus components behind stable adapter contracts.",
         "Designed an adapter-first architecture so the same components run on Node.js, Bun, Deno, serverless, and edge runtimes.",
-        "Automated CI/CD with GitHub Actions workflows covering docker tests, linting/code-quality checks, formatting checks, package deployment, and API & website documentation.",
+        "Automated CI/CD with GitHub Actions workflows covering Docker tests, linting/code-quality checks, formatting checks, package deployment, and API & website documentation.",
         "Improved adoption by owning API design, documentation, and developer guides alongside the implementation.",
         "Added in-memory adapters so many integration tests run without Docker while keeping the same component contracts and behavior.",
         "Drove a public roadmap of 20+ planned capabilities, including scheduling, sessions, authentication, authorization, messaging, and observability.",
@@ -348,7 +348,7 @@ export const mainPortfolio: PortfolioData = {
       company: "Bionamic AB",
       period: "Jan 2024 — Dec 2024",
       summary:
-        "The Bionamic SaaS platform needed evidence for whether WebAssembly was worth using for performance-sensitive workloads. I designed and ran a controlled benchmark study comparing C-compiled WebAssembly, AssemblyScript, and JavaScript.",
+        "The Bionamic SaaS platform needed to determine whether WebAssembly was worth using for performance-sensitive workloads. I designed and ran a controlled benchmark study comparing C-compiled WebAssembly, AssemblyScript, and JavaScript.",
       points: [
         "Replaced assumptions about WebAssembly performance with a repeatable benchmark suite comparing the same workloads across C-compiled WebAssembly, AssemblyScript, and JavaScript.",
         "Demonstrated with controlled tests that C-compiled WebAssembly ran common algorithms 5–91% faster than JavaScript, providing concrete evidence for optimization decisions.",
@@ -471,7 +471,7 @@ export const mainPortfolio: PortfolioData = {
       includeInResume: true,
       title: "Why I Built Eridu Tech",
       description:
-        "Announcing eridu-tech - A composable backend foundation for TypeScript",
+        "Announcing eridu-tech — a composable backend foundation for TypeScript",
       url: "https://www.eridu-tech.io/blog/2026-08-06-announcing-eridu-tech",
     },
   ],
