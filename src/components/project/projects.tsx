@@ -31,7 +31,7 @@ export function Projects({ data }: ProjectsProps) {
       <SectionHeading
         index="04"
         title="Projects"
-        subtitle="A selection of products and open-source work I've built. Click View more to dive deeper."
+        subtitle="A selection of products and open-source work I've built. Click View more."
       />
       <Collapsible.Root open={open} onOpenChange={handleOpenChange}>
         <div className="mt-12 grid gap-6 md:grid-cols-2">
