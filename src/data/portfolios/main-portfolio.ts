@@ -190,21 +190,13 @@ export const mainPortfolio: PortfolioData = {
       summary:
         "After seeing teams constantly rebuild the same core capabilities across different frameworks and runtimes, I founded eridu-tech to provide a unified backend foundation. Owning product direction, architecture, DX, and delivery, I’ve grown it to serve 600+ monthly developers.",
       points: [
-        // "Founded and maintain an open-source TypeScript backend application & infrastructure foundation library to eliminate redundant infrastructure engineering, now adopted by 600+ monthly developers.",
-        // "Reduced portability friction by designing an adapter-first architecture that lets the same components run across Node.js, Bun, Deno, serverless, and edge environments.",
-        // "Reduced test setup overhead by adding in-memory adapters, allowing many integration scenarios to run without Docker while preserving the same component contracts.",
-        // "Replaced repeated implementations of common infrastructure with reusable caching, rate limiting, distributed locking, circuit breakers, and event-bus components exposed through stable adapter interfaces.",
-        // "Shipped 30K+ lines of production TypeScript (48K+ total LOC), backed by 4,640+ tests (predominantly integration and behavioral) and automated Docker powered GitHub Actions workflows for CI/CD and code quality checks.",
-        // "Improved adoption by owning API design, documentation, and developer guides alongside the implementation rather than treating developer experience as a separate concern.",
-        // "Kept the platform moving toward a broader backend foundation through a public roadmap covering 20+ planned capabilities, including scheduling, sessions, authentication, authorization, messaging, and observability.",
-
         "Founded and maintain eridu-tech, an open-source composable backend foundation for TypeScript, now used by 600+ monthly developers.",
-        "Designed an adapter-first architecture so the same components run on Node.js, Bun, Deno, serverless, and edge runtimes.",
-        "Added in-memory adapters so many integration tests run without Docker while keeping the same component contracts and behavior.",
-        "Replaced repeated infrastructure code with reusable caching, rate limiting, distributed locking, circuit breakers, and event-bus components behind stable adapter contracts.",
         "Shipped 30K+ lines of production TypeScript in a 50k-line codebase, backed by 4,640+ high majority integration and conformance tests.",
+        "Replaced repeated infrastructure code with reusable caching, rate limiting, distributed locking, circuit breakers, and event-bus components behind stable adapter contracts.",
+        "Designed an adapter-first architecture so the same components run on Node.js, Bun, Deno, serverless, and edge runtimes.",
         "Automated CI/CD with GitHub Actions workflows covering docker tests, linting/code-quality checks, formatting checks, package deployment, and API & website documentation.",
         "Improved adoption by owning API design, documentation, and developer guides alongside the implementation.",
+        "Added in-memory adapters so many integration tests run without Docker while keeping the same component contracts and behavior.",
         "Drove a public roadmap of 20+ planned capabilities, including scheduling, sessions, authentication, authorization, messaging, and observability.",
       ],
       stack: [
