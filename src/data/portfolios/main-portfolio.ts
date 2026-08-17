@@ -60,15 +60,15 @@ export const mainPortfolio: PortfolioData = {
       ],
       [
         {
-          text: "Founder and lead maintainer of eridu-tech",
+          text: "Founder and lead maintainer of eridu-tech,",
           emphasis: false,
         },
         {
-          text: "where I addressed repeated backend infrastructure work with 20 reusable backend components and adapter-based integrations across runtimes and data stores.",
+          text: " a backend foundation toolkit that reduces repeated infrastructure work through 20 reusable backend components and 45 adapters integrating with different runtimes and infrastructure systems.",
           emphasis: false,
         },
         {
-          text: "The project has reached 600+ monthly developers, 30K+ lines of production TypeScript, and 4,640+ integration and conformance tests.",
+          text: " The project has reached 600+ monthly developers, 30K+ lines of TypeScript, and 4,640+ integration and conformance tests.",
           emphasis: false,
         },
       ],
